@@ -15,8 +15,7 @@ name = "Eviler"
 avatar = "img/avatar.png"
 
 [Params]
-
-subtitle = "Just a blog"
+subtitle = "种下去的时代码，收获的是 Bug。"
 
 [Params.sidebar]
 home = "right"
