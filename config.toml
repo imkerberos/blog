@@ -1,3 +1,45 @@
-baseURL = "http://example.org/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+baseURL = "http://behaiku.org/"
+languageCode = "zh-cn"
+title = "码农农场"
+hasCJKLanguage=true #统计汉字
+theme = "LeaveIt" #主题
+paginate = 16 #每页文章数
+enableEmoji = true 
+enableRobotsTXT = true # robots.txt
+preserveTaxonomyNames = true
+disablePathToLower = true # 禁止将路径全部改为小写
+
+[blackfriday]
+hrefTargetBlank = true
+nofollowLinks = true
+noreferrerLinks = true
+
+[Permalinks]
+posts = "/:year/:filename/"
+
+[menu]
+[[menu.main]]
+name = "Blog"
+url = "/posts/"
+weight = 1
+[[menu.main]]
+name = "Categories"
+url = "/categories/"
+weight = 2
+[[menu.main]]
+name = "Tags"
+url = "/tags/"
+weight = 3
+[[menu.main]]
+name = "About"
+url = "/about/"
+weight = 4
+[params]
+since = 2019
+author = "Eviler"                          # Author's name
+avatar = "/images/me/avatar.png"           # Author's avatar
+subtitle = "Just for Fun"                  # Subtitle
+cdn_url = ""           # Base CDN URL
+home_mode = "" # post or other
+enableGitalk = false # gitalk 评论系统
+google_verification = ""
