@@ -31,11 +31,11 @@
 
 这里是我的博客。
 
-** TODO 使用 ox-hugo 编写博客 :@Emacs:hugo:org_mode:
+** DONE 使用 ox-hugo 编写博客 :@Emacs:hugo:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :END:
-
+[[https://sheishe.xyz/post/hugo-blogging-with-ox-hugo/][一篇很棒的关于 =ox-hugo= 的文章]]
 ** TODO 2020 年最稳的翻墙姿势 :@GFW:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
