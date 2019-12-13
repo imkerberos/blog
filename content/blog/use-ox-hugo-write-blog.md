@@ -1,7 +1,7 @@
 +++
 title = "使用 ox-hugo 编写博客"
 author = ["Eviler"]
-lastmod = 2019-12-13T19:44:43+08:00
+lastmod = 2019-12-13T19:50:55+08:00
 tags = ["hugo", "org-mode"]
 categories = ["Emacs"]
 draft = false
