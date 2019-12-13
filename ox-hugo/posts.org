@@ -8,10 +8,10 @@
 
 * 配置 :@系统:
 
-** TODO 使用 ox-hugo 来写博客 :org_mod:hugo:emacs:ox_hugo:
+** DONE 使用 ox-hugo 来写博客 :org_mod:hugo:emacs:ox_hugo:
 :PROPERTIES:
 :EXPORT_FILE_NAME: blog-with-ox-hugo
 :EXPORT_DATE: 2019-12-12
 :END:
 
-测试以下 Hugo 的博客系统如何。
+测试一下 Hugo 的博客系统如何。
