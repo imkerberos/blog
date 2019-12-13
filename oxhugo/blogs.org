@@ -31,17 +31,27 @@
 
 这里是我的博客。
 
-** TODO 使用 ox-hugo 编写博客 :@Programming:Emacs:
+** TODO 使用 ox-hugo 编写博客 :@Emacs:hugo:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :END:
 
-** TODO 2020 年最稳的翻墙姿势 :@Programming:GFW:
+** TODO 2020 年最稳的翻墙姿势 :@GFW:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
 :END:
-
 caddy + v2ray + tls
+
+** 解决 Archlinux 的域名解析超时出错的问题 :@Linux:ArchLinux:resolved:systemd:
+:PROPERTIES:
+:EXPORT_FILE_NAME: fix-systemd-resolved-dnssec
+:END:
+如果使用 systemd-resovled 启动域名解析服务，在一段时间后进行网络访问时经常出现
+=Host name not found=, 解决的方法是在 =/etc/systemd/resolved.conf= 文件中添加:
+#+BEGIN_QUOTE
+DNSSEC=no
+#+END_QUOTE
+这个问题困扰了我好久。:(
 
 * About
 :PROPERTIES:
@@ -49,6 +59,7 @@ caddy + v2ray + tls
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
 :EXPORT_HUGO_MENU: :menu main
+:EXPORT_HUGO_WEIGHT: auto
 :END:
 
 关于我.
