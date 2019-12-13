@@ -1,7 +1,7 @@
 +++
 title = "测试自动化部署"
 date = 2019-12-13T13:07:14+08:00
-draft = true
+draft = false
 tags = []
 categories = []
 +++
