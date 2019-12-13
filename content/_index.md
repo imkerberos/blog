@@ -1,7 +1,7 @@
 +++
-title = "Homepage"
+title = "Home"
 author = ["Eviler"]
-lastmod = 2019-12-13T18:53:26+08:00
+lastmod = 2019-12-13T19:03:27+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 weight = 1001
@@ -12,7 +12,7 @@ nopaging = true
 noread = true
 [menu.main]
   weight = 1001
-  identifier = "homepage"
+  identifier = "home"
 +++
 
 这是 Homepage.

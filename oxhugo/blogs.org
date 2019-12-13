@@ -8,7 +8,7 @@
 #+SEQ_TODO: TODO DRAFT DONE
 
 
-* Homepage
+* Home
 :PROPERTIES:
 :EXPORT_HUGO_SECTION:
 :EXPORT_FILE_NAME: _index
@@ -16,8 +16,6 @@
 :EXPORT_HUGO_MENU: :menu main
 :EXPORT_HUGO_WEIGHT: auto
 :END:
-
-这是 Homepage.
 
 * Blog Posts
 :PROPERTIES:
@@ -32,34 +30,19 @@
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
 :END:
 
-Man look at all my blog posts
+这里是我的博客。
 
-** DONE Post Tile
+** TODO 使用 `ox-hugo` 编写博客 :@Programming:Emacs:
 :PROPERTIES:
-:EXPORT_FILE_NAME: post-title-in-slug-form
+:EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :END:
 
-一个测试页面
-
-** DONE 测试第二个
+** 2020 年最稳的翻墙姿势 :@Programming:GFW:
 :PROPERTIES:
-:EXPORT_FILE_NAME: 第二个测试页面
+:EXPORT_FILE_NAME: xgfw-in-2020
 :END:
-第二个测试页面
 
-#+BEGIN_SRC bash -l 7 :hl_lines 8
-echo 'Some source code content'
-echo 'This is line will be hightlighted'
-echo "This one won't"
-#+END_SRC
-
-#+BEGIN_SRC python
-import os
-import sys
-print("Hello")
-#+END_SRC
-**** Post sub-Heading
-一个测试级别.
+caddy + v2ray + tls
 
 * About
 :PROPERTIES:
