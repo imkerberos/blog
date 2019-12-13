@@ -5,7 +5,6 @@
 #+HUGO_AUTO_SET_LASTMOD: t
 #+PROPERTY: header-args :eval no
 #+OPTIONS: creator:t toc:nil
-#+SEQ_TODO: TODO DRAFT DONE
 
 
 * Home
@@ -27,17 +26,17 @@
 :PROPERTIES:
 :EXPORT_HUGO_MENU: :menu main
 :EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor false :nocomment false :nodate false :nopaging false :noread true
 :END:
 
 这里是我的博客。
 
-** TODO 使用 `ox-hugo` 编写博客 :@Programming:Emacs:
+** TODO 使用 ox-hugo 编写博客 :@Programming:Emacs:
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :END:
 
-** 2020 年最稳的翻墙姿势 :@Programming:GFW:
+** TODO 2020 年最稳的翻墙姿势 :@Programming:GFW:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
 :END:
