@@ -35,8 +35,8 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :END:
-[[https://sheishe.xyz/post/hugo-blogging-with-ox-hugo/][一篇很棒的关于 =ox-hugo= 的文章]]
-[[http://www.zmonster.me/2018/02/28/org-mode-capture.html][关于 org-capture 的一篇文章]]
+- [[https://sheishe.xyz/post/hugo-blogging-with-ox-hugo/][一篇很棒的关于 =ox-hugo= 的文章]]
+- [[http://www.zmonster.me/2018/02/28/org-mode-capture.html][关于 org-capture 的一篇文章]]
 ** TODO 2020 年最稳的翻墙姿势 :@GFW:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
