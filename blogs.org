@@ -1,7 +1,7 @@
 #+TITLE: Posts
 #+STARTUP： content
 #+AUTHOR: Eviler
-#+HUGO_BASE_DIR: ../
+#+HUGO_BASE_DIR: ./
 #+HUGO_AUTO_SET_LASTMOD: t
 #+PROPERTY: header-args :eval no
 #+OPTIONS: creator:t toc:nil
@@ -38,6 +38,7 @@ Man look at all my blog posts
 :PROPERTIES:
 :EXPORT_FILE_NAME: post-title-in-slug-form
 :END:
+
 一个测试页面
 
 ** DONE 测试第二个
