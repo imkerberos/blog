@@ -1,17 +1,79 @@
-#+TITLE: Blog post
+#+TITLE: Posts
+#+STARTUP： content
+#+AUTHOR: Eviler
 #+HUGO_BASE_DIR: ../
-#+SEQ_TODO: TODO DRAFT DONE
-#+PROPERTY: header-args :eval no
-#+HUGO_SECTION: posts
 #+HUGO_AUTO_SET_LASTMOD: t
-#+HUGO_CUSTOM_FRONT_MATTER: :author "Eviler"
+#+PROPERTY: header-args :eval no
+#+OPTIONS: creator:t toc:nil
+#+SEQ_TODO: TODO DRAFT DONE
 
-* 配置 :@系统:
 
-** DONE 使用 ox-hugo 来写博客 :org_mod:hugo:emacs:ox_hugo:
+* Homepage
 :PROPERTIES:
-:EXPORT_FILE_NAME: blog-with-ox-hugo
-:EXPORT_DATE: 2019-12-12
+:EXPORT_HUGO_SECTION:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
+:EXPORT_HUGO_MENU: :menu main
+:EXPORT_HUGO_WEIGHT: auto
 :END:
 
-测试一下 Hugo 的博客系统如何。
+这是 Homepage.
+
+* Blog Posts
+:PROPERTIES:
+:EXPORT_HUGO_SECTION: blog
+:EXPORT_HUGO_WEIGHT: auto
+:END:
+
+** Blog
+:PROPERTIES:
+:EXPORT_HUGO_MENU: :menu main
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
+:END:
+
+Man look at all my blog posts
+
+** DONE Post Tile
+:PROPERTIES:
+:EXPORT_FILE_NAME: post-title-in-slug-form
+:END:
+一个测试页面
+
+** DONE 测试第二个
+:PROPERTIES:
+:EXPORT_FILE_NAME: 第二个测试页面
+:END:
+第二个测试页面
+
+#+BEGIN_SRC bash -l 7 :hl_lines 8
+echo 'Some source code content'
+echo 'This is line will be hightlighted'
+echo "This one won't"
+#+END_SRC
+
+#+BEGIN_SRC python
+import os
+import sys
+print("Hello")
+
+#+END_SRC
+**** Post sub-Heading
+一个测试级别.
+
+* About
+:PROPERTIES:
+:EXPORT_HUGO_SECTION:
+:EXPORT_FILE_NAME: _index
+:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
+:EXPORT_HUGO_MENU: :menu main
+:END:
+
+关于我.
+
+
+* Footnotes
+* COMMENT Local Variables   :ARCHIVE:
+# Local Variables:
+# eval: (org-hugo-auto-export-mode)
+# End:
