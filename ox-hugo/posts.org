@@ -1,0 +1,17 @@
+#+TITLE: Blog post
+#+HUGO_BASE_DIR: ../
+#+SEQ_TODO: TODO DRAFT DONE
+#+PROPERTY: header-args :eval no
+#+HUGO_SECTION: posts
+#+HUGO_AUTO_SET_LASTMOD: t
+#+HUGO_CUSTOM_FRONT_MATTER: :author "Eviler"
+
+* 配置 :@系统:
+
+** TODO 使用 ox-hugo 来写博客 :org_mod:hugo:emacs:ox_hugo:
+:PROPERTIES:
+:EXPORT_FILE_NAME: blog-with-ox-hugo
+:EXPORT_DATE: 2019-12-12
+:END:
+
+测试以下 Hugo 的博客系统如何。
