@@ -1,7 +1,7 @@
 #+TITLE: Posts
 #+STARTUP： content
 #+AUTHOR: Eviler
-#+HUGO_BASE_DIR: ./
+#+HUGO_BASE_DIR: ../
 #+HUGO_AUTO_SET_LASTMOD: t
 #+PROPERTY: header-args :eval no
 #+OPTIONS: creator:t toc:nil
@@ -64,7 +64,7 @@ print("Hello")
 
 * About
 :PROPERTIES:
-:EXPORT_HUGO_SECTION:
+:EXPORT_HUGO_SECTION: about
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :noauthor true :nocomment true :nodate true :nopaging true :noread true
 :EXPORT_HUGO_MENU: :menu main
