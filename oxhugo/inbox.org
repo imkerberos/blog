@@ -55,7 +55,6 @@ brew install pandoc
 pandoc -f markdown -t org xxxx.md -o xxxx.org
 #+END_EXAMPLE
 
-
 ** DONE 使用 ox-hugo 编写博客 :@计算机:hugo:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
