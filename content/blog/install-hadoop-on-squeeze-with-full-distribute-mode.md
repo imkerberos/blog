@@ -1,7 +1,7 @@
 +++
 title = "在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统"
 author = ["Eviler"]
-lastmod = 2019-12-14T11:10:29+08:00
+lastmod = 2019-12-14T11:16:21+08:00
 tags = ["Hadoop", "Hbase", "Debian", "Squeeze"]
 categories = ["计算机"]
 draft = false
@@ -12,6 +12,11 @@ comments = true
 toc = true
 mathjax = true
 +++
+
+## 2019 年更新 {#2019-年更新}
+
+这篇文章写于 8 年前，现在这个年头都有 `docker` 了，所以已经不需要用这种方式，但是从文章中可以看出，在没有 `docker` 之前，部署是多么让人头疼的一件事情。
+
 
 ## 背景 {#背景}
 

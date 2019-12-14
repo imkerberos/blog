@@ -68,6 +68,10 @@ DNSSEC=no
 :PROPERTIES:
 :EXPORT_FILE_NAME: install-hadoop-on-squeeze-with-full-distribute-mode
 :END:
+*** 2019 年更新
+这篇文章写于 8 年前，现在这个年头都有 =docker= 了，所以已经不需要用这种方式，但
+是从文章中可以看出，在没有 =docker= 之前，部署是多么让人头疼的一件事情。
+
 *** 背景
 找遍网络文档, 很少有全部的完全使用分布式安装 Hadoop 集群系统的文章. 网络上能找到的文章大
 部分是基于简单的伪分布式安装的文档. 今天要在生产环境中建立集群系统, 把过程写下来分享一下.
