@@ -2,10 +2,11 @@
 title = "在 Debian 6.0 (Squeeze) 上安装 nginx_gridfs"
 author = ["Eviler"]
 date = 2012-04-01
-lastmod = 2019-12-15T01:37:34+08:00
+lastmod = 2019-12-15T01:49:43+08:00
 tags = ["debian", "squeeze", "nginx", "mongodb"]
 categories = ["计算机"]
 draft = false
+creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 +++
 
 网站或者论坛对于用户上传的图片管理比较麻烦, 尤其是在 Web 具有横向扩展能力的情况下.
