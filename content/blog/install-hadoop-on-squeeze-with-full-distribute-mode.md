@@ -1,7 +1,8 @@
 +++
 title = "在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统"
 author = ["Eviler"]
-lastmod = 2019-12-15T00:11:34+08:00
+date = 2012-03-26
+lastmod = 2019-12-15T00:45:21+08:00
 tags = ["debian", "squeeze", "hadoop"]
 categories = ["计算机"]
 draft = false
