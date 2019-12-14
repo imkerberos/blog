@@ -2,12 +2,12 @@
 title = "游戏对象模型设计与实现（一）"
 author = ["Eviler"]
 date = 2013-04-16
-lastmod = 2019-12-15T00:52:12+08:00
+lastmod = 2019-12-15T00:54:19+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1001
+weight = 1004
 +++
 
 准备做一个 RPG 的游戏。由于以前没有做过游戏，首先学习了 cocos2d-iphone 的一些资料，再从网上看了一些写游戏的教程，自认为可以动手开始写框架的时候，发现遇到了相当大的困难。
