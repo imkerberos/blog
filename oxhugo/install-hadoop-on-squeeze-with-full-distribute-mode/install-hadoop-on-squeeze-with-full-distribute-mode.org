@@ -117,7 +117,7 @@ Squeeze.
 
 ** 性能调整
 
-- =/etc/security/limits.conf= 或者 ==/etc/security/limits.d/=
+- =/etc/security/limits.conf= 或者 =/etc/security/limits.d/=
   主要调整系统资源限制选项, 包括
   - 进程数限制
   - 打开文件数量

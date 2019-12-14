@@ -2,7 +2,7 @@
 title = "游戏对象模型设计与实现（三）"
 author = ["Eviler"]
 date = 2013-04-21
-lastmod = 2019-12-15T00:54:19+08:00
+lastmod = 2019-12-15T00:55:49+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false
@@ -33,7 +33,8 @@ weight = 1002
     -   必须精心定义各种消息来满足 Component 之间或者游戏对象之间的交互.
     -   本身框架实现简单, 但是消息设计比较复杂.
     -   调试不方便.
-        -   Property-Centric/Attribute-Behaviour
+
+-   Property-Centric/Attribute-Behaviour
     -   运行期游戏对象为动态对象.
     -   为了解决 Component 的依赖问题.
     -   为了解决 Component 之间重叠属性导致的内存占用问题.

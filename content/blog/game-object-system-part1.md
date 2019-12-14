@@ -2,7 +2,7 @@
 title = "游戏对象模型设计与实现（一）"
 author = ["Eviler"]
 date = 2013-04-16
-lastmod = 2019-12-15T00:54:19+08:00
+lastmod = 2019-12-15T00:55:08+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false
@@ -28,5 +28,5 @@ cocos2d-iphone 的教程或者网上的一些其他教程有一个共同点：�
 
 说白了，一个成熟的 RPG 游戏绝对不是用写\`太空大战\`或者\`坦克大战\`这种方式所完成的。其原因在于这些游戏都是使用传统的面向对象（OO）方式实现的。实际上这样的游戏在商业上几乎全部采用组件方式(ES)来实现的。
 
-传统的 OO 方式叫做 `=Object-Centric` ，而组件的方式为 `Component-Based` 或者叫
+传统的 OO 方式叫做 `Object-Centric` ，而组件的方式为 `Component-Based` 或者叫
 `Property-Centric` 亦或 `Entity-System` 。 具体还没有一个标准的称谓，但是其本质是一样的。

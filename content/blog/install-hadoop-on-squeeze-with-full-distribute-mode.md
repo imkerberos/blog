@@ -2,7 +2,7 @@
 title = "在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统"
 author = ["Eviler"]
 date = 2012-03-26
-lastmod = 2019-12-15T00:45:21+08:00
+lastmod = 2019-12-15T00:57:13+08:00
 tags = ["debian", "squeeze", "hadoop"]
 categories = ["计算机"]
 draft = false
@@ -116,7 +116,7 @@ Squeeze.
 
 ### 性能调整 {#性能调整}
 
--   `/etc/security/limits.conf` 或者 `=/etc/security/limits.d/`
+-   `/etc/security/limits.conf` 或者 `/etc/security/limits.d/`
     主要调整系统资源限制选项, 包括
     -   进程数限制
     -   打开文件数量
