@@ -1,8 +1,8 @@
 +++
 title = "SSH 隧道技术保姆级讲解"
 author = ["Eviler"]
-lastmod = 2019-12-14T12:00:21+08:00
-tags = ["ssh", "xgfw"]
+lastmod = 2019-12-14T12:04:53+08:00
+tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
