@@ -3,9 +3,9 @@
 #+AUTHOR: Eviler
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_SECTION: blog
 #+HUGO_TAGS: ssh gfw
 #+HUGO_CATEGORIES: 计算机
-#+HUGO_SECTION: blog
 #+HUGO_DRAFT: false
 
 #+PROPERTY: header-args :eval no
