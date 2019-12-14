@@ -10,12 +10,32 @@ enableRobotsTXT = true # robots.txt
 preserveTaxonomyNames = true
 disablePathToLower = true # 禁止将路径全部改为小写
 
+disqusShortname = "imkerberos"
+googleAnalytics = "UA-30583028-1"
+
 [Author]
 name = "Eviler"
 avatar = "img/avatar.png"
 
 [Params]
 subtitle = "种下去的时代码，收获的是 Bug。"
+description = "关于一切的 Blog"
+copyright = "Eviler"
+opengraph = true
+twitter_cards = true
+readmore = false
+authorbox = true
+toc = true
+post_navigation = true
+post_meta = ["date", "categories", "translations"]
+#mainSections = ["post", "blog", "news"]
+dateformat = "2006-01-02"
+mathjax = true
+mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
+mathjaxConfig = "TeX-AMS-MML_HTMLorMML"
+highlightColor = "#e22d30" 
+#customCSS = ["css/custom.css"] # Include custom CSS files
+#customJS = ["js/custom.js"] # Include custom JS files
 
 [Params.sidebar]
 home = "right"
@@ -29,3 +49,5 @@ tags_counter = false
 
 [Params.widgets.social]
 github = "imkerberos"
+facebook = "kerberos.zhang"
+
