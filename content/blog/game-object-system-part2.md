@@ -1,12 +1,13 @@
 +++
 title = "游戏对象模型设计与实现（二）"
 author = ["Eviler"]
-lastmod = 2019-12-15T00:42:20+08:00
+date = 2013-04-19
+lastmod = 2019-12-15T00:52:12+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1003
+weight = 1002
 +++
 
 严格来说，一个游戏的实现框架有三种：

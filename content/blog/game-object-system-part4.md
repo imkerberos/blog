@@ -1,12 +1,13 @@
 +++
 title = "游戏对象模型设计与实现（四）"
 author = ["Eviler"]
-lastmod = 2019-12-15T00:42:19+08:00
+date = 2013-11-17
+lastmod = 2019-12-15T00:52:13+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1001
+weight = 1004
 +++
 
 最近几个月一直在写一些与游戏无关的程序放到 AppStore 上, 主要是用了一些 FRP 的东西.

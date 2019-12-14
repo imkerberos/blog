@@ -1,6 +1,7 @@
 #+TITLE: SSH 隧道技术保姆级讲解
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
+#+DATE: 2012-04-02
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+HUGO_SECTION: blog
