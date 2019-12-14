@@ -1,17 +1,15 @@
 +++
 title = "在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统"
 author = ["Eviler"]
-lastmod = 2019-12-14T11:16:21+08:00
-tags = ["Hadoop", "Hbase", "Debian", "Squeeze"]
+lastmod = 2019-12-14T23:41:57+08:00
+tags = ["Debian", "Squeeze", "Hadoop"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 2005
-authorbox = true
-comments = true
-toc = true
-mathjax = true
 +++
+
+\#+STARTUP： content
+
 
 ## 2019 年更新 {#2019-年更新}
 
@@ -43,65 +41,65 @@ Debian 上安装的. 截至到本文发布时间为止 (2012 年 3 月 26), Debi
 Squeeze.
 
 
-### CDH3 安装方式 {#cdh3-安装方式}
+## CDH3 安装方式 {#cdh3-安装方式}
 
 虽然 CDH3 针对不同的 Linux 发行版提供了已经打好的包, 包括 Debian 的 APT 包管理器, 由于我开发软件使用了 Buildout 自动部署方式, 所以, 使用 APT 安装方式与我们的项目部署方式还不是特别一致. 所以我选择了 CHD3 的 tar.gz 包的最原始的安装方式, 其实这种方式和 Apache 的分发包没有太大区别, 不过对于安装 HBase, Flume 等软件来说, 就不用为特定版本的依赖操心了.
 
 
-### Squeeze 安装 {#squeeze-安装}
+## Squeeze 安装 {#squeeze-安装}
 
 集群中的每台机器先安装好基本的 Debian 系统, 需要说明的是, Hadoop 最好还是使用 **x86\_64** 的系统.
 
 
-#### 部署规划 {#部署规划}
+### 部署规划 {#部署规划}
 
 安装的软件在集群中我们使用了以下的软件:
 
--   Hadoop 相关
-    -   Zookeeper
-    -   Hadoop
-    -   HBase
-    -   Hive
 
--   集群依赖的其他软件
-    -   dnsmasq
-        由于 HBase 配置 HDFS 路径时无法使用 ip 地址访问, 所以必须要使用机器名, 然而使用机器的
-        Hostname 必然要同步集群中所有机器的 hosts 文件, 而这个文件的修改必须要 root 权限. 在同步上不方便. 而且每次 hosts 修改都要同步到集群中的所有机器上, 为了方便管理集群, 在集群内部建立了自己使用的 DNS 服务器, dnsmasq 是一个比较好的选择. 安装指令:
+#### Hadoop 相关 {#hadoop-相关}
 
-        ```text
-                      #apt-get install dnsmasq
-        ```
+-   Zookeeper
+-   Hadoop
+-   HBase
+-   Hive
 
-<!--listend-->
+
+#### 集群依赖的其他软件 {#集群依赖的其他软件}
+
+-   dnsmasq
+
+    由于 HBase 配置 HDFS 路径时无法使用 ip 地址访问, 所以必须要使用机器名, 然而使用机器的
+    Hostname 必然要同步集群中所有机器的 hosts 文件, 而这个文件的修改必须要 root 权限. 在同步上不方便. 而且每次 hosts 修改都要同步到集群中的所有机器上, 为了方便管理集群, 在集群内部建立了自己使用的 DNS 服务器, dnsmasq 是一个比较好的选择. 安装指令:
+
+    ```text
+      #apt-get install dnsmasq
+    ```
 
 -   openssh-server
+
     管理集群内的机器需要, 服务端口号使用默认的 ****22****, 不要修改成其他的端口. 因为 Hadoop 的管理指令自动连接 ****22**** 端口, 如果修改了这个端口号, 必须要修改 Hadoop 的管理脚本. 另外,
     为了避免在使用 Hadoop 管理脚本时连接其他机器时的登陆密码输入, 需要使用 **ssh-keygen** 命令建立统一的 SSH 密钥对.
 
     ```text
-              #apt-get install openssh-server openssh-client
+      #apt-get install openssh-server openssh-client
     ```
 
-<!--listend-->
-
 -   ntp & ntpdate
+
     对于集群来说, 各个节点的时间必须保持一致. 很多情况下, 集群中的各个节点在统一的 VLAN 中,
     可能无法访问外网, 所以有一个时间同步服务器是必要的.
 
     ```text
-              #apt-get install ntpdate ntp
+      #apt-get install ntpdate ntp
     ```
 
-<!--listend-->
-
 -   rsync
+
     Hadoop 管理脚本需要使用 rsync 命令来同步集群的配置, 这个软件是必须的.
 
     ```text
-              #apt-get install rsync
+       #apt-get install rsync
     ```
-
-<!--listend-->
 
 -   其他辅助性的软件
     -   screen
@@ -110,15 +108,15 @@ Squeeze.
     -   lsof
 
 
-### 各节点系统配置 {#各节点系统配置}
+## 各节点系统配置 {#各节点系统配置}
 
 
-#### 用户 {#用户}
+### 用户 {#用户}
 
 各节点的管理用户统一命名. 可以起一个比较贴切的名字. 比如 \`imkerberos\`
 
 
-#### 性能调整 {#性能调整}
+### 性能调整 {#性能调整}
 
 -   `/etc/security/limits.conf` 或者 `=/etc/security/limits.d/`
     主要调整系统资源限制选项, 包括
@@ -126,12 +124,12 @@ Squeeze.
     -   打开文件数量
 
         ```text
-                    # file: /etc/security/limits.d/mycluster.conf
-                    # 首先修改用户 imkerberos 的硬限制, 再改软限制
-                    imkerberos hard nproc unlimited # 无限制
-                    imkerberos soft nproc unlimited # 无限制
-                    imkerberos hard nofiles 65536
-                    imkerberos soft nofiles 65536
+            # file: /etc/security/limits.d/mycluster.conf
+            # 首先修改用户 imkerberos 的硬限制, 再改软限制
+            imkerberos hard nproc unlimited # 无限制
+            imkerberos soft nproc unlimited # 无限制
+            imkerberos hard nofiles 65536
+            imkerberos soft nofiles 65536
         ```
 
 -   `/etc/sysctl.conf` 或者 `/etc/sysctl.conf.d`
@@ -140,14 +138,14 @@ Squeeze.
     -   TCP TIME\_WAIT 等
 
         ```text
-                    # file: /etc/sysctl.conf.d/mycluster.conf
-                    # 缺省是 40000 65000, 扩大本地可用端口号, 注意其他服务器不要监听在这些端口号上
-                    net.ipv4.local_port_range = 2048 65535
-                    net.ipv4.tcp_max_tw_buckets = 524288
-                    net.ipv4.tcp_max_syn_backlog = 8192
-                    net.ipv4.netfilter.ip_conntrack_max = 524288
-                    net.ipv4.netfilter.ip_conntrack_tcp_timeout_established = 180
-                    net.ipv4.netfilter.ip_conntrack_tcp_timeout_time_wait = 5
+            # file: /etc/sysctl.conf.d/mycluster.conf
+            # 缺省是 40000 65000, 扩大本地可用端口号, 注意其他服务器不要监听在这些端口号上
+            net.ipv4.local_port_range = 2048 65535
+            net.ipv4.tcp_max_tw_buckets = 524288
+            net.ipv4.tcp_max_syn_backlog = 8192
+            net.ipv4.netfilter.ip_conntrack_max = 524288
+            net.ipv4.netfilter.ip_conntrack_tcp_timeout_established = 180
+            net.ipv4.netfilter.ip_conntrack_tcp_timeout_time_wait = 5
         ```
 
 -   `/etc/defaults/*`
@@ -156,14 +154,14 @@ Squeeze.
     目录下相应服务的配置文件, 例如: `/etc/defaults/nginx`
 
     ```text
-              ulimit -Hn 65536
-              ulimit -Hs 65536
-              ulimit -Hu unlimited
-              ulimit -Su unlimited
+      ulimit -Hn 65536
+      ulimit -Hs 65536
+      ulimit -Hu unlimited
+      ulimit -Su unlimited
     ```
 
 
-#### 节点部署规划 {#节点部署规划}
+### 节点部署规划 {#节点部署规划}
 
 服务器组件部署规划
 
@@ -179,17 +177,17 @@ Squeeze.
 |---------------------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
 | DNS Server              | &radic; | &radic; |         |         |         |         |         |         |         |
 | NTP Server [^1]         | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; |
-| NameNode                |         |         | &radic; | &radic; |         |         |         |         |         |
+| NameNode                |         |         | &radic; | &radic; |         |         |         |         |
 | DataNode                |         |         |         |         | &radic; | &radic; | &radic; | &radic; | &radic; |
-| JobTracker              |         |         | &radic; | &radic; |         |         |         |         |         |
+| JobTracker              |         |         | &radic; | &radic; |         |         |         |         |
 | TaskTracker             |         |         |         |         | &radic; | &radic; | &radic; | &radic; | &radic; |
-| HMaster                 |         |         | &radic; | &radic; |         |         |         |         |         |
+| HMaster                 |         |         | &radic; | &radic; |         |         |         |         |
 | HRegionSerfer           |         |         |         |         | &radic; | &radic; | &radic; | &radic; | &radic; |
 | ZooKeeper               | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; | &radic; |
-| HBase ThriftServer [^2] | &radic; | &radic; |         |         |         |         |         |         |         |
+| HBase ThriftServer [^2] | &radic; | &radic; |         |         |         |         |         |         |
 
 
-#### IP 地址表 {#ip-地址表}
+### IP 地址表 {#ip-地址表}
 
 | 节点名称 | IP 地址     |
 |------|-----------|
@@ -204,10 +202,10 @@ Squeeze.
 | node9 | 192.168.0.9 |
 
 
-#### 安装过程 {#安装过程}
+### 安装过程 {#安装过程}
 
 
-#### 常见问题 {#常见问题}
+### 常见问题 {#常见问题}
 
 [^1]: 每个节点配置一个 NTP Server, node1 和 node2 的 Server 与外网时间服务器连接, 作为网内 node3 - node9 的服务器.
 [^2]: 为了保证无单点故障, 所以多台 ThriftServer 是非常有必要的.每个应用服务器节点连接自身的 ThriftServer 与 HBase 通信.
