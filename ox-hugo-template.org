@@ -1,5 +1,5 @@
 #+TITLE: ox-hugo 模板
-#+startup: inlineimages content
+#+STARTUP: inlineimages content
 #+AUTHOR: Eviler
 #+HUGO_BASE_DIR: ../
 #+HUGO_AUTO_SET_LASTMOD: f
@@ -11,5 +11,5 @@
 * Footnotes
 * COMMENT Local Variables   :ARCHIVE:
 # Local Variables:
-# eval: (org-hugo-auto-export-mode)
+# eval: (org-hugo-auto-export-mode -1)
 # End:

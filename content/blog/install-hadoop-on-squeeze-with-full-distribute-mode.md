@@ -1,15 +1,12 @@
 +++
 title = "在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统"
 author = ["Eviler"]
-lastmod = 2019-12-14T23:41:57+08:00
-tags = ["Debian", "Squeeze", "Hadoop"]
+lastmod = 2019-12-15T00:11:34+08:00
+tags = ["debian", "squeeze", "hadoop"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 +++
-
-\#+STARTUP： content
-
 
 ## 2019 年更新 {#2019-年更新}
 
@@ -51,9 +48,9 @@ Squeeze.
 集群中的每台机器先安装好基本的 Debian 系统, 需要说明的是, Hadoop 最好还是使用 **x86\_64** 的系统.
 
 
-### 部署规划 {#部署规划}
+### 部署规划安装的软件 {#部署规划安装的软件}
 
-安装的软件在集群中我们使用了以下的软件:
+在集群中我们使用了以下的软件:
 
 
 #### Hadoop 相关 {#hadoop-相关}
@@ -163,7 +160,7 @@ Squeeze.
 
 ### 节点部署规划 {#节点部署规划}
 
-服务器组件部署规划
+服务器组件部署规划,
 
 生产环境中的机器共 9 台, 主要角色如下划分:
 

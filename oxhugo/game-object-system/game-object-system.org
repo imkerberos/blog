@@ -1,13 +1,13 @@
 #+TITLE: 游戏对象模型的设计与实现
-#+STARTUP： content
+#+STARTUP: content
 #+AUTHOR: Eviler
+#+OPTIONS: creator:t toc:nil
+#+PROPERTY: header-args :eval no
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+HUGO_SECTION: blog
 #+HUGO_CUSTOM_FRONT_MATTTER: :authorbox true :comments true :toc false :mathjax true
 #+HUGO_WEIGHT: auto
-#+PROPERTY: header-args :eval no
-#+OPTIONS: creator:t toc:nil
 #+HUGO_TAGS: game oo es design
 #+HUGO_CATEGORIES: 计算机
 #+HUGO_DRAFT: false
