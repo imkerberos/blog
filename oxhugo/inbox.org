@@ -36,6 +36,12 @@
 
 这里是我的博客。
 
+** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
+** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
+** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
+** TODO MacOS 中的 tmux 配置
+** TODO Manjaro 中使用 xkeysnail 改变键盘映射
+
 ** DONE 使用 ox-hugo 编写博客 :@计算机:hugo:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
@@ -55,14 +61,14 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: fix-systemd-resolved-dnssec
 :END:
 
-如果使用 systemd-resovled 启动域名解析服务，在一段时间后进行网络访问时经常出现
-=Host name not found=, 解决的方法是在 =/etc/systemd/resolved.conf= 文件中添加:
+这个问题困扰了我好久 如果使用 systemd-resovled 启动域名解析服务，在一段时间不访
+问网络后重新进行网络访问时经常出现 =Host name not found=, 解决的方法是在
+=/etc/systemd/resolved.conf=
+文件中添加:
 
 #+BEGIN_EXAMPLE
 DNSSEC=no
 #+END_EXAMPLE
-
-这个问题困扰了我好久
 
 * About
 :PROPERTIES:
@@ -72,3 +78,9 @@ DNSSEC=no
 :EXPORT_HUGO_MENU: :menu main
 :EXPORT_HUGO_WEIGHT: auto
 :END:
+
+一个老年码农。喜欢
+- 码
+- 书法
+- 中国象棋
+- 星际争霸
