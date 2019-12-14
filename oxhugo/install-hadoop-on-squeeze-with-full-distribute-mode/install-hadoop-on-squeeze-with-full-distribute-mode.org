@@ -1,5 +1,5 @@
 #+TITLE: 在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统
-#+STARTUP： content
+#+STARTUP: content
 #+AUTHOR: Eviler
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
@@ -56,8 +56,7 @@ Squeeze.
 
 * Squeeze 安装
 
-集群中的每台机器先安装好基本的 Debian 系统, 需要说明的是, Hadoop 最
-好还是使用 *x86_64* 的系统.
+集群中的每台机器先安装好基本的 Debian 系统, 需要说明的是, Hadoop 最好还是使用 *x86_64* 的系统.
 
 ** 部署规划
 安装的软件
@@ -165,7 +164,7 @@ Squeeze.
 
 ** 节点部署规划
 
-服务器组件部署规划
+服务器组件部署规划,
 
 生产环境中的机器共 9 台, 主要角色如下划分:
 
@@ -209,9 +208,3 @@ Squeeze.
 [^2]: 为了保证无单点故障, 所以多台 ThriftServer 是非常有必要的.每个应用服务器节点连接自身的 ThriftServer 与 HBase 通信.
 
 [Debian]: http://www.debian.org "Debian"
-
-* Footnotes
-* COMMENT Local Variables   :ARCHIVE:
-# Local Variables:
-# eval: (org-hugo-auto-export-mode)
-# End:

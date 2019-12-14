@@ -325,9 +325,3 @@ Player_AddComponent (EntityId player, Component* position);
 Player_AddComoonent (EntityId player, Component* velocity);
 #+END_SRC
 以上是伪代码只是方便讲解, 请勿当真.
-
-* Footnotes
-* COMMENT Local Variables   :ARCHIVE:
-# Local Variables:
-# eval: (org-hugo-auto-export-mode)
-# End:

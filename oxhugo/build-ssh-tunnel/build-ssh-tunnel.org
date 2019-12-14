@@ -1,5 +1,5 @@
 #+TITLE: SSH 隧道技术保姆级讲解
-#+startup: inlineimages
+#+startup: inlineimages content
 #+AUTHOR: Eviler
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
@@ -175,11 +175,4 @@ ssh -N -f -D 0.0.0.0:1080 123.123.123.123 # 将端口绑定在 0.0.0.0 上
 续的路由设备监控到。
 
 * 参考文献
-
 [OpenSSH 网站](http://www.openssh.com)
-
-* Footnotes
-* COMMENT Local Variables   :ARCHIVE:
-# Local Variables:
-# eval: (org-hugo-auto-export-mode)
-# End:
