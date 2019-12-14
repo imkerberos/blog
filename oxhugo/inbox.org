@@ -36,6 +36,7 @@
 
 这里是我的博客。
 
+** TODO 如何优雅地删除 Git submodule
 ** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
 ** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
