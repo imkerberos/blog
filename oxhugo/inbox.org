@@ -47,7 +47,7 @@
 :EXPORT_FILE_NAME: convert-markdown-to-org_mode
 :END:
 
-正在把以前的 jeklly 博客迁移到新的 ox-hugo 上，虽然没有几篇，但是如果手工把
+正在把以前的 jekyll 博客迁移到新的 ox-hugo 上，虽然没有几篇，但是如果手工把
 markdown 转换成 org-mode 还是有不小的工作量的， 还好有 =pandoc=, 转换完成后稍微
 修改一下就可以了。
 
