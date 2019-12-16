@@ -1,4 +1,5 @@
 baseURL = "http://behaiku.org/"
+enableGitInfo = false
 languageCode = "zh-cn"
 title = "码农农场"
 hasCJKLanguage=true #统计汉字

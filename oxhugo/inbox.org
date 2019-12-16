@@ -20,7 +20,7 @@
 
 ** Blog
 :PROPERTIES:
-:EXPORT_HUGO_MENU: :menu main
+:EXPORT_HUGO_MENU: :menu main :weight  -50
 :EXPORT_FILE_NAME: _index
 :END:
 这里是我的博客。
