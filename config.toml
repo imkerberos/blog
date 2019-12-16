@@ -28,7 +28,7 @@ authorbox = true
 toc = false
 post_navigation = true
 post_meta = ["date", "categories", "translations"]
-#mainSections = ["post", "blog", "news"]
+#mainSections = ["Home", "Blog", "About"]
 dateformat = "2006-01-02"
 mathjax = true
 mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js"
@@ -51,3 +51,14 @@ tags_counter = false
 github = "imkerberos"
 facebook = "kerberos.zhang"
 
+[[menu.main]]
+identifier = "Home"
+weight = -100
+
+[[menu.main]]
+identifier = "Blog"
+weight = -50
+
+[[menu.main]]
+identifier = "About"
+weight = 0

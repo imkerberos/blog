@@ -12,15 +12,6 @@
 - 中国象棋
 - 儿童教育
 
-* Home
-:PROPERTIES:
-:EXPORT_HUGO_SECTION:
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments false :toc false :mathjax true
-:EXPORT_HUGO_MENU: :menu main
-:EXPORT_HUGO_WEIGHT: 101
-:END:
-
 * Blog Posts
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: blog
@@ -30,7 +21,6 @@
 ** Blog
 :PROPERTIES:
 :EXPORT_HUGO_MENU: :menu main
-:EXPORT_HUGO_WEIGHT: 102
 :EXPORT_FILE_NAME: _index
 :END:
 这里是我的博客。
@@ -98,16 +88,3 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 #+BEGIN_EXAMPLE
 DNSSEC=no
 #+END_EXAMPLE
-
-
-* About
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: about
-:EXPORT_HUGO_WEIGHT: 103
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments true :toc true :mathjax true
-:EXPORT_HUGO_MENU: :menu main
-
-:END:
-
-一个老年码农。喜欢码代码、书法、中国象棋、星际争霸、乒乓球。

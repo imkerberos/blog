@@ -1,15 +1,14 @@
 +++
 title = "About"
 author = ["Eviler"]
-lastmod = 2019-12-16T18:10:33+08:00
+lastmod = 2019-12-16T19:07:46+08:00
 draft = false
-creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
+weight = 0
 authorbox = true
-comments = true
-toc = true
+comments = false
+toc = false
 mathjax = true
 [menu.main]
-  weight = 1002
   identifier = "about"
 +++
 

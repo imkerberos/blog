@@ -1,0 +1,12 @@
+#+TITLE: Home
+#+STARTUP: inlineimages content
+#+AUTHOR: Eviler
+#+HUGO_BASE_DIR: ../
+#+HUGO_AUTO_SET_LASTMOD: f
+#+EXPORT_FILE_NAME: _index
+#+HUGO_SECTION:
+#+HUGO_CATEGORIES:
+#+HUGO_DRAFT: false
+#+HUGO_MENU: :menu main
+#+HUGO_WEIGHT: -100
+#+HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments false :toc false :mathjax true
