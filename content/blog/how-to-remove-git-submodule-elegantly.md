@@ -2,7 +2,7 @@
 title = "如何优雅地删除 Git submodule"
 author = ["Eviler"]
 date = 2019-12-16
-lastmod = 2019-12-16T18:10:33+08:00
+lastmod = 2019-12-16T18:29:28+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 authorbox = true

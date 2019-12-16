@@ -18,6 +18,7 @@
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments false :toc false :mathjax true
 :EXPORT_HUGO_MENU: :menu main
+:EXPORT_HUGO_WEIGHT: 101
 :END:
 
 * Blog Posts
@@ -29,6 +30,7 @@
 ** Blog
 :PROPERTIES:
 :EXPORT_HUGO_MENU: :menu main
+:EXPORT_HUGO_WEIGHT: 102
 :EXPORT_FILE_NAME: _index
 :END:
 
@@ -100,9 +102,11 @@ DNSSEC=no
 * About
 :PROPERTIES:
 :EXPORT_HUGO_SECTION: about
+:EXPORT_HUGO_WEIGHT: 103
 :EXPORT_FILE_NAME: _index
 :EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments true :toc true :mathjax true
 :EXPORT_HUGO_MENU: :menu main
+
 :END:
 
 一个老年码农。喜欢码代码、书法、中国象棋、星际争霸、乒乓球。
