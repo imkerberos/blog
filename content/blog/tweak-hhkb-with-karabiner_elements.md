@@ -1,85 +1,52 @@
-#+TITLE: 码农农场
-#+STARTUP： content inlineimages
-#+AUTHOR: Eviler
-#+PROPERTY: header-args :eval no
-#+OPTIONS: creator:t toc:nil
-#+HUGO_BASE_DIR: ../
-#+HUGO_AUTO_SET_LASTMOD: f
++++
+title = "HHKB + Karabiner-Elements 神器配置"
+author = ["Eviler"]
+lastmod = 2019-12-16T12:30:34+08:00
+draft = false
+creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
+weight = 2002
+authorbox = true
+comments = true
+toc = true
+mathjax = true
++++
 
-* COMMENT 计划中的分类
-- 计算机
-- 书法
-- 中国象棋
-- 儿童教育
-
-* Home
-:PROPERTIES:
-:EXPORT_HUGO_SECTION:
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments false :toc false :mathjax true
-:EXPORT_HUGO_MENU: :menu main
-:EXPORT_HUGO_WEIGHT: auto
-:END:
-
-* Blog Posts
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: blog
-:EXPORT_HUGO_WEIGHT: auto
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments true :toc true :mathjax true
-:END:
-
-** Blog
-:PROPERTIES:
-:EXPORT_HUGO_MENU: :menu main
-:EXPORT_FILE_NAME: _index
-:END:
-
-这里是我的博客。
-
-** DONE HHKB + Karabiner-Elements 神器配置
-:PROPERTIES:
-:EXPORT_FILE_NAME: tweak-hhkb-with-karabiner_elements
-:END:
-=Karabiner-Elements= 是 MacOS 系统下键盘映射的神器, 以前的名称叫做 =Karabiner=, 自
-从 MacOS 升级到 10.12 以后, 由于键盘驱动的修改导致了 =Karabiner= 不能正常工作,
-作者自己由开发了一个新版本, 并且名字改成了 =Karabiner-Elements=. 现在其版本为:
-=12.8.0=, 功能已经非常完善了. 那 =Karabinner-Elements= 有什么神奇的功能呢? 下面
-就以我的 HHKB 键盘为例, 逐一道来.
+`Karabiner-Elements` 是 MacOS 系统下键盘映射的神器, 以前的名称叫做 `Karabiner`, 自从 MacOS 升级到 10.12 以后, 由于键盘驱动的修改导致了 `Karabiner` 不能正常工作,
+作者自己由开发了一个新版本, 并且名字改成了 `Karabiner-Elements`. 现在其版本为:
+`12.8.0`, 功能已经非常完善了. 那 `Karabinner-Elements` 有什么神奇的功能呢? 下面就以我的 HHKB 键盘为例, 逐一道来.
 <!--more-->
 
-*** HHKB 和标准 QWERTY 的键盘布局比较
-#+ATTR_ORG: :width 600
-#+ATTR_HTML: :width 600
-#+CAPTION: HHKB 键盘布局
-[[file:hhkb-layout.png]]
 
-#+ATTR_ORG: :width 600
-#+ATTR_HTML: :width 600
-#+CAPTION: QWERTY 键盘布局
-[[file:mac-qwerty.jpg]]
+## HHKB 和标准 QWERTY 的键盘布局比较 {#hhkb-和标准-qwerty-的键盘布局比较}
+
+{{< figure src="/ox-hugo/hhkb-layout.png" caption="Figure 1: HHKB 键盘布局" width="600" >}}
+
+{{< figure src="/ox-hugo/mac-qwerty.jpg" caption="Figure 2: QWERTY 键盘布局" width="600" >}}
 
 可以看出几个不同点
-1. HHKB 的功能键和数字键是合二为一的, 为了对应 =1 2 3 4= 等数字键和 =F1 F2 F3
-   F4= 等功能键, 标准 QWERTY 键盘的 =`= 和 =~= 被移动到了最右侧.
-2. =Control= 键替代了 =Capslock=, 标准的 =Capslock= 被 =Fn + Tab= 取代.
-3. 没有方向键和翻页键.
 
-下面我们就使用 =Karabinder-Elements= 让 HHKB 更顺手.
+1.  HHKB 的功能键和数字键是合二为一的, 为了对应 `1 2 3 4` 等数字键和 `F1 F2 F3
+          F4` 等功能键, 标准 QWERTY 键盘的 `` ` `` 和 `~` 被移动到了最右侧.
+2.  `Control` 键替代了 `Capslock`, 标准的 `Capslock` 被 `Fn + Tab` 取代.
+3.  没有方向键和翻页键.
 
-*** Karabiner-Elements 配置
-首先[[https://pqrs.org/osx/karabiner/]]下载这个软件, 当前版本是 12.8.0. 安装完成以后,
-可以使用 GUI 界面进行简单的配置以及导入互联网上由其他用户分享的复杂配置. 我们自己
-调教 HHKB 的话, 不免进行比较复杂的配置, 所以还是直接打开 Karabiner-Elements 的配置
-文件直接修改比较好. 另外这些修改可以被 Karabiner-Elements 实时更新, 不用重启软件,还
-是相当方便的. 配置文件在 =~/.config/karabiner/karabiner.json= 文件中.
+下面我们就使用 `Karabinder-Elements` 让 HHKB 更顺手.
 
-*** 配置举例
 
-**** 右侧 =Command= 改成 =Option=, =Option= 改成 =Control=
-由于 HHKB 右侧(包括苹果笔记本的键盘上)没有 =Control= 按键, 非常不方便, 反倒是
-右侧 =Command= 按键用的比较少, 这里把右侧的 =Command= 改成 =Option=, =Option= 改
-成右 =Control=
-#+BEGIN_SRC json
+## Karabiner-Elements 配置 {#karabiner-elements-配置}
+
+首先<https://pqrs.org/osx/karabiner/>下载这个软件, 当前版本是 12.8.0. 安装完成以后,
+可以使用 GUI 界面进行简单的配置以及导入互联网上由其他用户分享的复杂配置. 我们自己调教 HHKB 的话, 不免进行比较复杂的配置, 所以还是直接打开 Karabiner-Elements 的配置文件直接修改比较好. 另外这些修改可以被 Karabiner-Elements 实时更新, 不用重启软件,还是相当方便的. 配置文件在 `~/.config/karabiner/karabiner.json` 文件中.
+
+
+## 配置举例 {#配置举例}
+
+
+### 右侧 `Command` 改成 `Option`, `Option` 改成 `Control` {#右侧-command-改成-option-option-改成-control}
+
+由于 HHKB 右侧(包括苹果笔记本的键盘上)没有 `Control` 按键, 非常不方便, 反倒是右侧 `Command` 按键用的比较少, 这里把右侧的 `Command` 改成 `Option`, `Option` 改成右 `Control`
+
+```json
 "simple_modifications": [
     {
         "from": {
@@ -98,9 +65,12 @@
         }
     }
 ],
-#+END_SRC
-**** =Alt + hjkl= 模拟方向键, =Ctrl-a=, =Ctrl-e= 行首, 行尾 等
-#+BEGIN_SRC json
+```
+
+
+### `Alt + hjkl` 模拟方向键, `Ctrl-a`, `Ctrl-e` 行首, 行尾 等 {#alt-plus-hjkl-模拟方向键-ctrl-a-ctrl-e-行首-行尾-等}
+
+```json
 {
     "description": "Change left_option + hjklnp to arrow for HHKB.",
     "manipulators": [
@@ -266,11 +236,14 @@
         }
     ]
 }
-#+END_SRC
+```
 
-**** =Esc= 模拟 =`=
-使用 =Command + Esc= 模拟 =Command + `=, MacOS 的窗口切换热键.
-#+BEGIN_SRC json
+
+### `Esc` 模拟 `` ` `` {#esc-模拟}
+
+使用 `Command + Esc` 模拟 `` Command + ` ``, MacOS 的窗口切换热键.
+
+```json
 {
     "description": "Simulate CMD+` use CMD+Esc for HHKB",
     "manipulators": [
@@ -293,10 +266,11 @@
         }
     ]
 }
-#+END_SRC
+```
 
-使用 =Shift + Esc= 输入 =~=
-#+BEGIN_SRC json
+使用 `Shift + Esc` 输入 `~`
+
+```json
 {
     "description": "right_shift + esc to evavluate normal keyboard \"~\" for HHKB",
     "manipulators": [
@@ -319,11 +293,12 @@
         }
     ]
 }
-#+END_SRC
+```
 
-快速双击 =Esc= 发送  =``= 模拟 vim 中的 mark 切换, 如果是单击 =Esc= 则不变, 发送
-=Esc=.
-#+BEGIN_SRC json
+快速双击 `Esc` 发送  `` `` `` 模拟 vim 中的 mark 切换, 如果是单击 `Esc` 则不变, 发送
+`Esc`.
+
+```json
 {
     "description": "Double click escape to double '`' for HHKB.",
     "manipulators": [
@@ -392,10 +367,14 @@
         }
     ]
 }
-#+END_SRC
-**** =Capslock= 和 =Control= 复用
-单击 =Control= 发送 =Capslock=, 如果是组合键, 发送 =Control= 的组合键.
-#+BEGIN_SRC json
+```
+
+
+### `Capslock` 和 `Control` 复用 {#capslock-和-control-复用}
+
+单击 `Control` 发送 `Capslock`, 如果是组合键, 发送 `Control` 的组合键.
+
+```json
 {
     "description": "Post caps_lock if left_control is pressed alone for HHKB.",
     "manipulators": [
@@ -423,12 +402,12 @@
         }
     ]
 }
-#+END_SRC
+```
 
-标准 QWERTY 键盘上的 =Capslock= 按键, 单独按 =Capslock= 发送  =Capslock=, 如果按
-=Capslock + x= 则发送 =Control + x= 组合键. 方便标准键盘的 =Capslock=, 如果你喜
-欢把 Capslock 当成 =Escape=, 这里修改下即可.
-#+BEGIN_SRC js
+标准 QWERTY 键盘上的 `Capslock` 按键, 单独按 `Capslock` 发送  `Capslock`, 如果按
+`Capslock + x` 则发送 `Control + x` 组合键. 方便标准键盘的 `Capslock`, 如果你喜欢把 Capslock 当成 `Escape`, 这里修改下即可.
+
+```js
 {
     "description": "Post caps_lock if caps_lock is pressed alone otherwise post left_control for HHKB.",
     "manipulators": [
@@ -456,10 +435,14 @@
         }
     ]
 }
-#+END_SRC
-**** 模拟 iOS 的双击 Shift 切换输入法
-双击左侧的 =Shift= 发送 =Capslock= 切换大小写, 否则当作标准 =Shift=.
-#+BEGIN_SRC json
+```
+
+
+### 模拟 iOS 的双击 Shift 切换输入法 {#模拟-ios-的双击-shift-切换输入法}
+
+双击左侧的 `Shift` 发送 `Capslock` 切换大小写, 否则当作标准 `Shift`.
+
+```json
 
 {
     "from": {
@@ -501,10 +484,14 @@
     },
     "type": "basic"
 }
-#+END_SRC
-**** 双击 =右 Shift= 模拟 appcode 的智能搜索
-Xcode 中双击右 =Shift= 发送 =Shift + Command + o= 进行智能搜索(模拟 idea).
-#+BEGIN_SRC json
+```
+
+
+### 双击 `右 Shift` 模拟 appcode 的智能搜索 {#双击-右-shift-模拟-appcode-的智能搜索}
+
+Xcode 中双击右 `Shift` 发送 `Shift + Command + o` 进行智能搜索(模拟 idea).
+
+```json
 {
     "description": "Emulate AppCode double shift to Search Everywhere in Xcode",
     "manipulators": [
@@ -591,10 +578,11 @@ Xcode 中双击右 =Shift= 发送 =Shift + Command + o= 进行智能搜索(模�
         }
     ]
 }
-#+END_SRC
+```
 
-VSCode 中使用双击右 =Shift= 发送 =Command + p= 模拟智能搜索.(idea)
-#+BEGIN_SRC json
+VSCode 中使用双击右 `Shift` 发送 `Command + p` 模拟智能搜索.(idea)
+
+```json
 {
     "description": "Emulate AppCode double shift to Search Everywhere in VSCode",
     "manipulators": [
@@ -680,10 +668,11 @@ VSCode 中使用双击右 =Shift= 发送 =Command + p= 模拟智能搜索.(idea)
         }
     ]
 }
-#+END_SRC
+```
 
-iTerm 中双击右 =Shift= 发送 =Ctrl + r= 进行搜索历史, 配合 peco 使用更佳.
-#+BEGIN_SRC json
+iTerm 中双击右 `Shift` 发送 `Ctrl + r` 进行搜索历史, 配合 peco 使用更佳.
+
+```json
 {
     "description": "Emulate AppCode double shift to Search History in iTerm2",
     "manipulators": [
@@ -769,10 +758,14 @@ iTerm 中双击右 =Shift= 发送 =Ctrl + r= 进行搜索历史, 配合 peco 使
         }
     ]
 }
-#+END_SRC
-**** 在终端中重度配合 tmux
-在终端中配 tmux 使用,我得 tmux 快捷键是 =Alt - z=.
-#+BEGIN_SRC json
+```
+
+
+### 在终端中重度配合 tmux {#在终端中重度配合-tmux}
+
+在终端中配 tmux 使用,我得 tmux 快捷键是 `Alt - z`.
+
+```json
 {
     "description": "Tmux in Terminal",
     "manipulators": [
@@ -2474,82 +2467,12 @@ iTerm 中双击右 =Shift= 发送 =Ctrl + r= 进行搜索历史, 配合 peco 使
         }
     ]
 }
-#+END_SRC
+```
 
-*** 配置调试技巧
-可以打开 Karabiner 的配置界面中最后的选项卡 =log= 来查看配置是否正确, 如果有错误,
+
+## 配置调试技巧 {#配置调试技巧}
+
+可以打开 Karabiner 的配置界面中最后的选项卡 `log` 来查看配置是否正确, 如果有错误,
 Karabinder-Elements 会自己输出一条红色的错误日志.
 
-Karabiner-Elements 内置了一个软件 =Karabiner-EventViewer=, 可以用来查看当前的窗
-口标识, 键盘按键的名字以及配置内定义的变量值等. 调试起来还是很方便的.``
-
-** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
-** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
-** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
-** TODO MacOS 中的 tmux 配置
-** TODO Manjaro 中使用 xkeysnail 改变键盘映射
-
-** DONE 如何优雅地删除 Git submodule
-:PROPERTIES:
-:EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
-:END:
-1. 在 =.gitmodules= 文件中删除关于 xxxx 的 section.
-2. 保存 =.gitmodules= 并使用 =git add .gitmoudles= 保存修改。
-3. 在 =.git/config= 文件中删除关于 xxxx 模块的配置章节。
-4. 运行 =git rm --cached path_to_xxxx_submodule= (没有后面的 "/").
-5. 运行 =rm -rf .git/modules/path_to_xxxx_submodule= (没有后面的 "/").
-6. 提交修改 =git ci -m "remove xxxx submmodule "= .
-7. 删除不用的目录 =rm -rf path_to_xxxx_submodule= .
-  
-** 把 Markdown 格式的文件转换成 org-mode 格式 :@计算机:Emacs:org_mode:markdown:
-:PROPERTIES:
-:EXPORT_FILE_NAME: convert-markdown-to-org_mode
-:END:
-
-正在把以前的 jekyll 博客迁移到新的 ox-hugo 上，虽然没有几篇，但是如果手工把
-markdown 转换成 org-mode 还是有不小的工作量的， 还好有 =pandoc=, 转换完成后稍微
-修改一下就可以了。
-
-#+BEGIN_EXAMPLE
-brew install pandoc
-pandoc -f markdown -t org xxxx.md -o xxxx.org
-#+END_EXAMPLE
-
-** DONE 使用 ox-hugo 编写博客 :@计算机:hugo:org_mode:
-:PROPERTIES:
-:EXPORT_FILE_NAME: use-ox-hugo-write-blog
-:END:
-- [[https://sheishe.xyz/post/hugo-blogging-with-ox-hugo/][一篇很棒的关于 =ox-hugo= 的文章]]
-- [[http://www.zmonster.me/2018/02/28/org-mode-capture.html][关于 org-capture 的一篇文章]]
-
-** TODO 2020 年最稳的翻墙姿势 :@计算机:caddy:v2ray:tls:
-:PROPERTIES:
-:EXPORT_FILE_NAME: xgfw-in-2020
-:END:
-
-caddy + v2ray + tls 配置
-
-** 解决 Archlinux 的域名解析超时出错的问题 :@计算机:ArchLinux:resolved:systemd:
-:PROPERTIES:
-:EXPORT_FILE_NAME: fix-systemd-resolved-dnssec
-:END:
-
-这个问题困扰了我好久 如果使用 systemd-resovled 启动域名解析服务，在一段时间不访
-问网络后重新进行网络访问时经常出现 =Host name not found=, 解决的方法是在
-=/etc/systemd/resolved.conf=
-文件中添加:
-
-#+BEGIN_EXAMPLE
-DNSSEC=no
-#+END_EXAMPLE
-
-* About
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: about
-:EXPORT_FILE_NAME: _index
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments true :toc true :mathjax true
-:EXPORT_HUGO_MENU: :menu main
-:EXPORT_HUGO_WEIGHT: auto
-:END:
-
-一个老年码农。喜欢码代码、书法、中国象棋、星际争霸、乒乓球。
+Karabiner-Elements 内置了一个软件 `Karabiner-EventViewer`, 可以用来查看当前的窗口标识, 键盘按键的名字以及配置内定义的变量值等. 调试起来还是很方便的.\`\`
