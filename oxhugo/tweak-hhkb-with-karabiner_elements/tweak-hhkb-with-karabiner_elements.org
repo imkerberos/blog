@@ -1,7 +1,6 @@
 #+TITLE: HHKB + Karabiner-Elements 神器配置
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
-#+DATE: 2014-12-02
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+HUGO_SECTION: blog
