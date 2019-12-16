@@ -1,8 +1,8 @@
 +++
 title = "如何优雅地删除 Git submodule"
 author = ["Eviler"]
-lastmod = 2019-12-16T09:13:15+08:00
-draft = true
+lastmod = 2019-12-16T09:15:10+08:00
+draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 weight = 2002
 authorbox = true

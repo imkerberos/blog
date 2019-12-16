@@ -36,7 +36,7 @@
 
 这里是我的博客。
 
-** TODO 如何优雅地删除 Git submodule
+** DONE 如何优雅地删除 Git submodule
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :END:
