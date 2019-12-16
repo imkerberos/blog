@@ -2,7 +2,7 @@
 title = "解决 Archlinux 的域名解析超时出错的问题"
 author = ["Eviler"]
 date = 2019-12-14
-lastmod = 2019-12-16T19:30:06+08:00
+lastmod = 2019-12-16T22:41:05+08:00
 tags = ["ArchLinux", "resolved", "systemd"]
 categories = ["计算机"]
 draft = false
