@@ -15,7 +15,14 @@
  *2019 年更新：Karabiner 已经变成 Karabiner-Elements，配置文件也变成 JSON 了，有
  时间贴自己的配置。*
 
+#+CAPTION: 放在 15 寸的 Macbook Pro 上
+#+ATTR_ORG: :width 512
+#+ATTR_HTML: :width 512
 [[file:show-hhkb-01.jpg]]
+
+#+CAPTION: 放在 15 寸的 Macbook Pro 上
+#+ATTR_ORG: :width 512
+#+ATTR_HTML: :width 512
 [[file:show-hhkb-02.jpg]]
 
 HHKB 配合 Karambiner 还是比较好用的.
@@ -58,5 +65,12 @@ Capslock 的功能由 =Fn+Tab= 实现, 还是有些 不方便, 而且由于刚�
 不会压住键盘, 同时 还能使用触控板. :) 记得不要打开支撑脚,
 而且下沿放到触控板上面.
 
+#+CAPTION: 扣在键盘上正合适
+#+ATTR_ORG: :width 512
+#+ATTR_HTML: :width 512
 [[file:show-hhkb-03.jpg]]
+
+#+CAPTION: 扣在键盘上正侧面照片
+#+ATTR_ORG: :width 512
+#+ATTR_HTML: :width 512
 [[file:show-hhkb-04.jpg]]
