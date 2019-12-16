@@ -33,8 +33,8 @@
 :EXPORT_HUGO_WEIGHT: 102
 :EXPORT_FILE_NAME: _index
 :END:
-
 这里是我的博客。
+
 ** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
 ** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
@@ -48,7 +48,7 @@
 caddy + v2ray + tls 配置
 
 
-** DONE 如何优雅地删除 Git submodule
+** DONE 如何优雅地删除 Git submodule :@计算机:git:
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :EXPORT_DATE: 2019-12-16
@@ -98,6 +98,7 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 #+BEGIN_EXAMPLE
 DNSSEC=no
 #+END_EXAMPLE
+
 
 * About
 :PROPERTIES:
