@@ -1,8 +1,8 @@
 +++
-title = "如何优雅地删除 Git submodule"
+title = "如何优雅地删除 Git submodule?"
 author = ["Eviler"]
 date = 2019-12-16
-lastmod = 2019-12-16T19:21:22+08:00
+lastmod = 2019-12-16T23:05:14+08:00
 tags = ["git"]
 categories = ["计算机"]
 draft = false

@@ -25,20 +25,19 @@
 :END:
 这里是我的博客。
 
-** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
+** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                  :ArchLinux:
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
 ** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
 ** TODO MacOS 中的 tmux 配置
 ** TODO Manjaro 中使用 xkeysnail 改变键盘映射
-** TODO 2020 年最稳的翻墙姿势 :@计算机:caddy:v2ray:tls:
+** TODO 2020 年最稳的翻墙姿势                                                  :@计算机:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
 :END:
 
 caddy + v2ray + tls 配置
 
-
-** DONE 如何优雅地删除 Git submodule :@计算机:git:
+** DONE 如何优雅地删除 Git submodule?                                          :@计算机:git:
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :EXPORT_DATE: 2019-12-16
