@@ -1,14 +1,13 @@
 +++
 title = "About"
 author = ["Eviler"]
-lastmod = 2019-12-16T19:12:35+08:00
+lastmod = 2019-12-16T19:19:38+08:00
 draft = false
 weight = 0
 authorbox = true
 comments = false
 toc = false
 mathjax = true
-nodate = true
 [menu.main]
   identifier = "about"
 +++
