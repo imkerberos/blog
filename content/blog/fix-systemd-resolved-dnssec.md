@@ -1,15 +1,15 @@
 +++
 title = "解决 Archlinux 的域名解析超时出错的问题"
 author = ["Eviler"]
-lastmod = 2019-12-15T00:16:11+08:00
+date = 2019-12-14
+lastmod = 2019-12-16T18:10:33+08:00
 tags = ["ArchLinux", "resolved", "systemd"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 2004
 authorbox = true
 comments = true
-toc = true
+toc = false
 mathjax = true
 +++
 

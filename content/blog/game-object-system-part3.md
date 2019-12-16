@@ -2,12 +2,11 @@
 title = "游戏对象模型设计与实现（三）"
 author = ["Eviler"]
 date = 2013-04-21
-lastmod = 2019-12-15T00:55:49+08:00
+lastmod = 2019-12-16T18:08:24+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1002
 +++
 
 由于本人对游戏实现认识不足, 总结一下几种游戏设计模式的区别仅供参考, 也许你有更深入的认识,

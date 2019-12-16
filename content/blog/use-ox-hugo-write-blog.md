@@ -1,15 +1,15 @@
 +++
 title = "使用 ox-hugo 编写博客"
 author = ["Eviler"]
-lastmod = 2019-12-15T00:43:45+08:00
+date = 2019-12-15
+lastmod = 2019-12-16T18:10:33+08:00
 tags = ["hugo", "org-mode"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 2002
 authorbox = true
 comments = true
-toc = true
+toc = false
 mathjax = true
 +++
 

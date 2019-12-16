@@ -1,10 +1,9 @@
 +++
 title = "About"
 author = ["Eviler"]
-lastmod = 2019-12-15T18:37:08+08:00
+lastmod = 2019-12-16T18:10:33+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1002
 authorbox = true
 comments = true
 toc = true

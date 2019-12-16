@@ -16,8 +16,19 @@
 <!--more-->
 
 正好机器上有 Virtual Box，就装了一下重温当年的时光。:)
+#+CAPTION: 登录界面
+#+ATTR_HTML: :width 512
+#+ATTR_ORG: :width 512
 [[file:bluepoint-login.png]]
+
+#+CAPTION: 控制台的中文输入
+#+ATTR_HTML: :width 512
+#+ATTR_ORG: :width 512
 [[file:bluepoint-console.png]]
+
+#+CAPTION: X-Window 的中文输入
+#+ATTR_HTML: :width 512
+#+ATTR_ORG: :width 512
 [[file:bluepoint-xwindow.png]]
 
 说下怎么安装吧:)

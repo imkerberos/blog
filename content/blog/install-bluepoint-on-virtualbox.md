@@ -2,7 +2,7 @@
 title = "在 VirtualBox 上安装蓝点 Linux2.0"
 author = ["Eviler"]
 date = 2014-12-02
-lastmod = 2019-12-15T18:33:08+08:00
+lastmod = 2019-12-16T18:13:06+08:00
 tags = ["linux", "virtualbox"]
 categories = ["计算机"]
 draft = false
@@ -15,9 +15,12 @@ draft = false
 <!--more-->
 
 正好机器上有 Virtual Box，就装了一下重温当年的时光。:)
-![](/ox-hugo/bluepoint-login.png)
-![](/ox-hugo/bluepoint-console.png)
-![](/ox-hugo/bluepoint-xwindow.png)
+
+{{< figure src="/ox-hugo/bluepoint-login.png" caption="Figure 1: 登录界面" width="512" >}}
+
+{{< figure src="/ox-hugo/bluepoint-console.png" caption="Figure 2: 控制台的中文输入" width="512" >}}
+
+{{< figure src="/ox-hugo/bluepoint-xwindow.png" caption="Figure 3: X-Window 的中文输入" width="512" >}}
 
 说下怎么安装吧:)
 

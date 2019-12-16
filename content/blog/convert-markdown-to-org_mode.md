@@ -1,15 +1,15 @@
 +++
 title = "把 Markdown 格式的文件转换成 org-mode 格式"
 author = ["Eviler"]
-lastmod = 2019-12-15T18:30:07+08:00
+date = 2019-12-15
+lastmod = 2019-12-16T18:10:58+08:00
 tags = ["Emacs", "org-mode", "markdown"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 2002
 authorbox = true
 comments = true
-toc = true
+toc = false
 mathjax = true
 +++
 
