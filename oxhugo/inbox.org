@@ -43,6 +43,7 @@ caddy + v2ray + tls 配置
 :EXPORT_DATE: 2019-12-16
 :END:
 <!--more-->
+
 1. 在 =.gitmodules= 文件中删除关于 xxxx 的 section.
 2. 保存 =.gitmodules= 并使用 =git add .gitmoudles= 保存修改。
 3. 在 =.git/config= 文件中删除关于 xxxx 模块的配置章节。
@@ -60,6 +61,7 @@ caddy + v2ray + tls 配置
 正在把以前的 jekyll 博客迁移到新的 ox-hugo 上，虽然没有几篇，但是如果手工把
 markdown 转换成 org-mode 还是有不小的工作量的， 还好有 =pandoc=, 转换完成后稍微
 修改一下就可以了。
+<!--more-->
 
 #+BEGIN_EXAMPLE
 brew install pandoc
@@ -82,9 +84,11 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 :END:
 
 这个问题困扰了我好久 如果使用 systemd-resovled 启动域名解析服务，在一段时间不访
-问网络后重新进行网络访问时经常出现 =Host name not found=, 解决的方法是在
-=/etc/systemd/resolved.conf=
-文件中添加:
+问网络后重新进行网络访问时经常出现 =Host name not found=.
+
+<!--more-->
+
+解决的方法是在 =/etc/systemd/resolved.conf= 文件中添加:
 
 #+BEGIN_EXAMPLE
 DNSSEC=no

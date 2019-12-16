@@ -2,7 +2,7 @@
 title = "如何优雅地删除 Git submodule?"
 author = ["Eviler"]
 date = 2019-12-16
-lastmod = 2019-12-16T23:48:14+08:00
+lastmod = 2019-12-16T23:55:46+08:00
 tags = ["git"]
 categories = ["计算机"]
 draft = false
