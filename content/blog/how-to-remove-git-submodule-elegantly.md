@@ -2,7 +2,7 @@
 title = "如何优雅地删除 Git submodule"
 author = ["Eviler"]
 date = 2019-12-16
-lastmod = 2019-12-16T18:57:29+08:00
+lastmod = 2019-12-16T19:21:22+08:00
 tags = ["git"]
 categories = ["计算机"]
 draft = false
@@ -12,6 +12,8 @@ comments = true
 toc = false
 mathjax = true
 +++
+
+<!--more-->
 
 1.  在 `.gitmodules` 文件中删除关于 xxxx 的 section.
 2.  保存 `.gitmodules` 并使用 `git add .gitmoudles` 保存修改。

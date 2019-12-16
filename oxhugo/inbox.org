@@ -43,6 +43,7 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :EXPORT_DATE: 2019-12-16
 :END:
+<!--more-->
 1. 在 =.gitmodules= 文件中删除关于 xxxx 的 section.
 2. 保存 =.gitmodules= 并使用 =git add .gitmoudles= 保存修改。
 3. 在 =.git/config= 文件中删除关于 xxxx 模块的配置章节。
