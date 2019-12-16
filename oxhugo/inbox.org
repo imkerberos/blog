@@ -37,6 +37,17 @@
 这里是我的博客。
 
 ** TODO 如何优雅地删除 Git submodule
+:PROPERTIES:
+:EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
+:END:
+1. 在 =.gitmodules= 文件中删除关于 xxxx 的 section.
+2. 保存 =.gitmodules= 并使用 =git add .gitmoudles= 保存修改。
+3. 在 =.git/config= 文件中删除关于 xxxx 模块的配置章节。
+4. 运行 =git rm --cached path_to_xxxx_submodule= (没有后面的 "/").
+5. 运行 =rm -rf .git/modules/path_to_xxxx_submodule= (没有后面的 "/").
+6. 提交修改 =git ci -m "remove xxxx submmodule "= .
+7. 删除不用的目录 =rm -rf path_to_xxxx_submodule= .
+
 ** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
 ** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
