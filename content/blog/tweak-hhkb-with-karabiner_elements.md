@@ -1,7 +1,8 @@
 +++
 title = "HHKB + Karabiner-Elements 神器配置"
 author = ["Eviler"]
-lastmod = 2019-12-17T14:33:16+08:00
+date = 2019-12-16
+lastmod = 2019-12-17T18:50:13+08:00
 tags = ["HHKB", "MacOS", "Karabiner", "Vim", "Emacs"]
 categories = ["计算机"]
 draft = false
