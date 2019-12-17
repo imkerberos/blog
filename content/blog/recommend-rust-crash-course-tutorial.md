@@ -1,8 +1,8 @@
 +++
-title = "推荐一个 rust 教程"
+title = "推荐一个 Rust 教程"
 author = ["Eviler"]
 date = 2019-12-17
-lastmod = 2019-12-17T18:44:22+08:00
+lastmod = 2019-12-17T19:01:21+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false

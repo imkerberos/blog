@@ -36,7 +36,7 @@
 
 caddy + v2ray + tls 配置
 
-** 推荐一个 rust 教程                                                          :@计算机:Rust:
+** 推荐一个 Rust 教程                                                          :@计算机:Rust:
 :PROPERTIES:
 :EXPORT_FILE_NAME: recommend-rust-crash-course-tutorial
 :EXPORT_DATE: 2019-12-17
