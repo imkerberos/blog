@@ -2,7 +2,7 @@
 title = "把 Markdown 格式的文件转换成 org-mode 格式"
 author = ["Eviler"]
 date = 2019-12-15
-lastmod = 2019-12-16T18:57:29+08:00
+lastmod = 2019-12-16T23:56:19+08:00
 tags = ["Emacs", "org-mode", "markdown"]
 categories = ["计算机"]
 draft = false
@@ -15,6 +15,7 @@ mathjax = true
 
 正在把以前的 jekyll 博客迁移到新的 ox-hugo 上，虽然没有几篇，但是如果手工把
 markdown 转换成 org-mode 还是有不小的工作量的， 还好有 `pandoc`, 转换完成后稍微修改一下就可以了。
+<!--more-->
 
 ```text
 brew install pandoc

@@ -25,25 +25,25 @@
 :END:
 这里是我的博客。
 
-** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法
+** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                  :ArchLinux:
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
 ** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
 ** TODO MacOS 中的 tmux 配置
 ** TODO Manjaro 中使用 xkeysnail 改变键盘映射
-** TODO 2020 年最稳的翻墙姿势 :@计算机:caddy:v2ray:tls:
+** TODO 2020 年最稳的翻墙姿势                                                  :@计算机:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
 :END:
 
 caddy + v2ray + tls 配置
 
-
-** DONE 如何优雅地删除 Git submodule :@计算机:git:
+** DONE 如何优雅地删除 Git submodule?                                          :@计算机:git:
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :EXPORT_DATE: 2019-12-16
 :END:
 <!--more-->
+
 1. 在 =.gitmodules= 文件中删除关于 xxxx 的 section.
 2. 保存 =.gitmodules= 并使用 =git add .gitmoudles= 保存修改。
 3. 在 =.git/config= 文件中删除关于 xxxx 模块的配置章节。
@@ -61,6 +61,7 @@ caddy + v2ray + tls 配置
 正在把以前的 jekyll 博客迁移到新的 ox-hugo 上，虽然没有几篇，但是如果手工把
 markdown 转换成 org-mode 还是有不小的工作量的， 还好有 =pandoc=, 转换完成后稍微
 修改一下就可以了。
+<!--more-->
 
 #+BEGIN_EXAMPLE
 brew install pandoc
@@ -72,6 +73,7 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :EXPORT_DATE: 2019-12-15
 :END:
+
 - [[https://sheishe.xyz/post/hugo-blogging-with-ox-hugo/][一篇很棒的关于 =ox-hugo= 的文章]]
 - [[http://www.zmonster.me/2018/02/28/org-mode-capture.html][关于 org-capture 的一篇文章]]
 
@@ -82,9 +84,11 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 :END:
 
 这个问题困扰了我好久 如果使用 systemd-resovled 启动域名解析服务，在一段时间不访
-问网络后重新进行网络访问时经常出现 =Host name not found=, 解决的方法是在
-=/etc/systemd/resolved.conf=
-文件中添加:
+问网络后重新进行网络访问时经常出现 =Host name not found=.
+
+<!--more-->
+
+解决的方法是在 =/etc/systemd/resolved.conf= 文件中添加:
 
 #+BEGIN_EXAMPLE
 DNSSEC=no
