@@ -25,9 +25,8 @@
 :END:
 这里是我的博客。
 
-** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                 :ArchLinux:
+** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:RIME:
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
-** TODO MacOS 中使用 Karabiner-Elements 改变键盘映射
 ** TODO MacOS 中的 tmux 配置
 ** TODO Manjaro 中使用 xkeysnail 改变键盘映射
 ** TODO 2020 年最稳的翻墙姿势                                                  :@计算机:caddy:v2ray:tls:
