@@ -36,6 +36,19 @@
 
 caddy + v2ray + tls 配置
 
+** 推荐一个 rust 教程                                                          :@计算机:Rust:
+:PROPERTIES:
+:EXPORT_FILE_NAME: recommend-rust-crash-course-tutorial
+:EXPORT_DATE: 2019-12-17
+:END:
+
+Rust 语言既时尚，又安全，又难学。最让人崩溃的一点是文档虽然多，但是质量却不好，
+主要是 Rust 入门的曲线比较陡峭。今天给大家推荐一个曲线不错的教程。
+
+<!--more-->
+
+[[https://www.snoyman.com/blog/2018/10/introducing-rust-crash-course][Rust crash course]] 曲线比较不错，推荐大家阅读。如果有时间，翻译成中文。
+
 ** DONE 如何优雅地删除 Git submodule?                                          :@计算机:git:
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
