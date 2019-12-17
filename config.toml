@@ -51,15 +51,3 @@ tags_counter = false
 [Params.widgets.social]
 github = "imkerberos"
 facebook = "kerberos.zhang"
-
-[[menu.main]]
-identifier = "Home"
-weight = -100
-
-[[menu.main]]
-identifier = "Blog"
-weight = -50
-
-[[menu.main]]
-identifier = "About"
-weight = 0
