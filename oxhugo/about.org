@@ -7,7 +7,7 @@
 #+HUGO_SECTION:
 #+HUGO_CATEGORIES:
 #+HUGO_DRAFT: false
-#+HUGO_MENU: :menu main
+#+HUGO_MENU: :menu main :weight 0
 #+HUGO_WEIGHT: 0
 #+HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments false :toc false :mathjax true
 

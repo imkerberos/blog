@@ -2,7 +2,7 @@
 title = "显摆下 HHKB Pro2 TypeS"
 author = ["Eviler"]
 date = 2015-02-13
-lastmod = 2019-12-16T18:18:10+08:00
+lastmod = 2019-12-16T19:33:44+08:00
 tags = ["HHKB", "Emacs", "Vim"]
 categories = ["计算机"]
 draft = false
