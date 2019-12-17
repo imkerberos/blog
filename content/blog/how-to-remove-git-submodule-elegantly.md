@@ -2,7 +2,7 @@
 title = "如何优雅地删除 Git submodule?"
 author = ["Eviler"]
 date = 2019-12-16
-lastmod = 2019-12-16T23:55:46+08:00
+lastmod = 2019-12-17T14:06:40+08:00
 tags = ["git"]
 categories = ["计算机"]
 draft = false
@@ -12,6 +12,8 @@ comments = true
 toc = false
 mathjax = true
 +++
+
+Git 中没有一个专门的命令对 submodule 进行删除。比较优雅的删除方式如下：
 
 <!--more-->
 

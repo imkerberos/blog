@@ -42,6 +42,9 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :EXPORT_DATE: 2019-12-16
 :END:
+
+Git 中没有一个专门的命令对 submodule 进行删除。比较优雅的删除方式如下：
+
 <!--more-->
 
 1. 在 =.gitmodules= 文件中删除关于 xxxx 的 section.
