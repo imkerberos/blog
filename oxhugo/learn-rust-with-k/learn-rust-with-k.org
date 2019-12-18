@@ -10,17 +10,19 @@
 #+HUGO_CATEGORIES: 计算机
 #+HUGO_CUSTOM_FRONT_MATTTER: :authorbox true :comments true :toc false :mathjax true
 #+HUGO_DRAFT: false
+#+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
-* TODO 程序 1
+* TODO 跟老 K 一起学 Rust (二)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part2
-:EXPORT_DATE: 2019-12-19
+:EXPORT_DATE: 2019-12-18
 :END:
 
-程序 1
-<!--more-->
+=Trait= 和 =Display=
 
+<!--more-->
+#+NAME: 程序一
 #+BEGIN_SRC rust
 struct Person {
     name: String,
@@ -35,9 +37,10 @@ fn main() {
     println!("Person: {}", alice);
 }
 #+END_SRC
+
 编译报错：
 
-#+begin_verse
+#+BEGIN_EXAMPLE
 error[E0277]: `Person` doesn't implement `std::fmt::Display`
   --> t001.rs:11:28
    |
@@ -51,17 +54,16 @@ error[E0277]: `Person` doesn't implement `std::fmt::Display`
 error: aborting due to previous error
 
 For more information about this error, try `rustc --explain E0277`
-#+end_verse
+#+END_EXAMPLE
 
-* DONE 开始之前的环境配置
+* DONE 跟老 K 一起学 Rust (一)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part1
 :EXPORT_DATE: 2019-12-18
 :END:
 
-本节是繁琐的准备工作，已经完成的同学可以跳过。
+开始之前的环境配置， 本节是繁琐的准备工作，已经完成的同学可以跳过。
 <!--more-->
-
 
 ** 安装工具链
 我的环境是 MacOS, 并且使用 HomeBrew 来管理软件的安装。

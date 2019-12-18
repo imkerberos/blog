@@ -1,17 +1,20 @@
 +++
-title = "程序 1"
+title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
-date = 2019-12-19
-lastmod = 2019-12-18T23:15:41+08:00
+date = 2019-12-18
+lastmod = 2019-12-18T23:33:08+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
+weight = 1001
 +++
 
-程序 1
+`Trait` 和 `Display`
+
 <!--more-->
 
+<a id="code-snippet--程序一"></a>
 ```rust
 struct Person {
     name: String,
@@ -29,18 +32,18 @@ fn main() {
 
 编译报错：
 
-<p class="verse">
-error[E0277]: \`Person\` doesn't implement \`std::fmt::Display\`<br />
-&nbsp;&nbsp;--> t001.rs:11:28<br />
-&nbsp;&nbsp;&nbsp;|<br />
-11 |     println!("Person: {}", alice);<br />
-&nbsp;&nbsp;&nbsp;|                            ^^^^^ \`Person\` cannot be formatted with the default formatter<br />
-&nbsp;&nbsp;&nbsp;|<br />
-&nbsp;&nbsp;&nbsp;= help: the trait \`std::fmt::Display\` is not implemented for \`Person\`<br />
-&nbsp;&nbsp;&nbsp;= note: in format strings you may be able to use \`{:?}\` (or {:#?} for pretty-print) instead<br />
-&nbsp;&nbsp;&nbsp;= note: required by \`std::fmt::Display::fmt\`<br />
-<br />
-error: aborting due to previous error<br />
-<br />
-For more information about this error, try \`rustc --explain E0277\`<br />
-</p>
+```text
+error[E0277]: `Person` doesn't implement `std::fmt::Display`
+  --> t001.rs:11:28
+   |
+11 |     println!("Person: {}", alice);
+   |                            ^^^^^ `Person` cannot be formatted with the default formatter
+   |
+   = help: the trait `std::fmt::Display` is not implemented for `Person`
+   = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+   = note: required by `std::fmt::Display::fmt`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0277`
+```
