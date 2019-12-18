@@ -1,0 +1,21 @@
+#+TITLE: 跟老 K 一起学 Rust
+#+STARTUP: inlineimages content
+#+AUTHOR: Eviler
+#+LANGUAGE: zh-CN
+#+HUGO_BASE_DIR: ../../
+#+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_SECTION: blog
+#+HUGO_CATEGORIES: 计算机
+#+HUGO_DRAFT: false
+#+HUGO_TAGS: Rust
+
+* TODO 开发环境
+:PROPERTIES:
+:EXPORT_FILE_NAME: learn-rust-with-k-part1
+:EXPORT_DATE: 2019-12-18
+:END:
+
+1. 安装 =Visual Studio Code=
+2. 安装 =Rust Extension Pack= 插件。
+3. 安装 =CodeLLDB= 插件。
+4. 安装 =Code Runner= 插件。
