@@ -37,6 +37,11 @@
 
 caddy + v2ray + tls 配置
 
+** TODO 谈 flutter, react-native 和技术吹                                       :@计算机:
+:PROPERTIES:
+:EXPORT_FILE_NAME: talk-about-flutter-and-react_native
+:END:
+
 ** 推荐一个 Rust 教程                                                          :@计算机:Rust:
 :PROPERTIES:
 :EXPORT_FILE_NAME: recommend-rust-crash-course-tutorial
