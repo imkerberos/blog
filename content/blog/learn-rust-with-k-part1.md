@@ -2,7 +2,7 @@
 title = "开始之前的环境配置"
 author = ["Eviler"]
 date = 2019-12-18
-lastmod = 2019-12-18T22:58:59+08:00
+lastmod = 2019-12-18T23:10:39+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -63,7 +63,7 @@ Rust 的编译工具链命名遵循规范： `<channel>[-<date>][-<host>]`. 各�
 <host>          = <target-triple>
 ```
 
-如： `stable`, `stable-x86_64-pc-windows-msvc`, `nightly-2019-11-04` 等都是合法的工具链名称。特别注意的是 `channel`, `stable` 表示是稳定版本， `nightly` 表示为每日构建版本。部分实验性的功能或者特性只有在 `nightly` 版本中支持。有些第三方库在构建的时候可能要求你的工具链是 `nightly` 版本。但是截至到现在（2019-12-20)
+如： `stable`, `stable-x86_64-pc-windows-msvc`, `nightly-2019-11-04` 等都是合法的工具链名称。特别注意的是 `channel`, `stable` 表示是稳定版本， `nightly` 表示为每日构建版本。部分实验性的功能或者特性只有在 `nightly` 版本中支持。有些第三方库在构建的时候可能要求你的工具链是 `nightly` 版本。但是截至到现在（2019-12-18)
 `stable` 版本的特性已经足够我们学习的了。：）
 
 ```text

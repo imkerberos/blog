@@ -9,6 +9,44 @@
 #+HUGO_DRAFT: false
 #+HUGO_TAGS: Rust
 
+* TODO 程序 1
+:PROPERTIES:
+:EXPORT_FILE_NAME: learn-rust-with-k-part2
+:EXPORT_DATE: 2019-12-19
+:END:
+
+#+BEGIN_SRC rust
+struct Person {
+    name: String,
+    age: u32,
+}
+
+fn main() {
+    let alice = Person {
+        name: String::from("Alice"),
+        age: 30,
+    };
+    println!("Person: {}", alice);
+}
+#+END_SRC
+编译报错：
+
+#+begin_verse
+error[E0277]: `Person` doesn't implement `std::fmt::Display`
+  --> t001.rs:11:28
+   |
+11 |     println!("Person: {}", alice);
+   |                            ^^^^^ `Person` cannot be formatted with the default formatter
+   |
+   = help: the trait `std::fmt::Display` is not implemented for `Person`
+   = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+   = note: required by `std::fmt::Display::fmt`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0277`
+#+end_verse
+
 * DONE 开始之前的环境配置
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part1
@@ -17,6 +55,7 @@
 
 本节是繁琐的准备工作，已经完成的同学可以跳过。
 <!--more-->
+
 
 ** 安装工具链
 我的环境是 MacOS, 并且使用 HomeBrew 来管理软件的安装。
@@ -68,7 +107,7 @@ Rust 的编译工具链命名遵循规范： =<channel>[-<date>][-<host>]=. 各�
 如： =stable=, =stable-x86_64-pc-windows-msvc=, =nightly-2019-11-04= 等都是合法
 的工具链名称。特别注意的是 =channel=, =stable= 表示是稳定版本， =nightly= 表示为
 每日构建版本。部分实验性的功能或者特性只有在 =nightly= 版本中支持。有些第三方库
-在构建的时候可能要求你的工具链是 =nightly= 版本。但是截至到现在（2019-12-20)
+在构建的时候可能要求你的工具链是 =nightly= 版本。但是截至到现在（2019-12-18)
 =stable= 版本的特性已经足够我们学习的了。：）
 
 #+BEGIN_EXAMPLE
