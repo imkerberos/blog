@@ -2,11 +2,15 @@
 title = "程序 1"
 author = ["Eviler"]
 date = 2019-12-19
-lastmod = 2019-12-18T23:10:39+08:00
+lastmod = 2019-12-18T23:15:41+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
+creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 +++
+
+程序 1
+<!--more-->
 
 ```rust
 struct Person {
