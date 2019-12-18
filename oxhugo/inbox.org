@@ -2,6 +2,7 @@
 #+STARTUP： content inlineimages
 #+AUTHOR: Eviler
 #+PROPERTY: header-args :eval no
+#+LANGUAGE: zh-CN
 #+OPTIONS: creator:t toc:nil
 #+HUGO_BASE_DIR: ../
 #+HUGO_AUTO_SET_LASTMOD: f

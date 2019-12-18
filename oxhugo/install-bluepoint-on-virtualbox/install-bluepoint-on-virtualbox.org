@@ -2,6 +2,7 @@
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
 #+DATE: 2014-12-02
+#+LANGUAGE: zh-CN
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+HUGO_SECTION: blog

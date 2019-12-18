@@ -2,7 +2,7 @@
 title = "游戏对象模型设计与实现（三）"
 author = ["Eviler"]
 date = 2013-04-21
-lastmod = 2019-12-16T18:08:24+08:00
+lastmod = 2019-12-18T14:08:06+08:00
 tags = ["game", "oo", "es", "design"]
 categories = ["计算机"]
 draft = false

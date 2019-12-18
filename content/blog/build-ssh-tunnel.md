@@ -2,7 +2,7 @@
 title = "SSH 隧道技术保姆级讲解"
 author = ["Eviler"]
 date = 2012-04-02
-lastmod = 2019-12-15T00:46:37+08:00
+lastmod = 2019-12-18T14:07:42+08:00
 tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = false
