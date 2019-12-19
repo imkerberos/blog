@@ -2,6 +2,8 @@
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
 #+DATE: 2012-04-02
+#+PROPERTY: header-args :eval no
+#+OPTIONS: creator:t toc:nil num:t
 #+LANGUAGE: zh-CN
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
@@ -9,9 +11,6 @@
 #+HUGO_TAGS: ssh gfw
 #+HUGO_CATEGORIES: 计算机
 #+HUGO_DRAFT: false
-
-#+PROPERTY: header-args :eval no
-#+OPTIONS: creator:t toc:nil
 
 
 不少人都有穿墙的需求, 穿墙对于一个普通的中国人来说, 有着不同寻常的意义.

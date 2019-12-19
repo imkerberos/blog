@@ -2,7 +2,7 @@
 title = "跟老 K 一起学 Rust (一)"
 author = ["Eviler"]
 date = 2019-12-18
-lastmod = 2019-12-18T23:27:39+08:00
+lastmod = 2019-12-19T11:52:19+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -14,7 +14,7 @@ weight = 1002
 <!--more-->
 
 
-## 安装工具链 {#安装工具链}
+## <span class="section-num">1</span> 安装工具链 {#安装工具链}
 
 我的环境是 MacOS, 并且使用 HomeBrew 来管理软件的安装。
 
@@ -98,7 +98,7 @@ rustfmt 1.4.4-stable (0462008d 2019-08-06)
 ```
 
 
-## 安装编辑器 {#安装编辑器}
+## <span class="section-num">2</span> 安装编辑器 {#安装编辑器}
 
 推荐使用 `Visual-Studio-Code` 作为 Rust 的编辑器，既有语法高亮，配合一些 Rust 插件还能进行智能提示以及调试，还是相当舒心的。
 
@@ -117,7 +117,7 @@ code --install-extension formulahendry.code-runner
 比较正式的项目用 `cargo new --bin tutor01` 这种方式合适一点，但是学习的话，都是一些简短的样例代码，用 `cargo` 来创建就有些臃肿，不如直接用 `CodeRunner` 跑单个文件好。
 
 
-## 创建学习目录 {#创建学习目录}
+## <span class="section-num">3</span> 创建学习目录 {#创建学习目录}
 
 我打算在 `~/ws/playground/rust` 目录下进行学习并且编写实验性质的代码：
 

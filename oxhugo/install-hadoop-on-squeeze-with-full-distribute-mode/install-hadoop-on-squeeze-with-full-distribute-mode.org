@@ -2,7 +2,7 @@
 #+STARTUP: content
 #+AUTHOR: Eviler
 #+DATE: 2012-03-26
-#+OPTIONS: creator:t toc:nil
+#+OPTIONS: creator:t toc:nil num:t
 #+PROPERTY: header-args :eval no
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f

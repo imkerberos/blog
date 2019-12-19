@@ -2,24 +2,24 @@
 title = "在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统"
 author = ["Eviler"]
 date = 2012-03-26
-lastmod = 2019-12-15T00:57:13+08:00
+lastmod = 2019-12-19T11:53:19+08:00
 tags = ["debian", "squeeze", "hadoop"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 +++
 
-## 2019 年更新 {#2019-年更新}
+## <span class="section-num">1</span> 2019 年更新 {#2019-年更新}
 
 这篇文章写于 8 年前，现在这个年头都有 `docker` 了，所以已经不需要用这种方式，但是从文章中可以看出，在没有 `docker` 之前，部署是多么让人头疼的一件事情。
 
 
-## 背景 {#背景}
+## <span class="section-num">2</span> 背景 {#背景}
 
 找遍网络文档, 很少有全部的完全使用分布式安装 Hadoop 集群系统的文章. 网络上能找到的文章大部分是基于简单的伪分布式安装的文档. 今天要在生产环境中建立集群系统, 把过程写下来分享一下.
 
 
-## Hadoop 分发版本 {#hadoop-分发版本}
+## <span class="section-num">3</span> Hadoop 分发版本 {#hadoop-分发版本}
 
 目前流行的 Hadoop 分发版本主要有两个:
 
@@ -32,29 +32,29 @@ creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
     而且 Cloudera 的 Flume 软件现在还不支持 CDH4, 所以 CHD3 成了必然的选择. 要知道, 人最难做的就是选择啊. :)
 
 
-## Linux 发行版 {#linux-发行版}
+## <span class="section-num">4</span> Linux 发行版 {#linux-发行版}
 
 相对于 Unbuntu, Redhat, SUSE 等发行版来说, 我更钟爱 [Debian][], 所以大部分服务器我都是在
 Debian 上安装的. 截至到本文发布时间为止 (2012 年 3 月 26), Debian 的版本是 6.0.4, 版本代号
 Squeeze.
 
 
-## CDH3 安装方式 {#cdh3-安装方式}
+## <span class="section-num">5</span> CDH3 安装方式 {#cdh3-安装方式}
 
 虽然 CDH3 针对不同的 Linux 发行版提供了已经打好的包, 包括 Debian 的 APT 包管理器, 由于我开发软件使用了 Buildout 自动部署方式, 所以, 使用 APT 安装方式与我们的项目部署方式还不是特别一致. 所以我选择了 CHD3 的 tar.gz 包的最原始的安装方式, 其实这种方式和 Apache 的分发包没有太大区别, 不过对于安装 HBase, Flume 等软件来说, 就不用为特定版本的依赖操心了.
 
 
-## Squeeze 安装 {#squeeze-安装}
+## <span class="section-num">6</span> Squeeze 安装 {#squeeze-安装}
 
 集群中的每台机器先安装好基本的 Debian 系统, 需要说明的是, Hadoop 最好还是使用 **x86\_64** 的系统.
 
 
-### 部署规划安装的软件 {#部署规划安装的软件}
+### <span class="section-num">6.1</span> 部署规划安装的软件 {#部署规划安装的软件}
 
 在集群中我们使用了以下的软件:
 
 
-#### Hadoop 相关 {#hadoop-相关}
+#### <span class="section-num">6.1.1</span> Hadoop 相关 {#hadoop-相关}
 
 -   Zookeeper
 -   Hadoop
@@ -62,7 +62,7 @@ Squeeze.
 -   Hive
 
 
-#### 集群依赖的其他软件 {#集群依赖的其他软件}
+#### <span class="section-num">6.1.2</span> 集群依赖的其他软件 {#集群依赖的其他软件}
 
 -   dnsmasq
 
@@ -106,15 +106,15 @@ Squeeze.
     -   lsof
 
 
-## 各节点系统配置 {#各节点系统配置}
+## <span class="section-num">7</span> 各节点系统配置 {#各节点系统配置}
 
 
-### 用户 {#用户}
+### <span class="section-num">7.1</span> 用户 {#用户}
 
 各节点的管理用户统一命名. 可以起一个比较贴切的名字. 比如 \`imkerberos\`
 
 
-### 性能调整 {#性能调整}
+### <span class="section-num">7.2</span> 性能调整 {#性能调整}
 
 -   `/etc/security/limits.conf` 或者 `/etc/security/limits.d/`
     主要调整系统资源限制选项, 包括
@@ -159,7 +159,7 @@ Squeeze.
     ```
 
 
-### 节点部署规划 {#节点部署规划}
+### <span class="section-num">7.3</span> 节点部署规划 {#节点部署规划}
 
 服务器组件部署规划,
 
@@ -185,7 +185,7 @@ Squeeze.
 | HBase ThriftServer [^2] | &radic; | &radic; |         |         |         |         |         |         |
 
 
-### IP 地址表 {#ip-地址表}
+### <span class="section-num">7.4</span> IP 地址表 {#ip-地址表}
 
 | 节点名称 | IP 地址     |
 |------|-----------|
@@ -200,10 +200,10 @@ Squeeze.
 | node9 | 192.168.0.9 |
 
 
-### 安装过程 {#安装过程}
+### <span class="section-num">7.5</span> 安装过程 {#安装过程}
 
 
-### 常见问题 {#常见问题}
+### <span class="section-num">7.6</span> 常见问题 {#常见问题}
 
 [^1]: 每个节点配置一个 NTP Server, node1 和 node2 的 Server 与外网时间服务器连接, 作为网内 node3 - node9 的服务器.
 [^2]: 为了保证无单点故障, 所以多台 ThriftServer 是非常有必要的.每个应用服务器节点连接自身的 ThriftServer 与 HBase 通信.

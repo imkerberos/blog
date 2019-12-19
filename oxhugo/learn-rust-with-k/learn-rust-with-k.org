@@ -1,7 +1,7 @@
 #+TITLE: 跟老 K 一起学 Rust
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
-#+OPTIONS: creator:t toc:nil
+#+OPTIONS: creator:t toc:nil num:t
 #+PROPERTY: header-args :eval no
 #+LANGUAGE: zh-CN
 #+HUGO_BASE_DIR: ../../

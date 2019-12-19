@@ -2,10 +2,11 @@
 title = "HHKB + Karabiner-Elements 神器配置"
 author = ["Eviler"]
 date = 2019-12-16
-lastmod = 2019-12-18T14:06:37+08:00
+lastmod = 2019-12-19T11:54:35+08:00
 tags = ["HHKB", "MacOS", "Karabiner", "Vim", "Emacs"]
 categories = ["计算机"]
 draft = false
+creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 +++
 
 `Karabiner-Elements` 是 MacOS 系统下键盘映射的神器, 以前的名称叫做 `Karabiner`, 自从 MacOS 升级到 10.12 以后, 由于键盘驱动的修改导致了 `Karabiner` 不能正常工作,
@@ -14,7 +15,7 @@ draft = false
 <!--more-->
 
 
-## HHKB 和标准 QWERTY 的键盘布局比较 {#hhkb-和标准-qwerty-的键盘布局比较}
+## <span class="section-num">1</span> HHKB 和标准 QWERTY 的键盘布局比较 {#hhkb-和标准-qwerty-的键盘布局比较}
 
 {{< figure src="/ox-hugo/hhkb-layout.png" caption="&#22270;1&nbsp; HHKB 键盘布局" width="600" >}}
 
@@ -30,16 +31,16 @@ draft = false
 下面我们就使用 `Karabinder-Elements` 让 HHKB 更顺手.
 
 
-## Karabiner-Elements 配置 {#karabiner-elements-配置}
+## <span class="section-num">2</span> Karabiner-Elements 配置 {#karabiner-elements-配置}
 
 首先<https://pqrs.org/osx/karabiner/>下载这个软件, 当前版本是 12.8.0. 安装完成以后,
 可以使用 GUI 界面进行简单的配置以及导入互联网上由其他用户分享的复杂配置. 我们自己调教 HHKB 的话, 不免进行比较复杂的配置, 所以还是直接打开 Karabiner-Elements 的配置文件直接修改比较好. 另外这些修改可以被 Karabiner-Elements 实时更新, 不用重启软件,还是相当方便的. 配置文件在 `~/.config/karabiner/karabiner.json` 文件中.
 
 
-## 配置举例 {#配置举例}
+## <span class="section-num">3</span> 配置举例 {#配置举例}
 
 
-### 右侧 `Command` 改成 `Option`, `Option` 改成 `Control` {#右侧-command-改成-option-option-改成-control}
+### <span class="section-num">3.1</span> 右侧 `Command` 改成 `Option`, `Option` 改成 `Control` {#右侧-command-改成-option-option-改成-control}
 
 由于 HHKB 右侧(包括苹果笔记本的键盘上)没有 `Control` 按键, 非常不方便, 反倒是右侧 `Command` 按键用的比较少, 这里把右侧的 `Command` 改成 `Option`, `Option` 改成右 `Control`
 
@@ -65,7 +66,7 @@ draft = false
 ```
 
 
-### `Alt + hjkl` 模拟方向键, `Ctrl-a`, `Ctrl-e` 行首, 行尾 等 {#alt-plus-hjkl-模拟方向键-ctrl-a-ctrl-e-行首-行尾-等}
+### <span class="section-num">3.2</span> `Alt + hjkl` 模拟方向键, `Ctrl-a`, `Ctrl-e` 行首, 行尾 等 {#alt-plus-hjkl-模拟方向键-ctrl-a-ctrl-e-行首-行尾-等}
 
 ```json
 {
@@ -236,7 +237,7 @@ draft = false
 ```
 
 
-### `Esc` 模拟 `` ` `` {#esc-模拟}
+### <span class="section-num">3.3</span> `Esc` 模拟 `` ` `` {#esc-模拟}
 
 使用 `Command + Esc` 模拟 `` Command + ` ``, MacOS 的窗口切换热键.
 
@@ -367,7 +368,7 @@ draft = false
 ```
 
 
-### `Capslock` 和 `Control` 复用 {#capslock-和-control-复用}
+### <span class="section-num">3.4</span> `Capslock` 和 `Control` 复用 {#capslock-和-control-复用}
 
 单击 `Control` 发送 `Capslock`, 如果是组合键, 发送 `Control` 的组合键.
 
@@ -436,7 +437,7 @@ HHKB 保持一致, 如果你喜欢把 Capslock 当成 `Escape`, 这里修改下�
 ```
 
 
-### 模拟 iOS 的双击 Shift 切换输入法 {#模拟-ios-的双击-shift-切换输入法}
+### <span class="section-num">3.5</span> 模拟 iOS 的双击 Shift 切换输入法 {#模拟-ios-的双击-shift-切换输入法}
 
 双击左侧的 `Shift` 发送 `Capslock` 切换大小写, 否则当作标准 `Shift`.
 
@@ -485,7 +486,7 @@ HHKB 保持一致, 如果你喜欢把 Capslock 当成 `Escape`, 这里修改下�
 ```
 
 
-### 双击 `右 Shift` 模拟 appcode 的智能搜索 {#双击-右-shift-模拟-appcode-的智能搜索}
+### <span class="section-num">3.6</span> 双击 `右 Shift` 模拟 appcode 的智能搜索 {#双击-右-shift-模拟-appcode-的智能搜索}
 
 Xcode 中双击右 `Shift` 发送 `Shift + Command + o` 进行智能搜索(模拟 idea).
 
@@ -759,7 +760,7 @@ iTerm 中双击右 `Shift` 发送 `Ctrl + r` 进行搜索历史, 配合 peco 使
 ```
 
 
-### 在终端中重度配合 tmux {#在终端中重度配合-tmux}
+### <span class="section-num">3.7</span> 在终端中重度配合 tmux {#在终端中重度配合-tmux}
 
 在终端中（iTerm 和 Mac 终端）配 tmux 使用, 我的 tmux 快捷键是 `Alt - z`, 由于这个配置比较多，这里只截取一部分的配置，其他的配置都是类似的。
 
@@ -804,7 +805,7 @@ iTerm 中双击右 `Shift` 发送 `Ctrl + r` 进行搜索历史, 配合 peco 使
 ```
 
 
-## 配置调试技巧 {#配置调试技巧}
+## <span class="section-num">4</span> 配置调试技巧 {#配置调试技巧}
 
 可以打开 Karabiner 的配置界面中最后的选项卡 `log` 来查看配置是否正确, 如果有错误,
 Karabinder-Elements 会自己输出一条红色的错误日志.
