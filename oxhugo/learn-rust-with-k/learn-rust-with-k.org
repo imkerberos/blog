@@ -86,7 +86,8 @@ Right!
 #+END_QUOTE
 
 ** 分号
-
+** 数字类型
+** 循环打印数字
 
 * DONE 跟老 K 一起学 Rust (一)
 :PROPERTIES:

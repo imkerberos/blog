@@ -15,13 +15,13 @@ disqusShortname = "imkerberos"
 googleAnalytics = "UA-30583028-1"
 
 [Author]
-name = "Eviler"
+name = "Evilee"
 avatar = "img/300.jpg"
 
 [Params]
 subtitle = "种下去的是代码，收获的是 Bug。"
 description = "关于一切的 Blog"
-copyright = "Eviler"
+copyright = "Evilee"
 opengraph = true
 twitter_cards = true
 readmore = false

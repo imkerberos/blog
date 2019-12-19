@@ -2,7 +2,7 @@
 title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-18
-lastmod = 2019-12-19T11:59:05+08:00
+lastmod = 2019-12-19T12:00:51+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
@@ -76,3 +76,9 @@ impl std::fmt::Display for Person {
 
 
 ## <span class="section-num">2</span> 分号 {#分号}
+
+
+## <span class="section-num">3</span> 数字类型 {#数字类型}
+
+
+## <span class="section-num">4</span> 循环打印数字 {#循环打印数字}
