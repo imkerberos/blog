@@ -2,15 +2,15 @@
 title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-18
-lastmod = 2019-12-19T11:52:18+08:00
+lastmod = 2019-12-19T11:59:05+08:00
 tags = ["Rust"]
 categories = ["计算机"]
-draft = false
+draft = true
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 weight = 1001
 +++
 
-`Trait` 和 `Display`
+## <span class="section-num">1</span> `Trait` 和 `Display` {#trait-和-display}
 
 <!--more-->
 
@@ -73,3 +73,6 @@ impl std::fmt::Display for Person {
 > 猜一下， 是 `{{{}` ? 不美观，而且看样占位符实际上是两个字符: `{` 和 `}`, 美观点也应该是： `{{}}`.
 >
 > Right!
+
+
+## <span class="section-num">2</span> 分号 {#分号}

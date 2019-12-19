@@ -13,13 +13,13 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
-* DONE 跟老 K 一起学 Rust (二)
+* TODO 跟老 K 一起学 Rust (二)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part2
 :EXPORT_DATE: 2019-12-18
 :END:
 
-=Trait= 和 =Display=
+** =Trait= 和 =Display=
 
 <!--more-->
 #+NAME: 程序一
@@ -84,6 +84,8 @@ impl std::fmt::Display for Person {
 
 Right!
 #+END_QUOTE
+
+** 分号
 
 
 * DONE 跟老 K 一起学 Rust (一)
