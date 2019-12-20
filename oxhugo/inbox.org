@@ -26,6 +26,15 @@
 :END:
 这里是我的博客。
 
+** TODO 打造顺手的终端控制台工作环境                                           :@计算机:tmux:
+*** 0x00 用到的材料
+1. tmux
+2. zsh
+3. zplug
+4. karabiner-elements
+5. xkeysnail
+6. xclip
+
 ** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:RIME:
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法
 ** TODO MacOS 中的 tmux 配置
