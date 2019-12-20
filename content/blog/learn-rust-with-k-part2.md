@@ -2,7 +2,7 @@
 title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-18
-lastmod = 2019-12-19T18:01:46+08:00
+lastmod = 2019-12-20T19:19:18+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
@@ -113,7 +113,10 @@ impl std::fmt::Display for Person {
 
 这段代码中的函数 `fmt` 函数体中只有一个语句： `write!`, 而且这一个语句的后面 **没有**
 分号！并且此函数明确标明了返回一个 `Result` 类型的值，但是函数体内部并没有
-`return`. 这不是错误。Rust 是一个基于表达式的语言，也就是每一个 Rust 的语句都可以 **求值**.
+`return`. 这不是错误。Rust 是一个基于表达式的语言，也就是每一个 Rust 的语句都可以 **求值**. 在 Rust 中，语句分为两种：
+
+1.  声明语句
+2.  表达式语句
 
 
 ## <span class="section-num">4</span> 数字类型 {#数字类型}
