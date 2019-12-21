@@ -13,6 +13,18 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
+* TODO 跟老 K 一起学 Rust (三)
+:PROPERTIES:
+:EXPORT_FILE_NAME: learn-rust-with-k-part3
+:END:
+
+** 从简单的栗子开始
+** ~Drop~ trait
+** 词法空间
+** 借用和引用
+** 多引用
+** 可变引用
+
 * DONE 跟老 K 一起学 Rust (二)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part2

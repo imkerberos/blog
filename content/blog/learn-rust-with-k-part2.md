@@ -2,12 +2,12 @@
 title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-20
-lastmod = 2019-12-21T12:58:31+08:00
+lastmod = 2019-12-21T13:02:32+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1001
+weight = 1002
 +++
 
 <!--more-->
