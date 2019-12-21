@@ -1,4 +1,4 @@
-#+TITLE: 跟老 K 一起学 Rust
+#+TITLE: 陪老 K 一起学 Rust
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
 #+OPTIONS: creator:t toc:nil num:t
@@ -13,7 +13,7 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
-* TODO 跟老 K 一起学 Rust (二)
+* TODO 陪老 K 一起学 Rust (二)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part2
 :EXPORT_DATE: 2019-12-18
@@ -140,7 +140,7 @@ impl std::fmt::Display for Person {
 ** 数字类型
 ** 循环打印数字
 
-* DONE 跟老 K 一起学 Rust (一)
+* DONE 陪老 K 一起学 Rust (一)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part1
 :EXPORT_DATE: 2019-12-18
