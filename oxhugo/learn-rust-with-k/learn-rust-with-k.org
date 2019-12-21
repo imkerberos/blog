@@ -154,7 +154,7 @@ let a = {
 }
 #+END_SRC
 
-上面代码中 ~a~ 的值是 4. 但是如果 src_rust[:exports code] { inner * inner } 用
+上面代码中 ~a~ 的值是 4. 但是如果 src_rust[:exports code]{ inner * inner } 用
 ~;~ 强制转换成语句后， ~a~ 的值和类型都变成了 ~()~.
 
 函数的返回值也一样，在 Rust 的函数体中，最后一个表达式的值作为函数的返回

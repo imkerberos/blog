@@ -2,7 +2,7 @@
 title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-20
-lastmod = 2019-12-21T12:50:51+08:00
+lastmod = 2019-12-21T12:53:23+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -131,7 +131,7 @@ let a = {
 }
 ```
 
-上面代码中 `a` 的值是 4. 但是如果 src\_rust[:exports code] { inner \* inner } 用
+上面代码中 `a` 的值是 4. 但是如果 ` inner * inner ` 用
 `;` 强制转换成语句后， `a` 的值和类型都变成了 `()`.
 
 函数的返回值也一样，在 Rust 的函数体中，最后一个表达式的值作为函数的返回值。 `return` 语句通常用在提前返回的情况下。
