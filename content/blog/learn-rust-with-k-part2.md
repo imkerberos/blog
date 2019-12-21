@@ -2,7 +2,7 @@
 title = "陪老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-20
-lastmod = 2019-12-21T23:59:41+08:00
+lastmod = 2019-12-22T00:03:07+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -145,10 +145,10 @@ C 语言那样的隐式转换。Rust 的类型名称也比较有规律：
 <div class="ox-hugo-table striped table-striped noboldheader">
 <div></div>
 
-| 8  | 16  | 32  | 64  | 128  | 32/64 |
-|----|-----|-----|-----|------|-------|
-| i8 | i16 | i32 | i64 | i128 | isize |
-| u8 | u16 | u32 | u64 | u128 | usize |
+| 单字节 | 双字节 | 四字节 | 八字节 | 十六字节 | 四/八字节 |
+|-----|-----|-----|-----|------|-------|
+| i8  | i16 | i32 | i64 | i128 | isize |
+| u8  | u16 | u32 | u64 | u128 | usize |
 
 </div>
 
