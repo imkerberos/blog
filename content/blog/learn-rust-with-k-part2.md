@@ -2,7 +2,7 @@
 title = "跟老 K 一起学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-20
-lastmod = 2019-12-21T12:53:23+08:00
+lastmod = 2019-12-21T12:58:31+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -142,9 +142,15 @@ let a = {
 Rust 中的数字类型都是明确的，并且类型之间只能使用 `as` 进行显示转换，不允许类似
 C 语言那样的隐式转换。Rust 的类型名称也比较有规律：
 
-| i8 | i16 | i32 | i64 | i128 | isize |
+<div class="ox-hugo-table striped table-striped noboldheader">
+<div></div>
+
+| 8  | 16  | 32  | 64  | 128  | 32/64 |
 |----|-----|-----|-----|------|-------|
+| i8 | i16 | i32 | i64 | i128 | isize |
 | u8 | u16 | u32 | u64 | u128 | usize |
+
+</div>
 
 再也不用费劲记忆 `short`, `int`, `long`, `longlong` 是多少字节了。:)
 `iszie` 和 `usize` 比较特殊一点，想来是为了方便和 C 进行混合编程。
