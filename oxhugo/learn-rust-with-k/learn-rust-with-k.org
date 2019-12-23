@@ -22,9 +22,8 @@
 ** ~Drop~ trait
 ** 词法空间
 ** 借用和引用
-** 多引用
+** 同时引用
 ** 可变引用
-
 * DONE 陪老 K 一起学 Rust (二)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part2
