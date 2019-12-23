@@ -18,8 +18,148 @@
 :EXPORT_FILE_NAME: learn-rust-with-k-part3
 :END:
 
+从简单的栗子开始。
+
+<!--more-->
+
 ** 从简单的栗子开始
+#+BEGIN_SRC rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+fn uses_foobar(foobar: Foobar) {
+    println!("I consumed a Foobar: {:?}", foobar);
+}
+
+fn main() {
+    let x = Foobar(1);
+    uses_foobar(x);
+}
+#+END_SRC
+
+src_rust[:exports code]{#[derive(Debug)]} 是一个编译器程序，这里让 ~Foobar~ 继承
+~Debug~ trait, 以便于后面的 ~uses_foobar~ 函数中调用 ~println!~ 使用 ~{:?}~ 占位符进行插值打印。
+
+src_rust[:exports code]{struct Foobar(i32);} 将一个 =元组= 封装成新的数据类型 =Foobar=.
+
+运行程序可以看到打印输出。
+#+BEGIN_EXAMPLE
+I consumed a Foobar: Foobar(1)
+#+END_EXAMPLE
+
+
+现在修改一下 ~main~ 函数，我们仅仅是希望打印两次 ~x~ 的值，所以调用了两次
+~uses_foobar~ 。
+#+BEGIN_SRC rust
+fn main() {
+    let x = Foobar(1);
+
+    uses_foobar(x);
+    uses_foobar(x);
+}
+#+END_SRC
+
+编译代码，可以看到编译器报错了：
+
+#+BEGIN_EXAMPLE
+error[E0382]: use of moved value: `x`
+  --> l11.rs:11:16
+   |
+9  |     let x = Foobar(1);
+   |         - move occurs because `x` has type `Foobar`, which does not implement the `Copy` trait
+10 |     use_foobar(x);
+   |                - value moved here
+11 |     use_foobar(x);
+   |                ^ value used here after move
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`
+#+END_EXAMPLE
+
 ** ~Drop~ trait
+Rust 的值在超出其作用域以后会被释放，内存也会被回收，这没什么槽点，因为在 C 语言
+中，所有的栈上的 =局部变量= 也是这样的。 我们按照自己的思维定势来分析下发生了什
+么。
+
+#+BEGIN_SRC rust
+fn main() {
+    let x = Foobar(1); // 局部变量 x, 没问题。
+
+    uses_foobar(x); // 传入 x 使用。
+    uses_foobar(x); // 传入 x 使用。
+}
+// main 函数退出， x 被释放回收。
+#+END_SRC
+
+~Drop~ trait 是 Rust 中变量释放时运行的清理代码。其实现如下:
+#+BEGIN_SRC rust
+impl Drop for Foobar {
+    fn drop(&mut self) {
+        println!("Dropping a Foobar: {:?}", self);
+    }
+}
+#+END_SRC
+
+这里提前引入了 src_rust[:exports code]{&mut self} 这种参数传递方式，后面很快就解
+释它。为了更清楚得分析，故意创造几个作用域并在关键点进行打印。
+#+BEGIN_SRC rust
+fn main() {
+    println!("before enter scope");
+    {
+        println!("enter scope");
+        let x = Foobar(1);
+        println!("before uses_foobar");
+        //uses_foobar(x);
+        println!("after uses_foobar");
+        println!("will leave scope");
+    }
+    println!("leave scope");
+}
+#+END_SRC
+
+以上代码输出:
+#+BEGIN_EXAMPLE
+before enter scope
+enter scope
+before uses_foobar
+after uses_foobar
+will leave scope
+Dropping a Foobar: Foobar(1)
+leave scope
+#+END_EXAMPLE
+
+符合我们的预期，现在加入 ~uses_foobar~ 调用：
+#+BEGIN_SRC rust
+fn main() {
+    println!("before enter scope");
+    {
+        println!("enter scope");
+        let x = Foobar(1);
+        println!("before uses_foobar");
+        uses_foobar(x);
+        println!("after uses_foobar");
+        println!("will leave scope");
+    }
+    println!("leave scope");
+}
+#+END_SRC
+
+输出：
+#+BEGIN_EXAMPLE
+before enter scope
+enter scope
+before uses_foobar
+I consumed a Foobar: Foobar(1)
+Dropping a Foobar: Foobar(1)
+after uses_foobar
+will leave scope
+leave scop
+#+END_EXAMPLE
+
+看 =Dropping= 的时机，两个代码段明显不一样，而且第二个代码段的输出明显和我们预想的
+不一样，发生了什么？
+
 ** 词法空间
 ** 借用和引用
 ** 同时引用
