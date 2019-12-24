@@ -2,7 +2,7 @@
 title = "陪老 K 一起学 Rust (三)"
 author = ["Eviler"]
 date = 2019-12-24
-lastmod = 2019-12-24T16:41:19+08:00
+lastmod = 2019-12-24T16:42:04+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -132,7 +132,10 @@ leave scope
 fn main() {
     println!("before enter scope");
     {
-        println!("enter scope"); let x = Foobar(1); println!("before uses_foobar"); uses_foobar(x);
+        println!("enter scope");
+        let x = Foobar(1);
+        println!("before uses_foobar");
+        uses_foobar(x);
         println!("after uses_foobar");
         println!("will leave scope");
     }
