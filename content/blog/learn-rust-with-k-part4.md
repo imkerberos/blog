@@ -1,7 +1,7 @@
 +++
-title = "陪老 K 一起学 Rust (四)"
+title = "陪老 K 学 Rust (四)"
 author = ["Eviler"]
-lastmod = 2019-12-24T16:37:02+08:00
+lastmod = 2019-12-24T16:48:23+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true

@@ -1,13 +1,13 @@
 +++
-title = "陪老 K 一起学 Rust (一)"
+title = "陪老 K 学 Rust (一)"
 author = ["Eviler"]
 date = 2019-12-18
-lastmod = 2019-12-21T23:58:42+08:00
+lastmod = 2019-12-24T16:48:23+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1002
+weight = 1004
 +++
 
 开始之前的环境配置， 本节是繁琐的准备工作，已经完成的同学可以跳过。

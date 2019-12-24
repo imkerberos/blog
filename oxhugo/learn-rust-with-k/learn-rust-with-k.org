@@ -1,4 +1,4 @@
-#+TITLE: 陪老 K 一起学 Rust
+#+TITLE: 陪老 K 学 Rust
 #+STARTUP: inlineimages content
 #+AUTHOR: Eviler
 #+OPTIONS: creator:t toc:nil num:t
@@ -13,7 +13,7 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
-* TODO 陪老 K 一起学 Rust (四)
+* TODO 陪老 K 学 Rust (四)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part4
 :END:
@@ -27,7 +27,7 @@
 ** 同时引用
 ** 可变引用
 
-* DONE 陪老 K 一起学 Rust (三)
+* DONE 陪老 K 学 Rust (三)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part3
 :EXPORT_DATE: 2019-12-24
@@ -211,7 +211,7 @@ src_rust[:exports code]{fn uses_foobar(foobar: Foobar)} 的形参 ~foobar~,
    策略可能也能写出安全的代码，但是遵循这种策略确一定能写出安全的代码，并且还自
    带静态分析工具，我们何乐而不为呢？
 
-* DONE 陪老 K 一起学 Rust (二)
+* DONE 陪老 K 学 Rust (二)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part2
 :EXPORT_DATE: 2019-12-20
@@ -416,7 +416,7 @@ fn main() {
 
 ~for~ 语句和 C 长得不一样了， Rust 的 ~for~ 变成了 =迭代= 的形式。
 
-* DONE 陪老 K 一起学 Rust (一)
+* DONE 陪老 K 学 Rust (一)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part1
 :EXPORT_DATE: 2019-12-18
