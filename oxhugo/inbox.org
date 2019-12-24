@@ -51,6 +51,19 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
 :END:
 
+** 2020 年值得学习的新旧语言
+:PROPERTIES:
+:EXPORT_FILE_NAME: programming-languages-which-be-worth-to-learn
+:EXPORT_DATE: 2019-12-23
+:END:
+2020 年值得学习的新语言和古董语言。
+<!--more-->
+
+1. C: 倚天剑，不解释。
+2. Python: 屠龙刀，糙快猛。
+3. Rust: 大家都想学。
+4. Swift: 简单的 Rust.
+
 ** 在 org-mode 中内嵌源代码                                                    :@计算机:Emacs:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: inline-code-block-in-org_mode
