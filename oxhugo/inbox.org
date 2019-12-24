@@ -63,6 +63,7 @@ caddy + v2ray + tls 配置
 2. Python: 屠龙刀，糙快猛。
 3. Rust: 大家都想学。
 4. Swift: 简单的 Rust.
+5. Scheme: 码农应该把它当情人。
 
 ** 在 org-mode 中内嵌源代码                                                    :@计算机:Emacs:org_mode:
 :PROPERTIES:
