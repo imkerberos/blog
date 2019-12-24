@@ -51,7 +51,7 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
 :END:
 
-** 2020 年值得学习的新旧语言
+** 2020 年最值得学习的新旧语言
 :PROPERTIES:
 :EXPORT_FILE_NAME: programming-languages-which-be-worth-to-learn
 :EXPORT_DATE: 2019-12-23

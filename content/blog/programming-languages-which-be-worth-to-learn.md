@@ -1,8 +1,8 @@
 +++
-title = "2020 年值得学习的新旧语言"
+title = "2020 年最值得学习的新旧语言"
 author = ["Eviler"]
 date = 2019-12-23
-lastmod = 2019-12-24T16:59:00+08:00
+lastmod = 2019-12-24T17:00:19+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 authorbox = true
