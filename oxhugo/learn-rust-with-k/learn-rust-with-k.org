@@ -148,7 +148,8 @@ leave scope
 #+BEGIN_SRC rust
 fn main() {
     println!("before enter scope");
-   {println!("enter scope"); let x = Foobar(1); println!("before uses_foobar"); uses_foobar(x);
+    {
+        println!("enter scope"); let x = Foobar(1); println!("before uses_foobar"); uses_foobar(x);
         println!("after uses_foobar");
         println!("will leave scope");
     }
