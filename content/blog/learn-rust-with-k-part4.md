@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (四)"
 author = ["Eviler"]
 date = 2019-12-15
-lastmod = 2019-12-25T17:04:13+08:00
+lastmod = 2019-12-25T17:05:40+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -256,4 +256,42 @@ fn main() {
     uses_foobar(y);
     println!("After uses_foobar");
 }
+```
+
+```text
+error[E0596]: cannot borrow `x` as mutable, as it is not declared as mutable
+  --> l17.rs:16:26
+   |
+15 |     let x: Foobar = Foobar(1);
+   |         - help: consider changing this to be mutable: `mut x`
+16 |     let y: &mut Foobar = &mut x;
+   |                          ^^^^^^ cannot borrow as mutable
+
+error[E0502]: cannot borrow `x` as immutable because it is also borrowed as mutable
+  --> l17.rs:18:17
+   |
+16 |     let y: &mut Foobar = &mut x;
+   |                          ------ mutable borrow occurs here
+17 |     println!("Before uses_foobar");
+18 |     uses_foobar(&x); // 编译报错
+   |                 ^^ immutable borrow occurs here
+19 |     std::mem::drop(x);
+20 |     uses_foobar(y);
+   |                 - mutable borrow later used here
+
+error[E0505]: cannot move out of `x` because it is borrowed
+  --> l17.rs:19:20
+   |
+16 |     let y: &mut Foobar = &mut x;
+   |                          ------ borrow of `x` occurs here
+...
+19 |     std::mem::drop(x);
+   |                    ^ move out of `x` occurs here
+20 |     uses_foobar(y);
+   |                 - borrow later used here
+
+error: aborting due to 3 previous errors
+
+Some errors have detailed explanations: E0502, E0505, E0596.
+For more information about an error, try `rustc --explain E0502`
 ```
