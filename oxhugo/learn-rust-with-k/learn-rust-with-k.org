@@ -492,6 +492,7 @@ src_rust[:exports code]{fn uses_foobar(foobar: Foobar)} 的形参 ~foobar~,
 :EXPORT_DATE: 2019-12-20
 :END:
 
+万年的 ~Hello World!~.
 <!--more-->
 
 ** 宏

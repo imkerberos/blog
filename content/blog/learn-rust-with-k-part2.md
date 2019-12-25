@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (二)"
 author = ["Eviler"]
 date = 2019-12-20
-lastmod = 2019-12-24T16:48:23+08:00
+lastmod = 2019-12-25T17:08:37+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -10,6 +10,7 @@ creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 weight = 1003
 +++
 
+万年的 `Hello World!`.
 <!--more-->
 
 
