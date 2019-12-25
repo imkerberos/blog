@@ -15,7 +15,7 @@
 
 * DONE 陪老 K 学 Rust (四)
 :PROPERTIES:
-:EXPORT_FILE_NAME: learn-rust-with-k-part5
+:EXPORT_FILE_NAME: learn-rust-with-k-part4
 :EXPORT_DATE: 2019-12-15
 :END:
 
