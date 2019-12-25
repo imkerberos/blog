@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (四)"
 author = ["Eviler"]
 date = 2019-12-15
-lastmod = 2019-12-25T17:05:40+08:00
+lastmod = 2019-12-25T17:06:49+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -10,7 +10,7 @@ creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 weight = 1001
 +++
 
-借用、克隆和拷贝。
+借用和引用
 <!--more-->
 
 
