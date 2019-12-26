@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (五)"
 author = ["Eviler"]
 date = 2019-12-26
-lastmod = 2019-12-26T17:08:10+08:00
+lastmod = 2019-12-26T17:39:52+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -233,7 +233,7 @@ Dropping a Foobar: Foobar(0
 结论： 无论是否是 `mut` 绑定，都可以重新绑定。
 
 
-### <span class="section-num">2.4</span> 只读引用不变值绑定 {#只读引用不变值绑定}
+### <span class="section-num">2.4</span> 不变引用不变值绑定 {#不变引用不变值绑定}
 
 ```rust
 #[derive(Debug)]
@@ -265,7 +265,7 @@ Dropping a Foobar: Foobar(0)
 > println! 是宏而不是函数，你焉不知这个宏看上去是用的 `x`, 在背后用的是 `&x` 呢？
 
 
-### <span class="section-num">2.5</span> 只读引用可变值绑定 {#只读引用可变值绑定}
+### <span class="section-num">2.5</span> 不变引用可变值绑定 {#不变引用可变值绑定}
 
 ```rust
 #[derive(Debug)]
@@ -337,7 +337,7 @@ error: aborting due to previous error
 For more information about this error, try `rustc --explain E0384`.
 ```
 
-结论： `y` 是只读引用，其引用的值被 `mut` 修饰为可变。即： `y` 的绑定关系不能修改，但是 `y` 指向的值可以被修改。
+结论： `y` 是不变引用，其引用的值被 `mut` 修饰为可变。即： `y` 的绑定关系不能修改，但是 `y` 指向的值可以被修改。
 
 
 ### <span class="section-num">2.6</span> 可变引用不变值绑定 {#可变引用不变值绑定}
@@ -605,6 +605,11 @@ fn main() {
     let mut f2 = Greeg{age: 20, score: 80};
 }
 ```
+
+<div class="src-block-caption">
+  <span class="src-block-number">&#20195;&#30721; 1</span>:
+  Hello
+</div>
 
 在以上代码中，实际上 `Greet` 的字段都是默认可变的。:( 这听上去怎么和 Rust 的值默认不变相矛盾？
 

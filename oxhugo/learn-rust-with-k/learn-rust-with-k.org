@@ -20,6 +20,8 @@
 克隆来了。
 <!--more-->
 
+** 从引用的所有权居然没有被转移开始
+
 * DONE 陪老 K 学 Rust (五)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part5
@@ -585,6 +587,7 @@ For more information about this error, try `rustc --explain E0596`.
 容能否可变，取决于在其被绑定时的绑定方式。象 ~Foopbar~ 这种元组还不是特别明显，
 以 ~struct~ 作为参考：
 
+#+caption: Hello
 #+BEGIN_SRC rust
 struct Greet {
     age: i32,
