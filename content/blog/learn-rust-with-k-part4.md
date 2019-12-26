@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (四)"
 author = ["Eviler"]
 date = 2019-12-25
-lastmod = 2019-12-25T17:15:19+08:00
+lastmod = 2019-12-26T10:38:16+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1001
+weight = 1002
 +++
 
 借用和引用
