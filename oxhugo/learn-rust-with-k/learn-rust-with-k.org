@@ -13,6 +13,13 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
+* TODO 陪老 K 学 Rust (七)
+:PROPERTIES:
+:EXPORT_FILE_NAME: learn-rust-with-k-part7
+:END:
+迭代的姿势。
+<!--more-->
+
 * DONE 陪老 K 学 Rust (六)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part6
