@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (五)"
 author = ["Eviler"]
 date = 2019-12-26
-lastmod = 2019-12-26T19:24:48+08:00
+lastmod = 2020-01-02T10:14:38+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -233,7 +233,64 @@ Dropping a Foobar: Foobar(0
 结论： 无论是否是 `mut` 绑定，都可以重新绑定。
 
 
-### <span class="section-num">2.4</span> 不变引用不变值绑定 {#不变引用不变值绑定}
+### <span class="section-num">2.4</span> 可变性修改 {#可变性修改}
+
+```rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+impl Drop for Foobar {
+    fn drop(&mut self) {
+        println!("Dropping a Foobar: {:?}", self);
+    }
+}
+
+fn main() {
+    let x = Foobar(0);
+    println!("{:?}", x);
+    let mut y = x;
+    println!("{:?}", y);
+    y.0 = 1;
+    println!("{:?}", y);
+}
+```
+
+运行输出：
+
+```text
+Foobar(0)
+Foobar(0)
+Foobar(1)
+Dropping a Foobar: Foobar(1)
+```
+
+根据以上代码，下面的 mutable move 也就很好理解了。
+
+```rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+fn main() {
+    let x = Foobar(1);
+    foo(x);
+}
+
+fn foo(mut x: Foobar) {
+
+    x.0 = 2; // changes the 0th value inside the product
+
+    println!("{:?}", x);
+}
+```
+
+运行输出：
+
+```text
+Foobar(2)
+```
+
+
+### <span class="section-num">2.5</span> 不变引用不变值绑定 {#不变引用不变值绑定}
 
 ```rust
 #[derive(Debug)]
@@ -265,7 +322,7 @@ Dropping a Foobar: Foobar(0)
 > println! 是宏而不是函数，你焉不知这个宏看上去是用的 `x`, 在背后用的是 `&x` 呢？
 
 
-### <span class="section-num">2.5</span> 不变引用可变值绑定 {#不变引用可变值绑定}
+### <span class="section-num">2.6</span> 不变引用可变值绑定 {#不变引用可变值绑定}
 
 ```rust
 #[derive(Debug)]
@@ -340,7 +397,7 @@ For more information about this error, try `rustc --explain E0384`.
 结论： `y` 是不变引用，其引用的值被 `mut` 修饰为可变。即： `y` 的绑定关系不能修改，但是 `y` 指向的值可以被修改。
 
 
-### <span class="section-num">2.6</span> 可变引用不变值绑定 {#可变引用不变值绑定}
+### <span class="section-num">2.7</span> 可变引用不变值绑定 {#可变引用不变值绑定}
 
 ```rust
 #[derive(Debug)]
@@ -376,7 +433,7 @@ Dropping a Foobar: Foobar(0)
 结论：可变引用可以改变绑定关系， `y` 并不特殊，也遵循可变绑定和不变绑定。
 
 
-### <span class="section-num">2.7</span> 可变引用可变值绑定 {#可变引用可变值绑定}
+### <span class="section-num">2.8</span> 可变引用可变值绑定 {#可变引用可变值绑定}
 
 ```rust
 #[derive(Debug)]
@@ -412,7 +469,7 @@ Dropping a Foobar: Foobar(0)
 结论：可变引用可以改变绑定关系， `y` 并不特殊，也遵循可变绑定和不变绑定。
 
 
-### <span class="section-num">2.8</span> 不变引用的共享性 {#不变引用的共享性}
+### <span class="section-num">2.9</span> 不变引用的共享性 {#不变引用的共享性}
 
 ```rust
 #[derive(Debug)]
@@ -446,7 +503,7 @@ Dropping a Foobar: Foobar(0)
 结论： `x`, `y`, `z` 随便用。
 
 
-### <span class="section-num">2.9</span> 可变引用的排他性 {#可变引用的排他性}
+### <span class="section-num">2.10</span> 可变引用的排他性 {#可变引用的排他性}
 
 ```rust
 #[derive(Debug)]
@@ -504,7 +561,7 @@ For more information about this error, try `rustc --explain E0502`.
 2.  在 `y` 可变借用了 `x`, 以后， `println!` 的不变引用被拒绝。
 
 
-### <span class="section-num">2.10</span> 强制不变引用和强制可变引用 {#强制不变引用和强制可变引用}
+### <span class="section-num">2.11</span> 强制不变引用和强制可变引用 {#强制不变引用和强制可变引用}
 
 ```rust
 #[derive(Debug)]

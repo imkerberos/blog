@@ -249,6 +249,58 @@ Dropping a Foobar: Foobar(0
 
 结论： 无论是否是 ~mut~ 绑定，都可以重新绑定。
 
+*** 可变性修改
+#+BEGIN_SRC rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+impl Drop for Foobar {
+    fn drop(&mut self) {
+        println!("Dropping a Foobar: {:?}", self);
+    }
+}
+
+fn main() {
+    let x = Foobar(0);
+    println!("{:?}", x);
+    let mut y = x;
+    println!("{:?}", y);
+    y.0 = 1;
+    println!("{:?}", y);
+}
+#+END_SRC
+
+运行输出：
+#+BEGIN_EXAMPLE
+Foobar(0)
+Foobar(0)
+Foobar(1)
+Dropping a Foobar: Foobar(1)
+#+END_EXAMPLE
+
+根据以上代码，下面的 mutable move 也就很好理解了。
+#+BEGIN_SRC rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+fn main() {
+    let x = Foobar(1);
+    foo(x);
+}
+
+fn foo(mut x: Foobar) {
+
+    x.0 = 2; // changes the 0th value inside the product
+
+    println!("{:?}", x);
+}
+#+END_SRC
+
+运行输出：
+#+BEGIN_EXAMPLE
+Foobar(2)
+#+END_EXAMPLE
+
 *** 不变引用不变值绑定
 #+BEGIN_SRC rust
 #[derive(Debug)]
