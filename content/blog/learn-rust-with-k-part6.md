@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (六)"
 author = ["Eviler"]
 date = 2010-01-02
-lastmod = 2020-01-02T11:41:57+08:00
+lastmod = 2020-01-02T11:44:13+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -150,7 +150,7 @@ Dropping: Foobar(1)
 `Clone` trait 和 `Debug` trait 一样，都是可以自动继承的。对于复合数据类型来说，自动继承的条件是：组成复合数据类型的子数据类型必须满足 `Clone` trait.
 
 对于 Rust 来说， `Copy` trait 必须实现 `Clone` trait. 这里并不是说 `Copy` trait
-需要使用 `Clone` trait 的 `clone` 函数去复制对象，而是说可以 `Copy` 的对象是可以被 `Clone` 的，实际上 `Copy` trait 是编译器在内存中按位复制一个新的值。~Copy~
+需要使用 `Clone` trait 的 `clone` 函数去复制对象，而是说可以 `Copy` 的对象是可以被 `Clone` 的，实际上 `Copy` trait 是编译器在内存中按位复制一个新的值。 `Copy`
 trait 只是一个标志，内部没有需要实现的方法，这个标志存在意义在于告知编译器：我这个数据类型是可以按值传递的，请在需要的时候 `按位复制` 一个新的值。既然有了
 `Clone`, 为何不用 `Clone` 替代呢？因为在某些情况下，数据类型虽然实现了 `Clone`,
 但是 `Clone` 一个新值的代价非常大。
