@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (六)"
 author = ["Eviler"]
 date = 2010-01-02
-lastmod = 2020-01-02T11:44:13+08:00
+lastmod = 2020-01-02T11:45:04+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -191,7 +191,7 @@ error: aborting due to previous error
 For more information about this error, try `rustc --explain E0184`
 ```
 
-编译器报错： `Copy` trait 不能出现在具有 `Drop` trait 的数据类型上。 仔细想想也有道理， `Drop` 是数据在销毁时的回收动作，如果一个数据类型在销毁时会有资源需要回收，一方面说明它被复制时的消耗可能比较大，另一方面说明这个数据类型在使用时必然要对所释放的资源进行初始化，编译器默认的 `Copy` 动作(`按位复制`)并不能初始化这些资源，强行使用时不正确的。去掉 `Drop` trait 即可。
+编译器报错： `Copy` trait 不能出现在具有 `Drop` trait 的数据类型上。 仔细想想也有道理， `Drop` 是数据在销毁时的回收动作，如果一个数据类型在销毁时会有资源需要回收，一方面说明它被复制时的消耗可能比较大，另一方面说明这个数据类型在使用时必然要对所释放的资源进行初始化，编译器默认的 `Copy` 动作(`按位复制`)并不能初始化这些资源，强行使用是不正确的。去掉 `Drop` trait 即可。
 
 ```rust
 #[derive(Debug, Clone, Copy)]
