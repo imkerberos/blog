@@ -17,8 +17,92 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part7
 :END:
-迭代的姿势。
+结构体和枚举。
 <!--more-->
+
+** 结构体的形式
+元组形式
+#+BEGIN_SRC rust
+struct NoField;
+struct OneField(i32);
+struct TowField(u32, i32);
+#+END_SRC
+
+使用方式: 索引方式
+解构方式: 可变解构，引用解构，可变引用解构. 多余的解构，不足的解构.
+匹配方式: 可变匹配，引用匹配，可变引用匹配。
+
+记录形式
+#+BEGIN_SRC rust
+struct NoField {}
+struct OneField {
+    age: i32,
+}
+struct TowField {
+    age: i32,
+    score: i32,
+}
+#+END_SRC
+
+** 枚举的形式
+经典形式
+#+BEGIN_SRC rust
+enum Direction {
+    North,
+    East,
+    Sourth,
+    West,
+}
+#+END_SRC
+
+元组形式关联值
+#+BEGIN_SRC rust
+enum NonamedShape {
+    Square(u32),
+    Rectangle(u32, u32),
+    Circle(u32),
+}
+#+END_SRC
+
+记录形式关联值
+#+BEGIN_SRC rust
+enum NamedShape {
+    Square {
+        width: u32,
+    },
+    Rectangel {
+        width: u32,
+        height: u32,
+    },
+    Circle {
+        radio: u32,
+    },
+}
+#+END_SRC
+
+经典形式可以当作是元组形式的特殊形式，毕竟 src_rust[:exports code]{struct
+NoFieldTuple;} 是src_rust[:exports code]{struct NoField ();} 的简写。
+
+混合形式
+#+BEGIN_SRC rust
+enum HybridShape {
+    Dot,
+    Square(u32),
+    Rectangle {
+        width: u32,
+        height: u32
+    },
+    Circle(u32),
+}
+#+END_SRC
+
+** 模式解构
+元组的解构
+记录的解构
+可变解构
+引用解构
+
+** 模式匹配解构
 
 * DONE 陪老 K 学 Rust (六)
 :PROPERTIES:
