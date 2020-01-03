@@ -1,6 +1,6 @@
 #+TITLE: Swift 全栈之路
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+OPTIONS: creator:t toc:nil num:t
 #+PROPERTY: header-args :eval no
 #+LANGUAGE: zh-CN

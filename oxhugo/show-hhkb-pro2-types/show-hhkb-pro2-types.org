@@ -1,7 +1,7 @@
 #+TITLE: 显摆下 HHKB Pro2 TypeS
 #+STARTUP: inlineimages content
 #+DATE: 2015-02-13
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+LANGUAGE: zh-CN
 #+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f

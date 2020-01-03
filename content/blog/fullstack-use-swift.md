@@ -1,6 +1,6 @@
 +++
 title = "Swift 全栈之路"
-author = ["Eviler"]
+author = ["Evilee"]
 lastmod = 2019-12-31T16:15:25+08:00
 tags = ["Swift"]
 categories = ["计算机"]

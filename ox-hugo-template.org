@@ -1,6 +1,6 @@
 #+TITLE: ox-hugo 模板
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+LANGUAGE: zh-CN
 #+HUGO_BASE_DIR: ../
 #+HUGO_AUTO_SET_LASTMOD: f

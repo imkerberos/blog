@@ -1,6 +1,6 @@
 #+TITLE: Home
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+HUGO_BASE_DIR: ../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+EXPORT_FILE_NAME: _index

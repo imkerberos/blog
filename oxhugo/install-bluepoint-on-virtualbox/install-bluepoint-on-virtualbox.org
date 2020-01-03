@@ -1,6 +1,6 @@
 #+TITLE: 在 VirtualBox 上安装蓝点Linux2.0
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+DATE: 2014-12-02
 #+LANGUAGE: zh-CN
 #+HUGO_BASE_DIR: ../../

@@ -1,6 +1,6 @@
 +++
 title = "谈 flutter, react-native 和技术吹"
-author = ["Eviler"]
+author = ["Evilee"]
 lastmod = 2019-12-18T15:39:48+08:00
 categories = ["计算机"]
 draft = true

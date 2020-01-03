@@ -1,6 +1,6 @@
 +++
 title = "陪老 K 学 Rust (七)"
-author = ["Eviler"]
+author = ["Evilee"]
 lastmod = 2020-01-03T00:13:15+08:00
 tags = ["Rust"]
 categories = ["计算机"]

@@ -1,6 +1,6 @@
 #+TITLE: 游戏对象模型的设计与实现
 #+STARTUP: content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+OPTIONS: creator:t toc:nil
 #+PROPERTY: header-args :eval no
 #+LANGUAGE: zh-CN

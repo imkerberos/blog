@@ -1,6 +1,6 @@
 #+TITLE: 在 Debian 6.0 (Squeeze) 上完全分布式安装 Hadoop 集群系统
 #+STARTUP: content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+DATE: 2012-03-26
 #+OPTIONS: creator:t toc:nil num:t
 #+PROPERTY: header-args :eval no

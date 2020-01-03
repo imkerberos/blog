@@ -1,6 +1,6 @@
 #+TITLE: SSH 隧道技术保姆级讲解
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+DATE: 2012-04-02
 #+PROPERTY: header-args :eval no
 #+OPTIONS: creator:t toc:nil num:t

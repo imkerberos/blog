@@ -1,6 +1,6 @@
 #+TITLE: 码农农场
 #+STARTUP： content inlineimages
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+PROPERTY: header-args :eval no
 #+LANGUAGE: zh-CN
 #+OPTIONS: creator:t toc:nil

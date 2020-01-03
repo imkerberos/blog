@@ -1,6 +1,6 @@
 +++
 title = "在 VirtualBox 上安装蓝点 Linux2.0"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2014-12-02
 lastmod = 2019-12-18T14:06:50+08:00
 tags = ["linux", "virtualbox"]

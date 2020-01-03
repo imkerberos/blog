@@ -1,6 +1,6 @@
 +++
 title = "推荐一个 Rust 教程"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2019-12-17
 lastmod = 2019-12-19T11:37:24+08:00
 tags = ["Rust"]

@@ -1,6 +1,6 @@
 +++
 title = "如何优雅地删除 Git submodule?"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2019-12-16
 lastmod = 2019-12-20T19:20:47+08:00
 tags = ["git"]

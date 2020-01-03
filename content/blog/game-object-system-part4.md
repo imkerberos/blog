@@ -1,6 +1,6 @@
 +++
 title = "游戏对象模型设计与实现（四）"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2013-11-17
 lastmod = 2019-12-18T14:08:06+08:00
 tags = ["game", "oo", "es", "design"]

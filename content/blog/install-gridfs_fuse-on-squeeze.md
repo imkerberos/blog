@@ -1,6 +1,6 @@
 +++
 title = "在 Debian 6.0 (Squeeze) 上安装 MongoDB gridfs-fuse"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2012-04-01
 lastmod = 2019-12-15T01:47:32+08:00
 tags = ["debian", "squeeze", "nginx", "mongodb"]

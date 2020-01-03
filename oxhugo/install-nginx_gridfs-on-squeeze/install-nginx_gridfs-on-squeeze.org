@@ -1,7 +1,7 @@
 
 #+TITLE: 在 Debian 6.0 (Squeeze) 上安装 nginx_gridfs
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+PROPERTY: header-args :eval no
 #+OPTIONS: creator:t toc:nil
 #+HUGO_BASE_DIR: ../../

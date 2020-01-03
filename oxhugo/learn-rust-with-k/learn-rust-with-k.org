@@ -1,6 +1,6 @@
 #+TITLE: 陪老 K 学 Rust
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+OPTIONS: creator:t toc:nil num:t
 #+PROPERTY: header-args :eval no
 #+LANGUAGE: zh-CN

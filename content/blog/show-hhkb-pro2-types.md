@@ -1,6 +1,6 @@
 +++
 title = "显摆下 HHKB Pro2 TypeS"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2015-02-13
 lastmod = 2019-12-18T14:26:14+08:00
 tags = ["HHKB", "Emacs", "Vim"]

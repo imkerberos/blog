@@ -1,6 +1,6 @@
 #+TITLE: HHKB + Karabiner-Elements 神器配置
 #+STARTUP: inlineimages content
-#+AUTHOR: Eviler
+#+AUTHOR: Evilee
 #+LANGUAGE: zh-CN
 #+DATE: 2019-12-16
 #+PROPERTY: header-args :eval no

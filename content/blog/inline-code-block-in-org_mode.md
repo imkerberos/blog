@@ -1,6 +1,6 @@
 +++
 title = "在 org-mode 中内嵌源代码"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2019-12-19
 lastmod = 2019-12-19T11:39:22+08:00
 tags = ["Emacs", "org-mode"]

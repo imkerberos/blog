@@ -1,6 +1,6 @@
 +++
 title = "2020 年最稳的翻墙姿势"
-author = ["Eviler"]
+author = ["Evilee"]
 lastmod = 2019-12-16T23:47:32+08:00
 tags = ["caddy", "v2ray", "tls"]
 categories = ["计算机"]

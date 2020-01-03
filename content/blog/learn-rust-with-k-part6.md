@@ -1,6 +1,6 @@
 +++
 title = "陪老 K 学 Rust (六)"
-author = ["Eviler"]
+author = ["Evilee"]
 date = 2010-01-02
 lastmod = 2020-01-02T23:50:39+08:00
 tags = ["Rust"]
