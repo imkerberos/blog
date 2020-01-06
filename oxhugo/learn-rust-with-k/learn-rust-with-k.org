@@ -17,8 +17,282 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part7
 :END:
-结构体和枚举。
+结构体和枚举的解构和模式匹配。
 <!--more-->
+
+Rust 的结构体和枚举有一些新的特性，主要涉及到关联值、解构，模式匹配和解构。
+使用结构体是 Rust 中定义新数据类型的唯一方式，结构体的定义方式有两种：
+1. 元组形式
+2. 记录形式
+除了可以访问内部字段以外，两种结构体都支持解构其字段（如果有的话）。
+
+** 基本定义和使用形式
+元组和记录形式的基本定义和基本访问形式见如下代码段。
+#+BEGIN_SRC rust
+#[derive(Debug)]
+struct NoFieldTuple;
+
+#[derive(Debug)]
+struct OneFieldTuple(i32);
+
+#[derive(Debug)]
+struct TwoFieldTuple(i32, u32);
+
+#[derive(Debug)]
+struct OneFieldRecord {
+    index: u32,
+}
+
+#[derive(Debug)]
+struct TwoFieldRecord {
+    index: u32,
+    value: i32,
+}
+
+fn main() {
+    let no_field_tuple = NoFieldTuple;
+    println!("{:?}", no_field_tuple);
+    let one_field_tuple = OneFieldTuple(1);
+    println!("{:?}", one_field_tuple);
+    let mut two_field_tuple = TwoFieldTuple(2, 3);
+    println!("{:?}", two_field_tuple);
+    two_field_tuple.0 = 4;
+    two_field_tuple.1 = 5;
+    println!("{:?}", two_field_tuple);
+
+    let one_field_record = OneFieldRecord{index: 0};
+    println!("{:?}", one_field_record);
+    let mut two_field_record = TwoFieldRecord{index: 1, value: 3,};
+    println!("{:?}", two_field_record);
+    two_field_record.value = 4;
+    println!("{:?}", two_field_record);
+}
+#+END_SRC
+
+运行输出：
+#+BEGIN_EXAMPLE
+NoFieldTuple
+OneFieldTuple(1)
+TwoFieldTuple(2, 3)
+TwoFieldTuple(4, 5)
+OneFieldRecord { index: 0 }
+TwoFieldRecord { index: 1, value: 3 }
+TwoFieldRecord { index: 1, value: 4 }
+#+END_EXAMPLE
+
+元组和记录的区别：
+1. 元组形式可以用空元组来定义结构，而记录形式不可以。
+2. 元组使用索引来访问字段，记录使用标签来访问字段。
+
+** 解构
+解构 (destruct) 是指把值从某些解构中提取出来，并且绑定到新的变量上。为了更好得理
+解解构，我们写一个辅助性的函数 ~print_type_of~ 来打印变量的类型，并且使用最简单
+的 =元组= 来进行演示.
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+#+END_SRC
+
+*** 解构的基本形式
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let (x, y, z) = (0, 1, 2);
+    print_type_of(&x);
+    print_type_of(&y);
+    print_type_of(&z);
+    println!("x:{}, y:{}, z:{}", x, y, z);
+}
+#+END_SRC
+运行输出：
+#+BEGIN_EXAMPLE
+i32
+i32
+i32
+x:0, y:1, z:2
+#+END_EXAMPLE
+
+不关心的解构字段用 ~_~ 进行占位，如：
+#+BEGIN_SRC rust
+fn main() {
+    let (x, _, z) = (0, 1, 2);
+    println!("x:{}, z:{}", x, z);
+}
+#+END_SRC
+运行输出:
+#+BEGIN_EXAMPLE
+x:0, z:2
+#+END_EXAMPLE
+
+
+#+BEGIN_QUOTE
+解构要诀：
+1. 使用 ~let~, ~=~ 左右两边的类型一致。
+#+END_QUOTE
+
+由于变量数量不足而引起的类型不匹配：
+#+BEGIN_SRC rust
+fn main() {
+    let (x, y) = (0, 1, 2);
+    println!("x:{}, y:{}", x, y);
+}
+#+END_SRC
+编译报错：
+#+BEGIN_EXAMPLE
+error[E0308]: mismatched types
+ --> r28.rs:2:9
+  |
+2 |     let (x, y) = (0, 1, 2);
+  |         ^^^^^^ expected a tuple with 3 elements, found one with 2 elements
+  |
+  = note: expected type `({integer}, {integer}, {integer})`
+             found type `(_, _)`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0308`
+#+END_EXAMPLE
+#+BEGIN_QUOTE
+有些编程语言在解构变量数量不足时，最后一个变量会解构所有剩余的元组元素，从而变成一个
+元组，但是 Rust 不会。
+#+END_QUOTE
+
+*** 解构出可变绑定
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let (x, mut y, z) = (0, 1, 2);
+    print_type_of(&x);
+    print_type_of(&y);
+    print_type_of(&z);
+    println!("x:{}, y:{}, z:{}", x, y, z);
+    y = 4;
+    println!("{:}", y);
+}
+#+END_SRC
+
+运行输出
+#+BEGIN_EXAMPLE
+i32
+i32
+i32
+x:0, y:1, z:2
+4
+#+END_EXAMPLE
+
+*** 解构出引用
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let (x, *y, z) = (0, 1, 2);
+    print_type_of(&x);
+    print_type_of(&y);
+    print_type_of(&z);
+    println!("x:{}, y:{}, z:{}", x, y, z);
+}
+#+END_SRC
+
+我们妄图使用 ~*y = i32~ 的形式解构出一个 ~&i32~, 编译器报错：
+#+BEGIN_EXAMPLE
+error: expected pattern, found `*`
+ --> r28.rs:2:13
+  |
+2 |     let (x, *y, z) = (0, 1, 2);
+  |             ^ expected pattern
+
+error: aborting due to previous error
+#+END_EXAMPLE
+
+???, 原来想解构出 =引用= 的语法形式是 ~ref~, 为什么 *不是* ~*x~ 的形式？
+#+BEGIN_QUOTE
+1. 因为如果使用 ~*x~ 的形式在解构出一个 =可变引用= 的情况下，其语法会变成： ~mut
+   *x~ 或者 ~*mut x~.
+2. 从形式的一致性来说： ~let p = &mut x;~ 这种绑定也符合 =解构= 的一般形式。
+3. ~*~ 实际上是一个 ~deref~ 的运算符，如果用 ~*~ 表示 ~ref~ 解构的话，是有语法歧
+   义的。
+#+END_QUOTE
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let (x, ref y, z) = (0, 1, 2);
+    print_type_of(&x);
+    print_type_of(&y);
+    print_type_of(&z);
+    println!("x:{}, y:{}, z:{}", x, y, z);
+}
+#+END_SRC
+
+运行输出:
+#+BEGIN_EXAMPLE
+i32
+&i32
+i32
+x:0, y:1, z:2
+#+END_EXAMPLE
+
+如果要解构出一个 ~ref mut~ 呢？
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let (x, ref mut y, z) = (0, 1, 2);
+    print_type_of(&x);
+    print_type_of(&y);
+    print_type_of(&z);
+    println!("x:{}, y:{}, z:{}", x, y, z);
+}
+#+END_SRC
+运行输出:
+#+BEGIN_EXAMPLE
+i32
+&mut i32
+i32
+x:0, y:1, z:
+#+END_EXAMPLE
+
+如果要解构出一个 ~mut ref~ 呢？
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let (x, mut ref y, z) = (0, 1, 2);
+    print_type_of(&x);
+    print_type_of(&y);
+    print_type_of(&z);
+    println!("x:{}, y:{}, z:{}", x, y, z);
+}
+#+END_SRC
+不要太想当然 :(, 编译器报错。
+#+BEGIN_EXAMPLE
+error: the order of `mut` and `ref` is incorrect
+ --> r29.rs:6:13
+  |
+6 |     let (x, mut ref y, z) = (0, 1, 2);
+  |             ^^^^^^^ help: try switching the order: `ref mut`
+
+error: aborting due to previous error
+#+END_EXAMPLE
+
+
+*** 生命周期和解构
+
 
 ** 结构体的形式
 元组形式
