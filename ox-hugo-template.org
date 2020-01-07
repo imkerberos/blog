@@ -12,5 +12,6 @@
 * Footnotes
 * COMMENT Local Variables   :ARCHIVE:
 # Local Variables:
+# org-hugo-link-desc-insert-type: t
 # eval: (org-hugo-auto-export-mode -1)
 # End:
