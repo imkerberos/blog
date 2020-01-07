@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (二)"
 author = ["Evilee"]
 date = 2019-12-20
-lastmod = 2019-12-26T17:39:53+08:00
+lastmod = 2020-01-07T16:40:27+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1005
+weight = 1007
 +++
 
 万年的 `Hello World!`.
@@ -41,7 +41,7 @@ println("This is a string format print: name: {}, value: {}", name, value);
 
 ## <span class="section-num">2</span> `Trait` 和 `Display` {#trait-和-display}
 
-<a id="code-snippet--程序一"></a>
+<a id="代码--程序一"></a>
 ```rust
 struct Person {
     name: String,

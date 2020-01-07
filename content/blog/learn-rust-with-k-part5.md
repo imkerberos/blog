@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (五)"
 author = ["Evilee"]
 date = 2019-12-26
-lastmod = 2020-01-02T23:56:49+08:00
+lastmod = 2020-01-07T16:40:26+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1003
+weight = 1004
 +++
 
 可变与不变
@@ -662,11 +662,6 @@ fn main() {
     let mut f2 = Greeg{age: 20, score: 80};
 }
 ```
-
-<div class="src-block-caption">
-  <span class="src-block-number">&#20195;&#30721; 1</span>:
-  Hello
-</div>
 
 在以上代码中，实际上 `Greet` 的字段都是默认可变的。:( 这听上去怎么和 Rust 的值默认不变相矛盾？
 

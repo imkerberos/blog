@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (一)"
 author = ["Evilee"]
 date = 2019-12-18
-lastmod = 2019-12-26T17:39:53+08:00
+lastmod = 2020-01-07T16:40:27+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1006
+weight = 1008
 +++
 
 开始之前的环境配置， 本节是繁琐的准备工作，已经完成的同学可以跳过。
@@ -150,4 +150,4 @@ fn main() {
 
 点击 `CodeRunner` 的运行按钮，就看到 VSCode 的输出了。
 
-{{< figure src="/ox-hugo/rust-hello-world.jpg" caption="&#22270;1&nbsp; rust hello world" width="512" >}}
+{{< figure src="/ox-hugo/rust-hello-world.jpg" caption="图 1: rust hello world" width="512" >}}

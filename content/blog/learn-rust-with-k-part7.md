@@ -1,89 +1,17 @@
 +++
 title = "陪老 K 学 Rust (七)"
 author = ["Evilee"]
-lastmod = 2020-01-06T18:54:02+08:00
+date = 2020-01-07
+lastmod = 2020-01-07T16:40:26+08:00
 tags = ["Rust"]
 categories = ["计算机"]
-draft = true
+draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1001
+weight = 1002
 +++
 
-结构体和枚举的解构和模式匹配。
+元组可以说是 Rust 最简单的自定类型。通过元组来理解 `模式匹配` 和 `解构` -现代语言的时尚特性。
 <!--more-->
-
-Rust 的结构体和枚举有一些新的特性，主要涉及到关联值、解构，模式匹配和解构。使用结构体是 Rust 中定义新数据类型的唯一方式，结构体的定义方式有两种：
-
-1.  元组形式
-2.  记录形式
-
-除了可以访问内部字段以外，两种结构体都支持解构其字段（如果有的话）。
-
-
-## <span class="section-num">1</span> 基本定义和使用形式 {#基本定义和使用形式}
-
-元组和记录形式的基本定义和基本访问形式见如下代码段。
-
-```rust
-#[derive(Debug)]
-struct NoFieldTuple;
-
-#[derive(Debug)]
-struct OneFieldTuple(i32);
-
-#[derive(Debug)]
-struct TwoFieldTuple(i32, u32);
-
-#[derive(Debug)]
-struct OneFieldRecord {
-    index: u32,
-}
-
-#[derive(Debug)]
-struct TwoFieldRecord {
-    index: u32,
-    value: i32,
-}
-
-fn main() {
-    let no_field_tuple = NoFieldTuple;
-    println!("{:?}", no_field_tuple);
-    let one_field_tuple = OneFieldTuple(1);
-    println!("{:?}", one_field_tuple);
-    let mut two_field_tuple = TwoFieldTuple(2, 3);
-    println!("{:?}", two_field_tuple);
-    two_field_tuple.0 = 4;
-    two_field_tuple.1 = 5;
-    println!("{:?}", two_field_tuple);
-
-    let one_field_record = OneFieldRecord{index: 0};
-    println!("{:?}", one_field_record);
-    let mut two_field_record = TwoFieldRecord{index: 1, value: 3,};
-    println!("{:?}", two_field_record);
-    two_field_record.value = 4;
-    println!("{:?}", two_field_record);
-}
-```
-
-运行输出：
-
-```text
-NoFieldTuple
-OneFieldTuple(1)
-TwoFieldTuple(2, 3)
-TwoFieldTuple(4, 5)
-OneFieldRecord { index: 0 }
-TwoFieldRecord { index: 1, value: 3 }
-TwoFieldRecord { index: 1, value: 4 }
-```
-
-元组和记录的区别：
-
-1.  元组形式可以用空元组来定义结构，而记录形式不可以。
-2.  元组使用索引来访问字段，记录使用标签来访问字段。
-
-
-## <span class="section-num">2</span> 解构 {#解构}
 
 解构 (destruct) 是指把值从某些解构中提取出来，并且绑定到新的变量上。为了更好得理解解构，我们写一个辅助性的函数 `print_type_of` 来打印变量的类型，并且使用最简单的 `元组` 来进行演示.
 
@@ -94,7 +22,7 @@ fn print_type_of<T>(_: &T) {
 ```
 
 
-### <span class="section-num">2.1</span> 解构的基本形式 {#解构的基本形式}
+## <span class="section-num">1</span> 解构的基本形式 {#解构的基本形式}
 
 ```rust
 fn print_type_of<T>(_: &T) {
@@ -167,7 +95,7 @@ For more information about this error, try `rustc --explain E0308`
 > 有些编程语言在解构变量数量不足时，最后一个变量会解构所有剩余的元组元素，从而变成一个元组，但是 Rust 不会。
 
 
-### <span class="section-num">2.2</span> 解构出可变绑定 {#解构出可变绑定}
+## <span class="section-num">2</span> 解构出可变绑定 {#解构出可变绑定}
 
 ```rust
 fn print_type_of<T>(_: &T) {
@@ -196,7 +124,7 @@ x:0, y:1, z:2
 ```
 
 
-### <span class="section-num">2.3</span> 解构出引用 {#解构出引用}
+## <span class="section-num">3</span> 解构出引用 {#解构出引用}
 
 ```rust
 fn print_type_of<T>(_: &T) {
@@ -225,11 +153,6 @@ error: aborting due to previous error
 ```
 
 ???, 原来想解构出 `引用` 的语法形式是 `ref`, 为什么 **不是** `*x` 的形式？
-
-> 1.  因为如果使用 `*x` 的形式在解构出一个 `可变引用` 的情况下，其语法会变成： `mut
->           *x` 或者 `*mut x`.
-> 2.  从形式的一致性来说： `let p = &mut x;` 这种绑定也符合 `解构` 的一般形式。
-> 3.  `*` 实际上是一个 `deref` 的运算符，如果用 `*` 表示 `ref` 解构的话，是有语法歧义的。
 
 ```rust
 fn print_type_of<T>(_: &T) {
@@ -308,96 +231,270 @@ error: aborting due to previous error
 ```
 
 
-### <span class="section-num">2.4</span> 生命周期和解构 {#生命周期和解构}
+## <span class="section-num">4</span> 绑定与解构 {#绑定与解构}
 
-
-## <span class="section-num">3</span> 结构体的形式 {#结构体的形式}
-
-元组形式
+从形式的一致性来说： `let p = &mut x;` 这种绑定也符合 `解构` 的一般形式。
 
 ```rust
-struct NoField;
-struct OneField(i32);
-struct TowField(u32, i32);
-```
-
-使用方式: 索引方式解构方式: 可变解构，引用解构，可变引用解构. 多余的解构，不足的解构.
-匹配方式: 可变匹配，引用匹配，可变引用匹配。
-
-记录形式
-
-```rust
-struct NoField {}
-struct OneField {
-    age: i32,
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
 }
-struct TowField {
-    age: i32,
-    score: i32,
+
+fn main() {
+    let mut v = 10;
+    print_type_of(&v);
+    let p = &v;
+    print_type_of(&p);
+    let ref p = v;
+    print_type_of(&p);
+    let ref mut p = v;
+    print_type_of(&p);
 }
 ```
 
+运行输出:
 
-## <span class="section-num">4</span> 枚举的形式 {#枚举的形式}
-
-经典形式
-
-```rust
-enum Direction {
-    North,
-    East,
-    Sourth,
-    West,
-}
-```
-
-元组形式关联值
-
-```rust
-enum NonamedShape {
-    Square(u32),
-    Rectangle(u32, u32),
-    Circle(u32),
-}
-```
-
-记录形式关联值
-
-```rust
-enum NamedShape {
-    Square {
-        width: u32,
-    },
-    Rectangel {
-        width: u32,
-        height: u32,
-    },
-    Circle {
-        radio: u32,
-    },
-}
-```
-
-经典形式可以当作是元组形式的特殊形式，毕竟 `struct NoFieldTuple;` 是`struct NoField ();` 的简写。
-
-混合形式
-
-```rust
-enum HybridShape {
-    Dot,
-    Square(u32),
-    Rectangle {
-        width: u32,
-        height: u32
-    },
-    Circle(u32),
-}
+```text
+i32
+&i32
+&i32
+&mut i32
 ```
 
 
-## <span class="section-num">5</span> 模式解构 {#模式解构}
+## <span class="section-num">5</span> 解构与生命周期 {#解构与生命周期}
 
-元组的解构记录的解构可变解构引用解构
+假设一个元组由数个元素组成，如果进行解构的话，其所有权是否会被转移？答案是 **会**,
+看代码：
+
+```rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+impl Drop for Foobar {
+    fn drop (&mut self) {
+        println!("Dropping {:?}", self);
+    }
+}
+
+fn main() {
+    let x = (Foobar(0), );
+    let (foobar,) = x;
+    println!("{:?}", foobar);
+    println!("{:?}", x);
+}
+```
+
+编译器报错：x 的所有权已经被转移。
+
+```text
+error[E0382]: borrow of moved value: `x`
+  --> r33.rs:14:22
+   |
+12 |     let (foobar,) = x;
+   |          ------ value moved here
+13 |     println!("{:?}", foobar);
+14 |     println!("{:?}", x);
+   |                      ^ value borrowed here after partial move
+   |
+   = note: move occurs because `x.0` has type `Foobar`, which does not implement the `Copy` trait
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0382`.
+```
+
+如果使用引用解构的话，则不会，符合生命周期的心智模型。
+
+```rust
+#[derive(Debug)]
+struct Foobar(i32);
+
+impl Drop for Foobar {
+    fn drop (&mut self) {
+        println!("Dropping {:?}", self);
+    }
+}
+
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let x = (Foobar(0), );
+    let (ref foobar,) = x;
+    println!("{:?}", foobar);
+    println!("{:?}", x);
+    print_type_of(&x);
+    print_type_of(&foobar);
+}
+```
+
+```text
+Foobar(0)
+(Foobar(0),)
+(r34::Foobar,)
+&r34::Foobar
+Dropping Foobar(0)
+```
 
 
-## <span class="section-num">6</span> 模式匹配解构 {#模式匹配解构}
+## <span class="section-num">6</span> 模式匹配与解构 {#模式匹配与解构}
+
+除了解构之外，元组还可以在使用 `match` 关键字进行模式匹配的同时进行解构。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 3);
+    match v {
+        (x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (x, 2) => {
+            print_type_of(&x);
+            println!("match (x, 2)");
+        },
+        (x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+```
+
+<div class="src-block-caption">
+  <span class="src-block-number">&#20195;&#30721; 1</span>:
+  模式匹配和解构
+</div>
+
+```text
+i32
+match (x, 3)
+```
+
+> 注意使用 `_` 进行默认匹配来全覆盖匹配的所有分支。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 3);
+    match &v {
+        (x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (x, 2) => {
+            print_type_of(&x);
+            println!("match (x, 2)");
+        },
+        (x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+```
+
+<div class="src-block-caption">
+  <span class="src-block-number">&#20195;&#30721; 2</span>:
+  模式匹配与解构：引用（一）
+</div>
+
+```text
+&i32
+match (x, 3)
+```
+
+使用 `ref` 来引用解构。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 3);
+    match v {
+        (ref x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (ref x, 2) => {
+            print_type_of(&x);
+            println!("match (x, 2)");
+        },
+        (ref x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+```
+
+<div class="src-block-caption">
+  <span class="src-block-number">&#20195;&#30721; 3</span>:
+  模式匹配与解构：引用（二）
+</div>
+
+```text
+&i32
+match (x, 3)
+```
+
+> 注意以上两段代码的不同点。
+
+如果要解构可变引用呢？
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let mut v = (0, 3);
+    match v {
+        (ref mut x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (ref mut x, 2) => {
+            print_type_of(&x);
+            println!("match (x, 2)");
+        },
+        (ref mut x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+```
+
+<div class="src-block-caption">
+  <span class="src-block-number">&#20195;&#30721; 4</span>:
+  模式匹配与解构：引用（三）
+</div>
+
+```text
+&mut i32
+match (x, 3)
+```
