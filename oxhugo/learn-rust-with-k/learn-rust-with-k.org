@@ -18,7 +18,7 @@
 :EXPORT_FILE_NAME: learn-rust-with-k-part8
 :END:
 
-模式匹配与解构.
+自定义数据类型：结构体。
 <!--more-->
 
 Rust 的结构体和枚举有一些新的特性，主要涉及到关联值、解构，模式匹配和解构。
