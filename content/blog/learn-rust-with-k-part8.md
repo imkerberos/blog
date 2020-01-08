@@ -1,7 +1,7 @@
 +++
 title = "陪老 K 学 Rust (八)"
 author = ["Evilee"]
-lastmod = 2020-01-08T10:28:23+08:00
+lastmod = 2020-01-08T15:45:41+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
@@ -19,7 +19,7 @@ Rust 的结构体和枚举有一些新的特性，主要涉及到关联值、解
 除了可以访问内部字段以外，两种结构体都支持解构其字段（如果有的话）。
 
 
-## <span class="section-num">1</span> 结构体的基本定义和使用形式 {#结构体的基本定义和使用形式}
+## <span class="section-num">1</span> 基本形式 {#基本形式}
 
 元组和记录形式的基本定义和基本访问形式见如下代码段。
 
@@ -85,70 +85,29 @@ TwoFieldRecord { index: 1, value: 4 }
 2.  元组使用索引来访问字段，记录使用标签来访问字段。
 
 
-## <span class="section-num">2</span> 解构结构 {#解构结构}
+## <span class="section-num">2</span> 解构 {#解构}
 
 理解了元组的解构以后，元组结构的解构就比较容易理解了，一一对应即可。
 
 ```rust
-
-```
-
-
-## <span class="section-num">3</span> 枚举的形式 {#枚举的形式}
-
-经典形式
-
-```rust
-enum Direction {
-    North,
-    East,
-    Sourth,
-    West,
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
 }
-```
 
-元组形式关联值
-
-```rust
-enum NonamedShape {
-    Square(u32),
-    Rectangle(u32, u32),
-    Circle(u32),
+struct Foobar(i32, u32);
+struct Greet {
+    f1: i32,
+    f2: u32,
 }
-```
 
-记录形式关联值
+fn main() {
+    let foobar = Foobar(1, 2);
+    let Foobar(x, y) = foobar;
 
-```rust
-enum NamedShape {
-    Square {
-        width: u32,
-    },
-    Rectangel {
-        width: u32,
-        height: u32,
-    },
-    Circle {
-        radio: u32,
-    },
-}
-```
-
-经典形式可以当作是元组形式的特殊形式，毕竟 `struct NoFieldTuple;` 是`struct NoField ();` 的简写。
-
-混合形式
-
-```rust
-enum HybridShape {
-    Dot,
-    Square(u32),
-    Rectangle {
-        width: u32,
-        height: u32
-    },
-    Circle(u32),
+    let greet = Greet{f1: 1, f2: 2};
+    let Greet{v1, v2} = greet;
 }
 ```
 
 
-## <span class="section-num">4</span> 模式匹配与解构 {#模式匹配与解构}
+## <span class="section-num">3</span> 模式匹配与解构 {#模式匹配与解构}

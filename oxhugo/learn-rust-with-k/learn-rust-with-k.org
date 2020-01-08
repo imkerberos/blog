@@ -13,6 +13,61 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
+* TODO 陪老 K 学 Rust (九)
+枚举。
+<!--more-->
+** 基本形式
+经典形式
+#+BEGIN_SRC rust
+enum Direction {
+    North,
+    East,
+    Sourth,
+    West,
+}
+#+END_SRC
+
+元组形式关联值
+#+BEGIN_SRC rust
+enum NonamedShape {
+    Square(u32),
+    Rectangle(u32, u32),
+    Circle(u32),
+}
+#+END_SRC
+
+记录形式关联值
+#+BEGIN_SRC rust
+enum NamedShape {
+    Square {
+        width: u32,
+    },
+    Rectangel {
+        width: u32,
+        height: u32,
+    },
+    Circle {
+        radio: u32,
+    },
+}
+#+END_SRC
+
+经典形式可以当作是元组形式的特殊形式，毕竟 src_rust[:exports code]{struct
+NoFieldTuple;} 是src_rust[:exports code]{struct NoField ();} 的简写。
+
+混合形式
+#+BEGIN_SRC rust
+enum HybridShape {
+    Dot,
+    Square(u32),
+    Rectangle {
+        width: u32,
+        height: u32
+    },
+    Circle(u32),
+}
+#+END_SRC
+
 * TODO 陪老 K 学 Rust (八)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part8
@@ -25,7 +80,7 @@ Rust 的结构体和枚举有一些新的特性，主要涉及到关联值、解
 2. 记录形式
 除了可以访问内部字段以外，两种结构体都支持解构其字段（如果有的话）。
 
-** 结构体的基本定义和使用形式
+** 基本形式
 元组和记录形式的基本定义和基本访问形式见如下代码段。
 #+CAPTION: struct 的基本形式
 #+BEGIN_SRC rust
@@ -84,60 +139,25 @@ TwoFieldRecord { index: 1, value: 4 }
 1. 元组形式可以用空元组来定义结构，而记录形式不可以。
 2. 元组使用索引来访问字段，记录使用标签来访问字段。
 
-** 解构结构
+** 解构
 理解了元组的解构以后，元组结构的解构就比较容易理解了，一一对应即可。
 #+BEGIN_SRC rust
-#+END_SRC
-
-** 枚举的形式
-经典形式
-#+BEGIN_SRC rust
-enum Direction {
-    North,
-    East,
-    Sourth,
-    West,
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
 }
-#+END_SRC
 
-元组形式关联值
-#+BEGIN_SRC rust
-enum NonamedShape {
-    Square(u32),
-    Rectangle(u32, u32),
-    Circle(u32),
+struct Foobar(i32, u32);
+struct Greet {
+    f1: i32,
+    f2: u32,
 }
-#+END_SRC
 
-记录形式关联值
-#+BEGIN_SRC rust
-enum NamedShape {
-    Square {
-        width: u32,
-    },
-    Rectangel {
-        width: u32,
-        height: u32,
-    },
-    Circle {
-        radio: u32,
-    },
-}
-#+END_SRC
+fn main() {
+    let foobar = Foobar(1, 2);
+    let Foobar(x, y) = foobar;
 
-经典形式可以当作是元组形式的特殊形式，毕竟 src_rust[:exports code]{struct
-NoFieldTuple;} 是src_rust[:exports code]{struct NoField ();} 的简写。
-
-混合形式
-#+BEGIN_SRC rust
-enum HybridShape {
-    Dot,
-    Square(u32),
-    Rectangle {
-        width: u32,
-        height: u32
-    },
-    Circle(u32),
+    let greet = Greet{f1: 1, f2: 2};
+    let Greet{v1, v2} = greet;
 }
 #+END_SRC
 
@@ -183,22 +203,34 @@ i32
 x:0, y:1, z:2
 #+END_EXAMPLE
 
-不关心的解构字段用 ~_~ 进行占位，如：
+不关心的解构字段用 ~_~ 或者 ~..~ 进行占位，如：
 #+BEGIN_SRC rust
 fn main() {
     let (x, _, z) = (0, 1, 2);
     println!("x:{}, z:{}", x, z);
+    let (x, ..) = (3, 4, 5);
+    println!("x:{}", x);
+    let (.., z) = (6, 7, 8, 9);
+    println!("z:{}", z);
+    let (.., y, z) = (10, 11, 12, 13, 14);
+    println!("y: {}, z:{}", y, z);
 }
 #+END_SRC
 运行输出:
 #+BEGIN_EXAMPLE
 x:0, z:2
+x:3
+z:9
+y: 13, z:1
 #+END_EXAMPLE
 
 
 #+BEGIN_QUOTE
 解构要诀：
 1. 使用 ~let~, ~=~ 左右两边的类型一致。
+2. 使用 ~_~ 作为占位符忽略 1 个匹配字段。
+3. 使用 ~..~ 作为占位符忽略首尾多个字段。
+4. 在一个解构中不能使用多个 ~..~ 进行字段忽略，因为有语义歧义。
 #+END_QUOTE
 
 由于变量数量不足而引起的类型不匹配：
