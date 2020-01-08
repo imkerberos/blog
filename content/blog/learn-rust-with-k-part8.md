@@ -1,7 +1,7 @@
 +++
 title = "陪老 K 学 Rust (八)"
 author = ["Evilee"]
-lastmod = 2020-01-07T16:40:25+08:00
+lastmod = 2020-01-08T09:57:29+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
@@ -9,7 +9,7 @@ creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 weight = 1001
 +++
 
-模式匹配与解构.
+自定义数据类型：结构体。
 <!--more-->
 
 Rust 的结构体和枚举有一些新的特性，主要涉及到关联值、解构，模式匹配和解构。使用结构体是 Rust 中定义新数据类型的唯一方式，结构体的定义方式有两种：

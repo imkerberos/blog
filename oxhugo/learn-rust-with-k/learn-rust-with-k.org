@@ -17,7 +17,6 @@
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part8
 :END:
-
 自定义数据类型：结构体。
 <!--more-->
 
