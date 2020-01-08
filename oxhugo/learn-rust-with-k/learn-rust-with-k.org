@@ -635,6 +635,50 @@ fn main() {
 match (x, 3)
 #+END_EXAMPLE
 
+** 模式匹配与条件解构
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 1);
+    match v {
+        (x, y) if y > 0 && y <= 2 => {
+            print_type_of(&x);
+            println!("match (x, y >0 && y <=2)");
+        },
+        (x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+#+END_SRC
+
+运行输出
+#+CAPTION: 运行输出
+#+BEGIN_EXAMPLE
+i32
+match (x, y >0 && y <=2)
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+1. 使用 ~if~ 来限定解构条件，本例子中是 src_rust[:exports code]{if y> 0 &&
+   y<=2}.
+2. 模式匹配是从上到下进行匹配测试的，一旦满足测试条件，则不再进行匹配测试。本例
+   子中的 ~(0, 1)~ 虽然满足前两个测试分支，但是 ~(x, 1)~ 匹配分支不会被执行。
+3. 由于语义的限制，条件解构需要使用 ~_~ 来达到全覆盖的效果。
+#+END_QUOTE
+
+
 * DONE 陪老 K 学 Rust (六)
 :PROPERTIES:
 :EXPORT_FILE_NAME: learn-rust-with-k-part6

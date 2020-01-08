@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (七)"
 author = ["Evilee"]
 date = 2020-01-07
-lastmod = 2020-01-08T15:58:52+08:00
+lastmod = 2020-01-08T16:13:25+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -510,3 +510,44 @@ fn main() {
 &mut i32
 match (x, 3)
 ```
+
+
+## <span class="section-num">7</span> 模式匹配与条件解构 {#模式匹配与条件解构}
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 1);
+    match v {
+        (x, y) if y > 0 && y <= 2 => {
+            print_type_of(&x);
+            println!("match (x, y >0 && y <=2)");
+        },
+        (x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+```
+
+运行输出
+
+```text
+i32
+match (x, y >0 && y <=2)
+```
+
+> 1.  使用 `if` 来限定解构条件，本例子中是 `if y> 0 && y<=2`.
+> 2.  模式匹配是从上到下进行匹配测试的，一旦满足测试条件，则不再进行匹配测试。本例子中的 `(0, 1)` 虽然满足前两个测试分支，但是 `(x, 1)` 匹配分支不会被执行。
+> 3.  由于语义的限制，条件解构需要使用 `_` 来达到全覆盖的效果。
