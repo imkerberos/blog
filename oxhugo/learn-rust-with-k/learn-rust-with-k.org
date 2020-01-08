@@ -153,13 +153,64 @@ struct Greet {
 }
 
 fn main() {
-    let foobar = Foobar(1, 2);
-    let Foobar(x, y) = foobar;
+    let foobar0 = Foobar(1, 2);
+    let Foobar(x, y) = foobar0;
+    print_type_of(&x);
+    print_type_of(&y);
 
-    let greet = Greet{f1: 1, f2: 2};
-    let Greet{v1, v2} = greet;
+    let greet0 = Greet{f1: 1, f2: 2};
+    let Greet{f1: v1, f2: v2} = greet0;
+    print_type_of(&v1);
+    print_type_of(&v2);
+
+    let greet1 = Greet{f1: 3, f2: 4};
+    let Greet{f1: f1, f2: f2} = greet1;
+    print_type_of(&f1);
+    print_type_of(&f2);
+
+    let greet1 = Greet{f1: 5, f2: 6};
+    let Greet{f1, f2} = greet1;
+    print_type_of(&f1);
+    print_type_of(&f2);
 }
 #+END_SRC
+
+编译输出和运行输出：
+#+BEGIN_EXAMPLE
+warning: the `f1:` in this pattern is redundant
+  --> r35.rs:23:15
+   |
+23 |     let Greet{f1: f1, f2: f2} = greet1;
+   |               ---^^^
+   |               |
+   |               help: remove this
+   |
+   = note: `#[warn(non_shorthand_field_patterns)]` on by default
+
+warning: the `f2:` in this pattern is redundant
+  --> r35.rs:23:23
+   |
+23 |     let Greet{f1: f1, f2: f2} = greet1;
+   |                       ---^^^
+   |                       |
+   |                       help: remove this
+
+i32
+u32
+i32
+u32
+i32
+u32
+i32
+u32
+#+END_EXAMPLE
+
+元组形式的解构和记录形式的解构形式上是类似的。
+
+#+BEGIN_QUOTE
+对于记录形式的结构，在字段名称和解构变量名称一致的情况下，src_rust[:exports code]{let Greet{f1: f1, f2: f2} = greet1;} 这种形式简写为：
+src_rust[:exports code]{let Greet{f1, f2} = greet1;}
+#+END_QUOTE
 
 ** 模式匹配与解构
 
@@ -698,6 +749,104 @@ match (x, y >0 && y <=2)
    子中的 ~(0, 1)~ 虽然满足前两个测试分支，但是 ~(x, 1)~ 匹配分支不会被执行。
 3. 由于语义的限制，条件解构需要使用 ~_~ 来达到全覆盖的效果。
 #+END_QUOTE
+
+** 模式匹配与绑定
+在模式匹配情况下，也可以使用 ~@~ 在匹配的同时绑定。
+
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 1);
+    match v {
+        (x, y @ 0..=2) => {
+            print_type_of(&x);
+            print_type_of(&y);
+            println!("y is: {}", y);
+            println!("match (x, y @ 0 ..= 2)");
+        },
+        (x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+#+END_SRC
+
+运行输出：
+#+BEGIN_EXAMPLE
+warning: unreachable pattern
+  --> r39.rs:14:9
+   |
+14 |         (x, 1) => {
+   |         ^^^^^^
+   |
+   = note: `#[warn(unreachable_patterns)]` on by default
+
+i32
+i32
+y is: 0
+match (x, y @ 0 ..= 2)
+#+END_EXAMPLE
+
+看上去 ~@~ 和 ~if~ 区别不大，实际上，在某些情况下， ~@~ 是非常有用的：考虑我们
+~match~ 的不是某个变量，而是某个函数的返回值，在满足条件的情况下，我们需要绑定这
+个函数的返回值进行某些操作，而其他情况下，我们不使用它，也就没有必要绑定它。而且
+使用 ~@~ 要比 ~if~ 简洁。
+
+#+BEGIN_SRC rust
+fn calculate_score() -> i32 {
+    100
+}
+
+fn main() {
+    match calculate_score() {
+        0 ..= 59 => {
+            println!("bad");
+        },
+        score @ 60..=100 => {
+            println!("good, my score is: {}", score);
+        },
+        _ => {
+            println!("invalid score");
+        }
+    }
+}
+#+END_SRC
+#+BEGIN_SRC rust
+fn calculate_score() -> i32 {
+    100
+}
+
+fn main() {
+    match calculate_score() {
+        0 ..= 59 => {
+            println!("bad");
+        },
+        score if score >= 60 && score <= 100 => {
+            println!("good, my score is: {}", score);
+        },
+        _ => {
+            println!("invalid score");
+        }
+    }
+}
+#+END_SRC
+
+运行输出:
+#+BEGIN_EXAMPLE
+good, my score is: 100
+#+END_EXAMPLE
+
 
 * DONE 陪老 K 学 Rust (六)
 :PROPERTIES:

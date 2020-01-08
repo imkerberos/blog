@@ -1,7 +1,7 @@
 +++
 title = "陪老 K 学 Rust (八)"
 author = ["Evilee"]
-lastmod = 2020-01-08T15:45:41+08:00
+lastmod = 2020-01-08T18:13:10+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
@@ -101,13 +101,63 @@ struct Greet {
 }
 
 fn main() {
-    let foobar = Foobar(1, 2);
-    let Foobar(x, y) = foobar;
+    let foobar0 = Foobar(1, 2);
+    let Foobar(x, y) = foobar0;
+    print_type_of(&x);
+    print_type_of(&y);
 
-    let greet = Greet{f1: 1, f2: 2};
-    let Greet{v1, v2} = greet;
+    let greet0 = Greet{f1: 1, f2: 2};
+    let Greet{f1: v1, f2: v2} = greet0;
+    print_type_of(&v1);
+    print_type_of(&v2);
+
+    let greet1 = Greet{f1: 3, f2: 4};
+    let Greet{f1: f1, f2: f2} = greet1;
+    print_type_of(&f1);
+    print_type_of(&f2);
+
+    let greet1 = Greet{f1: 5, f2: 6};
+    let Greet{f1, f2} = greet1;
+    print_type_of(&f1);
+    print_type_of(&f2);
 }
 ```
+
+编译输出和运行输出：
+
+```text
+warning: the `f1:` in this pattern is redundant
+  --> r35.rs:23:15
+   |
+23 |     let Greet{f1: f1, f2: f2} = greet1;
+   |               ---^^^
+   |               |
+   |               help: remove this
+   |
+   = note: `#[warn(non_shorthand_field_patterns)]` on by default
+
+warning: the `f2:` in this pattern is redundant
+  --> r35.rs:23:23
+   |
+23 |     let Greet{f1: f1, f2: f2} = greet1;
+   |                       ---^^^
+   |                       |
+   |                       help: remove this
+
+i32
+u32
+i32
+u32
+i32
+u32
+i32
+u32
+```
+
+元组形式的解构和记录形式的解构形式上是类似的。
+
+> 对于记录形式的结构，在字段名称和解构变量名称一致的情况下，`let Greet{f1: f1, f2: f2} = greet1;` 这种形式简写为：
+> `let Greet{f1, f2} = greet1;`
 
 
 ## <span class="section-num">3</span> 模式匹配与解构 {#模式匹配与解构}

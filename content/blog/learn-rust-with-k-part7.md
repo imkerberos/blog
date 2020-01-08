@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (七)"
 author = ["Evilee"]
 date = 2020-01-07
-lastmod = 2020-01-08T16:19:54+08:00
+lastmod = 2020-01-08T18:56:23+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -576,3 +576,103 @@ match (x, y >0 && y <=2)
 > 1.  使用 `if` 来限定解构条件，本例子中是 `if y> 0 && y<=2`.
 > 2.  模式匹配是从上到下进行匹配测试的，一旦满足测试条件，则不再进行匹配测试。本例子中的 `(0, 1)` 虽然满足前两个测试分支，但是 `(x, 1)` 匹配分支不会被执行。
 > 3.  由于语义的限制，条件解构需要使用 `_` 来达到全覆盖的效果。
+
+
+## <span class="section-num">9</span> 模式匹配与绑定 {#模式匹配与绑定}
+
+在模式匹配情况下，也可以使用 `@` 在匹配的同时绑定。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let v = (0, 1);
+    match v {
+        (x, y @ 0..=2) => {
+            print_type_of(&x);
+            print_type_of(&y);
+            println!("y is: {}", y);
+            println!("match (x, y @ 0 ..= 2)");
+        },
+        (x, 1) => {
+            print_type_of(&x);
+            println!("match (x, 1)");
+        },
+        (x, 3) => {
+            print_type_of(&x);
+            println!("match (x, 3)");
+        },
+        _ => {
+            println!("not match any");
+        }
+    }
+}
+```
+
+运行输出：
+
+```text
+warning: unreachable pattern
+  --> r39.rs:14:9
+   |
+14 |         (x, 1) => {
+   |         ^^^^^^
+   |
+   = note: `#[warn(unreachable_patterns)]` on by default
+
+i32
+i32
+y is: 0
+match (x, y @ 0 ..= 2)
+```
+
+看上去 `@` 和 `if` 区别不大，实际上，在某些情况下， `@` 是非常有用的：考虑我们
+`match` 的不是某个变量，而是某个函数的返回值，在满足条件的情况下，我们需要绑定这个函数的返回值进行某些操作，而其他情况下，我们不使用它，也就没有必要绑定它。而且使用 `@` 要比 `if` 简洁。
+
+```rust
+fn calculate_score() -> i32 {
+    100
+}
+
+fn main() {
+    match calculate_score() {
+        0 ..= 59 => {
+            println!("bad");
+        },
+        score @ 60..=100 => {
+            println!("good, my score is: {}", score);
+        },
+        _ => {
+            println!("invalid score");
+        }
+    }
+}
+```
+
+```rust
+fn calculate_score() -> i32 {
+    100
+}
+
+fn main() {
+    match calculate_score() {
+        0 ..= 59 => {
+            println!("bad");
+        },
+        score if score >= 60 && score <= 100 => {
+            println!("good, my score is: {}", score);
+        },
+        _ => {
+            println!("invalid score");
+        }
+    }
+}
+```
+
+运行输出:
+
+```text
+good, my score is: 100
+```
