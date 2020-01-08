@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (七)"
 author = ["Evilee"]
 date = 2020-01-07
-lastmod = 2020-01-08T16:13:25+08:00
+lastmod = 2020-01-08T16:19:54+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
@@ -243,7 +243,32 @@ error: aborting due to previous error
 ```
 
 
-## <span class="section-num">4</span> 绑定与解构 {#绑定与解构}
+## <span class="section-num">4</span> 嵌套解构 {#嵌套解构}
+
+当然解构也可以嵌套的，也就是可以解构出内层的元组的元素。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let tuple = (1, 2, 3, 4, (10, 11, 12, 13));
+    let (.., (x,..)) = tuple;
+    println!("x: {}", x);
+    print_type_of(&x);
+}
+```
+
+运行输出:
+
+```text
+x: 10
+i3
+```
+
+
+## <span class="section-num">5</span> 绑定与解构 {#绑定与解构}
 
 从形式的一致性来说： `let p = &mut x;` 这种绑定也符合 `解构` 的一般形式。
 
@@ -274,7 +299,7 @@ i32
 ```
 
 
-## <span class="section-num">5</span> 解构与生命周期 {#解构与生命周期}
+## <span class="section-num">6</span> 解构与生命周期 {#解构与生命周期}
 
 假设一个元组由数个元素组成，如果进行解构的话，其所有权是否会被转移？答案是 **会**,
 看代码：
@@ -351,7 +376,7 @@ Dropping Foobar(0)
 ```
 
 
-## <span class="section-num">6</span> 模式匹配与解构 {#模式匹配与解构}
+## <span class="section-num">7</span> 模式匹配与解构 {#模式匹配与解构}
 
 除了解构之外，元组还可以在使用 `match` 关键字进行模式匹配的同时进行解构。
 
@@ -512,7 +537,7 @@ match (x, 3)
 ```
 
 
-## <span class="section-num">7</span> 模式匹配与条件解构 {#模式匹配与条件解构}
+## <span class="section-num">8</span> 模式匹配与条件解构 {#模式匹配与条件解构}
 
 ```rust
 fn print_type_of<T>(_: &T) {

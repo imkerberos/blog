@@ -382,6 +382,27 @@ error: the order of `mut` and `ref` is incorrect
 error: aborting due to previous error
 #+END_EXAMPLE
 
+** 嵌套解构
+当然解构也可以嵌套的，也就是可以解构出内层的元组的元素。
+#+BEGIN_SRC rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+fn main() {
+    let tuple = (1, 2, 3, 4, (10, 11, 12, 13));
+    let (.., (x,..)) = tuple;
+    println!("x: {}", x);
+    print_type_of(&x);
+}
+#+END_SRC
+
+运行输出:
+#+BEGIN_EXAMPLE
+x: 10
+i3
+#+END_EXAMPLE
+
 ** 绑定与解构
 从形式的一致性来说： ~let p = &mut x;~ 这种绑定也符合 =解构= 的一般形式。
 
@@ -677,7 +698,6 @@ match (x, y >0 && y <=2)
    子中的 ~(0, 1)~ 虽然满足前两个测试分支，但是 ~(x, 1)~ 匹配分支不会被执行。
 3. 由于语义的限制，条件解构需要使用 ~_~ 来达到全覆盖的效果。
 #+END_QUOTE
-
 
 * DONE 陪老 K 学 Rust (六)
 :PROPERTIES:
