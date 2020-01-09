@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (一)"
 author = ["Evilee"]
 date = 2019-12-18
-lastmod = 2020-01-07T16:40:27+08:00
+lastmod = 2020-01-09T15:27:53+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1008
+weight = 1011
 +++
 
 开始之前的环境配置， 本节是繁琐的准备工作，已经完成的同学可以跳过。

@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (五)"
 author = ["Evilee"]
 date = 2019-12-26
-lastmod = 2020-01-07T16:40:26+08:00
+lastmod = 2020-01-09T15:27:52+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1004
+weight = 1007
 +++
 
 可变与不变
