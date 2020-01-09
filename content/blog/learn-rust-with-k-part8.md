@@ -1,12 +1,12 @@
 +++
 title = "陪老 K 学 Rust (八)"
 author = ["Evilee"]
-lastmod = 2020-01-09T11:38:42+08:00
+lastmod = 2020-01-09T15:24:18+08:00
 tags = ["Rust"]
 categories = ["计算机"]
-draft = true
+draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1001
+weight = 1004
 +++
 
 自定义数据类型：结构体
@@ -159,5 +159,205 @@ u32
 > 对于记录形式的结构，在字段名称和解构变量名称一致的情况下，`let Greet{f1: f1, f2: f2} = greet1;` 这种形式简写为：
 > `let Greet{f1, f2} = greet1;`
 
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+struct Foobar(i32, u32);
+struct Greet {
+    f1: i32,
+    f2: u32,
+}
+
+fn main() {
+    let mut foobar = Foobar(1, 2);
+    let Foobar(mut e1, ref mut e2) = foobar;
+    println!("e1: {}, e2: {}", e1, e2);
+    print_type_of(&e1);
+    print_type_of(&e2);
+    e1 = 0;
+    println!("new e1: {}", e1);
+
+    let greet = Greet{f1: 3, f2: 4};
+    let Greet{ref f1, mut f2} = greet;
+    println!("f1: {}, f2: {}", f1, f2);
+    f2 = 0;
+    println!("new f2: {}", f2);
+}
+```
+
+运行输出:
+
+```text
+e1: 1, e2: 2
+i32
+&mut u32
+new e1: 0
+f1: 3, f2: 4
+new f2: 0
+```
+
+> 1.  元组结构使用 `Type()` 的方式解构，与构造时的语法对应。
+> 2.  记录结构使用 `Type{}` 的方式解构，与构造时的语法对应。
+
 
 ## <span class="section-num">3</span> 模式匹配与解构 {#模式匹配与解构}
+
+> 1.  元组结构使用 `()` 进行匹配和解构，与构造时的语法对应。
+> 2.  记录结构使用 `{}` 进行匹配和解构，与构造时的语法对应。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+struct Foobar(i32, u32);
+struct Greet {
+    f1: i32,
+    f2: u32,
+}
+
+fn main() {
+    let foobar = Foobar(0, 1);
+
+    match foobar {
+        Foobar(ref x0, y@0..=1) => {
+            println!("match Foobar(ref x0, y@0..1) x0 is: {}, y1 is: {}", x0, y);
+        },
+        Foobar(_, y1) if y1 == 2 => {
+            println!("match Foobar(_, y1) if y1 == 2, y1 is: {}", y1);
+            print_type_of(&y1);
+        },
+        _ => {
+            println!("default match");
+        },
+    }
+
+    let greet = Greet{f1: 2, f2: 4};
+    match greet {
+        Greet{f1: v1, f2: v2} => {
+            println!("match Greet{{f1: v1, f2: v2}}, v1: {}, v2: {}", v1, v2);
+            print_type_of(&v1);
+            print_type_of(&v2);
+        },
+    }
+
+    let greet = Greet{f1: 5, f2: 6};
+    match greet {
+        Greet{f1, f2} => {
+            println!("match Greet{{f1, f2}}, f1: {}, f2: {}", f1, f2);
+            print_type_of(&f1);
+            print_type_of(&f2);
+        },
+    }
+
+    let greet = Greet{f1: 7, f2: 8};
+    match greet {
+        Greet{f1, f2} if f1 < 0 => {
+            println!("match Greet{{f1, f2}}, f1: {}, f2: {}", f1, f2);
+            print_type_of(&f1);
+            print_type_of(&f2);
+        },
+        _ => {
+            println!("match _");
+        }
+    }
+
+    let greet = Greet{f1: 7, f2: 8};
+    match greet {
+        Greet{f1: v0@ 0..= 10, f2: v1 @ 0 ..= 10} => {
+            println!("match Greet{{f1, f2}}, f1: {}, f2: {}", v0, v1);
+            print_type_of(&v0);
+            print_type_of(&v1);
+        },
+        _ => {
+            println!("match _");
+        }
+    }
+}
+```
+
+运行输出:
+
+```text
+match Foobar(ref x0, y@0..1) x0 is: 0, y1 is: 1
+match Greet{f1: v1, f2: v2}, v1: 2, v2: 4
+i32
+u32
+match Greet{f1, f2}, f1: 5, f2: 6
+i32
+u32
+match _
+match Greet{f1, f2}, f1: 7, f2: 8
+i32
+u32
+```
+
+
+## <span class="section-num">4</span> 模式匹配与绑定 {#模式匹配与绑定}
+
+在使用 `@` 绑定时，记录结构必须重新绑定新的变量名称。
+
+```rust
+fn print_type_of<T>(_: &T) {
+    println!("{}", std::any::type_name::<T>());
+}
+
+struct Greet {
+    f1: i32,
+    f2: u32,
+}
+
+fn main() {
+    let greet = Greet{f1: 1, f2: 2};
+    match greet {
+        Greet{f1@0..=10, f2@0..=10} => {
+            println!("match Greet{{f1, f2}}, f1: {}, f2: {}", f1, f2);
+            print_type_of(&f1);
+            print_type_of(&f2);
+        },
+        _ => {
+
+        },
+    }
+}
+```
+
+编译错误:
+
+```text
+error: expected `,`
+  --> r42.rs:13:15
+   |
+13 |         Greet{f1@0..=10, f2@0..=10} => {
+   |               ^^
+
+error[E0425]: cannot find value `f1` in this scope
+  --> r42.rs:14:63
+   |
+14 |             println!("match Greet{{f1, f2}}, f1: {}, f2: {}", f1, f2);
+   |                                                               ^^ not found in this scope
+
+error[E0425]: cannot find value `f2` in this scope
+  --> r42.rs:14:67
+   |
+14 |             println!("match Greet{{f1, f2}}, f1: {}, f2: {}", f1, f2);
+   |                                                                   ^^ not found in this scope
+
+error[E0425]: cannot find value `f1` in this scope
+  --> r42.rs:15:28
+   |
+15 |             print_type_of(&f1);
+   |                            ^^ not found in this scope
+
+error[E0425]: cannot find value `f2` in this scope
+  --> r42.rs:16:28
+   |
+16 |             print_type_of(&f2);
+   |                            ^^ not found in this scope
+
+error: aborting due to 5 previous errors
+
+For more information about this error, try `rustc --explain E0425`.
+```
