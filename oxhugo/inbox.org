@@ -51,7 +51,7 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
 :END:
 
-** 你的密码写在脸上                                                            :@计算机:gfw:
+** 你的密码就写在脸上                                                          :@计算机:gfw:
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09
 :EXPORT_FILE_NAME: fuck-more-face-detection
