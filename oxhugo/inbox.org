@@ -26,6 +26,17 @@
 :END:
 这里是我的博客。
 
+** SE-0272: Package Manager Binary Dependencies                                :@计算机:Swift:
+:PROPERTIES:
+:EXPORT_FILE_NAME: swift-se0272-accepted
+:EXPORT_DATE: 2020-01-09
+:END:
+SE-0272: Package Manager Binary Dependencies 提案被接受。
+<!--more-->
+经过漫长的讨论，Swift Package Manager 的二进制文件依赖的提案终于通过了，以后
+SwiftPM 终于可以直接管理其他第三方的，无源代码的各种 SDK 了。 继 Cocoapods,
+Carthage 之后，SwiftPM 终于成为了一个可用的 iOS 工程管理方案。
+
 ** TODO 打造顺手的终端控制台工作环境                                           :@计算机:tmux:
 *** 0x00 用到的材料
 1. tmux
