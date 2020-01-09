@@ -13,9 +13,30 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Rust
 
+* TODO 陪老 K 学 Rust (十一)
+:PROPERTIES:
+:EXPORT_DATE: 2020-01-09
+:EXPORT_FILE_NAME: learn-rust-with-k-part11
+:END:
+错误处理
+<!--more-->
+
+* TODO 陪老 K 学 Rust (十)
+:PROPERTIES:
+:EXPORT_DATE: 2020-01-09
+:EXPORT_FILE_NAME: learn-rust-with-k-part10
+:END:
+迭代
+<!--more-->
+
 * TODO 陪老 K 学 Rust (九)
+:PROPERTIES:
+:EXPORT_DATE: 2020-01-09
+:EXPORT_FILE_NAME: learn-rust-with-k-part9
+:END:
 枚举。
 <!--more-->
+
 ** 基本形式
 经典形式
 #+BEGIN_SRC rust
