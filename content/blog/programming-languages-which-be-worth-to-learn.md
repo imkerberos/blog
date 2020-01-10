@@ -2,7 +2,7 @@
 title = "2020 年最值得学习的新旧语言"
 author = ["Evilee"]
 date = 2019-12-23
-lastmod = 2019-12-25T09:54:52+08:00
+lastmod = 2020-01-10T18:29:14+08:00
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
