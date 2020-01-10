@@ -1,14 +1,12 @@
-#+TITLE: About
+#+TITLE: Home
 #+STARTUP: inlineimages content
 #+AUTHOR: Evilee
-#+EXPORT_FILE_NAME: about
-#+HUGO_BASE_DIR: ../
+#+HUGO_BASE_DIR: ../../
 #+HUGO_AUTO_SET_LASTMOD: f
+#+EXPORT_FILE_NAME: _index
 #+HUGO_SECTION:
 #+HUGO_CATEGORIES:
 #+HUGO_DRAFT: false
-#+HUGO_MENU: :menu main :weight 0
-#+HUGO_WEIGHT: 0
+#+HUGO_MENU: :menu main :weight -100
+#+HUGO_WEIGHT: -100
 #+HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments false :toc false :mathjax true
-
-一个老年码农。喜欢码代码、书法、中国象棋、星际争霸、乒乓球。

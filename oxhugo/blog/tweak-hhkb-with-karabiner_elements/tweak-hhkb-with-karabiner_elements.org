@@ -5,7 +5,7 @@
 #+DATE: 2019-12-16
 #+PROPERTY: header-args :eval no
 #+OPTIONS: creator:t toc:nil num:t
-#+HUGO_BASE_DIR: ../../
+#+HUGO_BASE_DIR: ../../../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+HUGO_SECTION: blog
 #+HUGO_TAGS: HHKB MacOS Karabiner Vim Emacs

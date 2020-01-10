@@ -2,7 +2,7 @@
 title = "显摆下 HHKB Pro2 TypeS"
 author = ["Evilee"]
 date = 2015-02-13
-lastmod = 2019-12-18T14:26:14+08:00
+lastmod = 2020-01-10T19:00:07+08:00
 tags = ["HHKB", "Emacs", "Vim"]
 categories = ["计算机"]
 draft = false
@@ -13,9 +13,9 @@ draft = false
 
 **2019 年更新：Karabiner 已经变成 Karabiner-Elements，配置文件也变成 JSON 了，有时间贴自己的配置。**
 
-{{< figure src="/ox-hugo/show-hhkb-01.jpg" caption="&#22270;1&nbsp; 放在 15 寸的 Macbook Pro 上" width="512" >}}
+{{< figure src="/ox-hugo/show-hhkb-01.jpg" caption="图 1: 放在 15 寸的 Macbook Pro 上" width="512" >}}
 
-{{< figure src="/ox-hugo/show-hhkb-02.jpg" caption="&#22270;2&nbsp; 放在 15 寸的 Macbook Pro 上" width="512" >}}
+{{< figure src="/ox-hugo/show-hhkb-02.jpg" caption="图 2: 放在 15 寸的 Macbook Pro 上" width="512" >}}
 
 HHKB 配合 Karambiner 还是比较好用的.
 
@@ -57,6 +57,6 @@ Capslock 的功能由 `Fn+Tab` 实现, 还是有些 不方便, 而且由于刚�
 不会压住键盘, 同时 还能使用触控板. :) 记得不要打开支撑脚,
 而且下沿放到触控板上面.
 
-{{< figure src="/ox-hugo/show-hhkb-03.jpg" caption="&#22270;3&nbsp; 扣在键盘上正合适" width="512" >}}
+{{< figure src="/ox-hugo/show-hhkb-03.jpg" caption="图 3: 扣在键盘上正合适" width="512" >}}
 
-{{< figure src="/ox-hugo/show-hhkb-04.jpg" caption="&#22270;4&nbsp; 扣在键盘上正侧面照片" width="512" >}}
+{{< figure src="/ox-hugo/show-hhkb-04.jpg" caption="图 4: 扣在键盘上正侧面照片" width="512" >}}

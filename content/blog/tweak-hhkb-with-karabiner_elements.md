@@ -2,7 +2,7 @@
 title = "HHKB + Karabiner-Elements 神器配置"
 author = ["Evilee"]
 date = 2019-12-16
-lastmod = 2019-12-19T11:54:35+08:00
+lastmod = 2020-01-10T19:00:21+08:00
 tags = ["HHKB", "MacOS", "Karabiner", "Vim", "Emacs"]
 categories = ["计算机"]
 draft = false
@@ -17,9 +17,9 @@ creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 
 ## <span class="section-num">1</span> HHKB 和标准 QWERTY 的键盘布局比较 {#hhkb-和标准-qwerty-的键盘布局比较}
 
-{{< figure src="/ox-hugo/hhkb-layout.png" caption="&#22270;1&nbsp; HHKB 键盘布局" width="600" >}}
+{{< figure src="/ox-hugo/hhkb-layout.png" caption="图 1: HHKB 键盘布局" width="600" >}}
 
-{{< figure src="/ox-hugo/mac-qwerty.jpg" caption="&#22270;2&nbsp; QWERTY 键盘布局" width="600" >}}
+{{< figure src="/ox-hugo/mac-qwerty.jpg" caption="图 2: QWERTY 键盘布局" width="600" >}}
 
 可以看出几个不同点
 

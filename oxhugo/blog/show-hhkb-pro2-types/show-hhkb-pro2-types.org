@@ -3,7 +3,7 @@
 #+DATE: 2015-02-13
 #+AUTHOR: Evilee
 #+LANGUAGE: zh-CN
-#+HUGO_BASE_DIR: ../../
+#+HUGO_BASE_DIR: ../../../
 #+HUGO_AUTO_SET_LASTMOD: f
 #+HUGO_SECTION: blog
 #+HUGO_CATEGORIES: 计算机
