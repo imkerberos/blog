@@ -2,7 +2,7 @@
 title = "推荐一个 Rust 教程"
 author = ["Evilee"]
 date = 2019-12-17
-lastmod = 2019-12-19T11:37:24+08:00
+lastmod = 2020-01-10T18:48:39+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false

@@ -6,30 +6,20 @@
 #+OPTIONS: creator:t toc:nil
 #+HUGO_BASE_DIR: ../
 #+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_SECTION: blog
+#+HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments true :toc false :mathjax true
 
-* COMMENT 计划中的分类
-- 计算机
-- 书法
-- 中国象棋
-- 儿童教育
-
-* Blog Posts
-:PROPERTIES:
-:EXPORT_HUGO_SECTION: blog
-:EXPORT_HUGO_CUSTOM_FRONT_MATTER: :authorbox true :comments true :toc false :mathjax true
-:END:
-
-** Blog
+* Blog
 :PROPERTIES:
 :EXPORT_HUGO_MENU: :menu main :weight  -50
 :EXPORT_FILE_NAME: _index
 :END:
 这里是我的博客。
 
-** TODO 从零学习 Scheme                                                        :@计算机:Scheme:
-** TODO Swift 全栈之路                                                         :@计算机:Swift:
-** TODO 打造顺手的终端控制台工作环境                                           :@计算机:tmux:
-*** 0x00 用到的材料
+* TODO 从零学习 Scheme                                                          :@计算机:Scheme:
+* TODO Swift 全栈之路                                                           :@计算机:Swift:
+* TODO 打造顺手的终端控制台工作环境                                             :@计算机:tmux:
+** 0x00 用到的材料
 1. tmux
 2. zsh
 3. zplug
@@ -37,23 +27,23 @@
 5. xkeysnail
 6. xclip
 
-** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:RIME:
-** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法                                 :@计算机:Emacs:Linux:
-** TODO MacOS 中的 tmux 配置                                                   :@计算机:MacOS:
-** TODO Manjaro 中使用 xkeysnail 改变键盘映射                                  :@计算机:Linux:
-** TODO 2020 年最稳的翻墙姿势                                                  :@计算机:caddy:v2ray:tls:
+* TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                     :@计算机:Emacs:RIME:
+* TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:Linux:
+* TODO MacOS 中的 tmux 配置                                                     :@计算机:MacOS:
+* TODO Manjaro 中使用 xkeysnail 改变键盘映射                                    :@计算机:Linux:
+* TODO 2020 年最稳的翻墙姿势                                                    :@计算机:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
 :END:
 
 caddy + v2ray + tls 配置
 
-** TODO 谈 flutter, react-native 和技术吹                                      :@计算机:
+* TODO 谈 flutter, react-native 和技术吹                                        :@计算机:
 :PROPERTIES:
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
 :END:
 
-** 你的密码就写在脸上                                                          :@计算机:gfw:
+* 你的密码就写在脸上                                                            :@计算机:gfw:
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09
 :EXPORT_FILE_NAME: fuck-more-face-detection
@@ -96,7 +86,7 @@ caddy + v2ray + tls 配置
 1. 追新，使用花拳绣腿的功能而不考虑安全后果，这是蠢。
 2. 趁着中国个人隐私立法的缺失，搜集用户的人脸数据，将来怎么用凭自己心情，这是坏。
 
-** SE-0272: Package Manager Binary Dependencies                                :@计算机:Swift:
+* SE-0272: Package Manager Binary Dependencies                                  :@计算机:Swift:
 :PROPERTIES:
 :EXPORT_FILE_NAME: swift-se0272-accepted
 :EXPORT_DATE: 2020-01-09
@@ -107,7 +97,7 @@ SE-0272: Package Manager Binary Dependencies 提案被接受。
 SwiftPM 终于可以直接管理其他第三方的，无源代码的各种 SDK 了。 继 Cocoapods,
 Carthage 之后，SwiftPM 终于成为了一个可用的 iOS 工程管理方案。
 
-** 2020 年最值得学习的新旧语言                                                 :@计算机:
+* 2020 年最值得学习的新旧语言                                                   :@计算机:
 :PROPERTIES:
 :EXPORT_FILE_NAME: programming-languages-which-be-worth-to-learn
 :EXPORT_DATE: 2019-12-23
@@ -121,7 +111,7 @@ Carthage 之后，SwiftPM 终于成为了一个可用的 iOS 工程管理方案�
 4. Swift: 简单的 Rust.
 5. Scheme: 情怀语言，码农应该把它当情人。
 
-** 在 org-mode 中内嵌源代码                                                    :@计算机:Emacs:org_mode:
+* 在 org-mode 中内嵌源代码                                                      :@计算机:Emacs:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: inline-code-block-in-org_mode
 :EXPORT_DATE: 2019-12-19
@@ -140,7 +130,7 @@ code]{<tag>text</tag>}.
 虽然在博客里面看不出效果，如果导出成 HTML 并且支持语法高亮的话，就会看出来内嵌代
 码语句的语法高亮效果了。
 
-** 推荐一个 Rust 教程                                                          :@计算机:Rust:
+* 推荐一个 Rust 教程                                                            :@计算机:Rust:
 :PROPERTIES:
 :EXPORT_FILE_NAME: recommend-rust-crash-course-tutorial
 :EXPORT_DATE: 2019-12-17
@@ -153,7 +143,7 @@ Rust 语言既时尚，又安全，又难学。最让人崩溃的一点是文档
 
 [[https://www.snoyman.com/blog/2018/10/introducing-rust-crash-course][Rust crash course]] 曲线比较不错，推荐大家阅读。如果有时间，翻译成中文。
 
-** 如何优雅地删除 Git submodule?                                               :@计算机:git:
+* 如何优雅地删除 Git submodule?                                                 :@计算机:git:
 :PROPERTIES:
 :EXPORT_FILE_NAME: how-to-remove-git-submodule-elegantly
 :EXPORT_DATE: 2019-12-16
@@ -171,7 +161,7 @@ Git 中没有一个专门的命令对 submodule 进行删除。比较优雅的�
 6. 提交修改 =git ci -m "remove xxxx submmodule "= .
 7. 删除不用的目录 =rm -rf path_to_xxxx_submodule= .
   
-** 把 Markdown 格式的文件转换成 org-mode 格式                                  :@计算机:Emacs:org_mode:markdown:
+* 把 Markdown 格式的文件转换成 org-mode 格式                                    :@计算机:Emacs:org_mode:markdown:
 :PROPERTIES:
 :EXPORT_FILE_NAME: convert-markdown-to-org_mode
 :EXPORT_DATE: 2019-12-15
@@ -187,7 +177,7 @@ brew install pandoc
 pandoc -f markdown -t org xxxx.md -o xxxx.org
 #+END_EXAMPLE
 
-** 使用 ox-hugo 编写博客                                                       :@计算机:hugo:org_mode:
+* 使用 ox-hugo 编写博客                                                         :@计算机:hugo:org_mode:
 :PROPERTIES:
 :EXPORT_FILE_NAME: use-ox-hugo-write-blog
 :EXPORT_DATE: 2019-12-15
@@ -196,7 +186,7 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 - [[https://sheishe.xyz/post/hugo-blogging-with-ox-hugo/][一篇很棒的关于 =ox-hugo= 的文章]]
 - [[http://www.zmonster.me/2018/02/28/org-mode-capture.html][关于 org-capture 的一篇文章]]
 
-** 解决 Archlinux 的域名解析超时出错的问题                                     :@计算机:ArchLinux:resolved:systemd:
+* 解决 Archlinux 的域名解析超时出错的问题                                       :@计算机:ArchLinux:resolved:systemd:
 :PROPERTIES:
 :EXPORT_FILE_NAME: fix-systemd-resolved-dnssec
 :EXPORT_DATE: 2019-12-14
@@ -212,3 +202,9 @@ pandoc -f markdown -t org xxxx.md -o xxxx.org
 #+BEGIN_EXAMPLE
 DNSSEC=no
 #+END_EXAMPLE
+
+* COMMENT 计划中的分类
+- 计算机
+- 书法
+- 中国象棋
+- 儿童教育

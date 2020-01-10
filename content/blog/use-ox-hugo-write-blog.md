@@ -2,7 +2,7 @@
 title = "使用 ox-hugo 编写博客"
 author = ["Evilee"]
 date = 2019-12-15
-lastmod = 2019-12-16T22:41:55+08:00
+lastmod = 2020-01-10T18:48:40+08:00
 tags = ["hugo", "org-mode"]
 categories = ["计算机"]
 draft = false
