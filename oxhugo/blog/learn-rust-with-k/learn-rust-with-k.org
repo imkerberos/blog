@@ -164,6 +164,64 @@ For more information about an error, try `rustc --explain E0005`.
 所以对枚举进行解构不能象对元组或者结构一样进行，必须先进行模式匹配，确定数据的类
 型结构，再进行解构或者绑定。
 ** 模式匹配与解构
+使用 ~match~ 进行模式匹配：
+#+BEGIN_SRC rust
+#[derive(Debug)]
+enum HybridShape {
+    Square(u32),
+    Rectangle{ width:u32, height:u32},
+    Circle(u32),
+}
+
+fn main() {
+    use HybridShape::*;
+    let shape = Rectangle{width: 20, height: 40};
+    match shape {
+        Square(width) => {
+            println!("match square, width: {}", width);
+        },
+        Rectangle{width, height} => {
+            println!("match Rectangle{{width: {}, height: {}}}", width, height);
+        },
+        Circle(radio) => {
+            println!("match Circle(u32), radio: {}", radio);
+        }
+    }
+}
+#+END_SRC
+
+运行输出：
+#+BEGIN_EXAMPLE
+warning: variant is never constructed: `Square`
+ --> r44.rs:3:5
+  |
+3 |     Square(u32),
+  |     ^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` on by default
+
+warning: variant is never constructed: `Circle`
+ --> r44.rs:5:5
+  |
+5 |     Circle(u32),
+  |     ^^^^^^^^^^^
+
+match Rectangle{width: 20, height: 40}
+#+END_EXAMPLE
+
+#+BEGIN_QUOTE
+src_rust[:exports code]{use HybridShape::*} 这句代码是在函数 ~main~ 中引入
+~HybridShape~ 的名字空间，否则我们使用 ~HybridShape~ 的内部类型时需要显式指明，
+如 ~HybridShape::Square~, ~HybridShape::Rectangle~ 等。
+#+END_QUOTE
+
+
+#+BEGIN_QUOTE
+因为直接使用 src_rust[:exports code]{Rectangle{width: 20, height:40}} 构造的
+~shape~, 故而编译器可以检测出其具体类型为 ~HybridShape::Rectangle~, 警告我们第三
+行和第 5 行 ~Square~ 和 ~Circle~ 这两种类型的变体是从来不会被匹配到的，这里只是
+演示代码，所以忽略即可。
+#+END_QUOTE
 ** 模式匹配与绑定
 ** Option 枚举
 ** Result 枚举
