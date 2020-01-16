@@ -69,7 +69,7 @@ Rust 中并没有 ~Exception~ 机制，函数的出错全靠 ~Result~ 来进行�
 2. 永远不要调用导致 ~panic~ 的代码，如 ~unwrap~.
 3. 如果可能，函数尽量使用 ~Result~ 作为返回值，以方便其他开发者处理。
 
-* TODO 陪老 K 学 Rust (十)
+* DONE 陪老 K 学 Rust (十)
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-16
 :EXPORT_FILE_NAME: learn-rust-with-k-part10
@@ -216,13 +216,14 @@ fn main() {
 式= 的链式调用处理方式比较符合正常的心智模型，在以后学习到 Rust 的 =函数式= 特性
 时再明确。
 
-* TODO 陪老 K 学 Rust (九)
+* DONE 陪老 K 学 Rust (九)
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09
 :EXPORT_FILE_NAME: learn-rust-with-k-part9
 :END:
 枚举。
 <!--more-->
+
 ** 基本形式
 经典形式
 #+BEGIN_SRC rust
