@@ -179,7 +179,7 @@ int main() {
 ~unwrap~ 操作是解出 ~Option~ 里面的值，如果 ~Option~ 是空值，则会引发 ~panic~ 从
 而导致程序崩溃。 ~unwrap~ 通常用在对于质量不高或者简短的示例代码中，在这些代码中，
 我们通常不太关注错误，但是在实际的产品级别的代码中，需要小心对 ~Option~ 值进行检
-查或者模式匹配。 除了模式匹配， Rust 还提供了一些更方便的宏来处理 ~Option~ 值。
+查或者模式匹配。 除了模式匹配， Rust 还提供了一些更方便的函数来处理 ~Option~ 值。
 1. ~unwrap_or~ : 如果是 ~None~ 则赋予一个默认值。
 2. ~unwrap_or_default~: 如果是 ~None~ 则赋予类型的缺省值。
 #+BEGIN_SRC rust
