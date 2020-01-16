@@ -43,6 +43,20 @@ caddy + v2ray + tls 配置
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
 :END:
 
+* 今日入手 Nintendo Switch Lite                                                 :@生活:SwitchLite:
+:PROPERTIES:
+:EXPORT_DATE: 2020-01-16
+:EXPORT_FILE_NAME: show-my-ninetendo-switch-lite
+:END:
+
+入手任天堂 SwitchLite 掌机一台。
+<!--more-->
+
+自打 2019 年春节的时候就想买一个 Switch 玩玩，然后听说要出新版。等了接近一线，纯
+掌机 SwitchLite 出来了，20 年春节就入了一个，并且额外买了两个游戏：
+1. 赛达尔传说－荒野之息: 据说必买的游戏，还没玩。
+2. 暗黑破坏神 3: 终于可以随时刷刷刷了，可惜不是暗黑二，等暗黑四 吧。
+  
 * 你的密码就写在脸上                                                            :@计算机:gfw:
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09

@@ -2,7 +2,7 @@
 title = "陪老 K 学 Rust (十一)"
 author = ["Evilee"]
 date = 2020-01-16
-lastmod = 2020-01-16T17:56:34+08:00
+lastmod = 2020-01-16T18:24:28+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = true
