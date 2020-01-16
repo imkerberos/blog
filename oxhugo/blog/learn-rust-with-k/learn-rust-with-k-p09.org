@@ -1,45 +1,42 @@
-+++
-title = "陪老 K 学 Rust (九)"
-author = ["Evilee"]
-date = 2020-01-09
-lastmod = 2020-01-16T15:47:15+08:00
-tags = ["Rust"]
-categories = ["计算机"]
-draft = false
-creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1006
-+++
-
-枚举。
+#+STARTUP: inlineimages content
+#+AUTHOR: Evilee
+#+LANGUAGE: zh-CN
+#+OPTIONS: creator:t toc:nil num:t
+#+PROPERTY: header-args :eval no
+#+HUGO_CUSTOM_FRONT_MATTTER: :authorbox true :comments true :toc false :mathjax true
+#+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_BASE_DIR: ../../../
+#+DATE: 2020-01-09
+#+HUGO_SECTION: blog
+#+HUGO_CATEGORIES: 计算机
+#+HUGO_TAGS: Rust
+#+TITLE: 陪老 K 学 Rust (九)
+#+HUGO_DRAFT: false
+枚举
 <!--more-->
 
-
-## <span class="section-num">1</span> 基本形式 {#基本形式}
-
+* 基本形式
 经典形式
-
-```rust
+#+BEGIN_SRC rust
 enum Direction {
     North,
     East,
     Sourth,
     West,
 }
-```
+#+END_SRC
 
 元组形式关联值：
-
-```rust
+#+BEGIN_SRC rust
 enum NonamedShape {
     Square(u32),
     Rectangle(u32, u32),
     Circle(u32),
 }
-```
+#+END_SRC
 
 记录形式关联值：
-
-```rust
+#+BEGIN_SRC rust
 enum NamedShape {
     Square {
         width: u32,
@@ -52,13 +49,13 @@ enum NamedShape {
         radio: u32,
     },
 }
-```
+#+END_SRC
 
-经典形式可以当作是元组形式的特殊形式，毕竟 `struct NoFieldTuple;` 是`struct NoField ();` 的简写。
+经典形式可以当作是元组形式的特殊形式，毕竟 src_rust[:exports code]{struct
+NoFieldTuple;} 是src_rust[:exports code]{struct NoField ();} 的简写。
 
 混合形式，不同形式的类型结构可以混合起来组成单一的枚举类型。
-
-```rust
+#+BEGIN_SRC rust
 enum HybridShape {
     Dot,
     Square(u32),
@@ -68,12 +65,9 @@ enum HybridShape {
     },
     Circle(u32),
 }
-```
-
-
-## <span class="section-num">2</span> 解构 {#解构}
-
-```rust
+#+END_SRC
+* 解构
+#+BEGIN_SRC rust
 enum NamedShape {
     Square {
         width: u32,
@@ -84,17 +78,15 @@ fn main() {
     let NamedShape::Square{width} = NamedShape::Square{width: 14};
     println!("width: {}", width);
 }
-```
-
+#+END_SRC
 运行输出:
-
-```text
+#+BEGIN_EXAMPLE
 width: 14
-```
+#+END_EXAMPLE
 
-因为 `NamedShape` 只有一种情况： `Square`, 所以可以正常解构到 `width` 变量上。但是如果 `NamedShape` 有多种情况，会发生什么呢？
-
-```rust
+因为 ~NamedShape~ 只有一种情况： ~Square~, 所以可以正常解构到 ~width~ 变量上。但
+是如果 ~NamedShape~ 有多种情况，会发生什么呢？
+#+BEGIN_SRC rust
 enum NamedShape {
     Square {
         width: u32,
@@ -109,11 +101,9 @@ fn main() {
     let NamedShape::Square{width} = NamedShape::Square{width: 14};
     println!("width: {}", width);
 }
-```
-
+#+END_SRC
 编译报错：
-
-```text
+#+BEGIN_EXAMPLE
 error[E0005]: refutable pattern in local binding: `Rectangle { .. }` not covered
   --> r43.rs:12:9
    |
@@ -148,16 +138,13 @@ error: aborting due to 2 previous errors
 
 Some errors have detailed explanations: E0005, E0381.
 For more information about an error, try `rustc --explain E0005`.
-```
+#+END_EXAMPLE
 
-所以对枚举进行解构不能象对元组或者结构一样进行，必须先进行模式匹配，确定数据的类型结构，再进行解构或者绑定。
-
-
-## <span class="section-num">3</span> 模式匹配与解构 {#模式匹配与解构}
-
-使用 `match` 进行模式匹配：
-
-```rust
+所以对枚举进行解构不能象对元组或者结构一样进行，必须先进行模式匹配，确定数据的类
+型结构，再进行解构或者绑定。
+* 模式匹配与解构
+使用 ~match~ 进行模式匹配：
+#+BEGIN_SRC rust
 #[derive(Debug)]
 enum HybridShape {
     Square(u32),
@@ -180,11 +167,10 @@ fn main() {
         }
     }
 }
-```
+#+END_SRC
 
 运行输出：
-
-```text
+#+BEGIN_EXAMPLE
 warning: variant is never constructed: `Square`
  --> r44.rs:3:5
   |
@@ -200,22 +186,24 @@ warning: variant is never constructed: `Circle`
   |     ^^^^^^^^^^^
 
 match Rectangle{width: 20, height: 40}
-```
+#+END_EXAMPLE
 
-> `use HybridShape::*` 这句代码是在函数 `main` 中引入
-> `HybridShape` 的名字空间，否则我们使用 `HybridShape` 的内部类型时需要显式指明，如 `HybridShape::Square`, `HybridShape::Rectangle` 等。
-
-<!--quoteend-->
-
-> 因为直接使用 `Rectangle{width: 20, height:40}` 构造的
-> `shape`, 故而编译器可以检测出其具体类型为 `HybridShape::Rectangle`, 警告我们第三行和第 5 行 `Square` 和 `Circle` 这两种类型的变体是从来不会被匹配到的，这里只是演示代码，所以忽略即可。
+#+BEGIN_QUOTE
+src_rust[:exports code]{use HybridShape::*} 这句代码是在函数 ~main~ 中引入
+~HybridShape~ 的名字空间，否则我们使用 ~HybridShape~ 的内部类型时需要显式指明，
+如 ~HybridShape::Square~, ~HybridShape::Rectangle~ 等。
+#+END_QUOTE
 
 
-## <span class="section-num">4</span> 模式匹配与绑定 {#模式匹配与绑定}
-
+#+BEGIN_QUOTE
+因为直接使用 src_rust[:exports code]{Rectangle{width: 20, height:40}} 构造的
+~shape~, 故而编译器可以检测出其具体类型为 ~HybridShape::Rectangle~, 警告我们第三
+行和第 5 行 ~Square~ 和 ~Circle~ 这两种类型的变体是从来不会被匹配到的，这里只是
+演示代码，所以忽略即可。
+#+END_QUOTE
+* 模式匹配与绑定
 在匹配的同时进行绑定：
-
-```rust
+#+BEGIN_SRC rust
 #[derive(Debug)]
 enum HybridShape {
     Square(u32),
@@ -241,11 +229,9 @@ fn main() {
         }
     }
 }
-```
-
+#+END_SRC
 运行输出：
-
-```text
+#+BEGIN_EXAMPLE
  --> r45.rs:3:5
   |
 3 |     Square(u32),
@@ -260,6 +246,5 @@ warning: variant is never constructed: `Rectangle`
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 match Circle(u32 @ 0..=100), radio: 50
-```
-
+#+END_EXAMPLE
 同前一段代码类似，忽略警告。
