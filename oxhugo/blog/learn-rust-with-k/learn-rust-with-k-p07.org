@@ -12,6 +12,7 @@
 #+HUGO_TAGS: Rust
 #+TITLE: 陪老 K 学 Rust (七)
 #+HUGO_DRAFT: false
+
 元组可以说是 Rust 最简单的自定类型。通过元组来理解 =模式匹配= 和 =解构= -现代语言的时尚
 特性。
 <!--more-->
