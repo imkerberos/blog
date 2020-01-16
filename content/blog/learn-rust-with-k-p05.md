@@ -2,12 +2,16 @@
 title = "陪老 K 学 Rust (五)"
 author = ["Evilee"]
 date = 2019-12-26
-lastmod = 2020-01-16T16:26:03+08:00
+lastmod = 2020-01-16T16:41:28+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 +++
+
+可变与不变
+<!--more-->
+
 
 ## <span class="section-num">1</span> 赋值与绑定 {#赋值与绑定}
 
@@ -680,3 +684,19 @@ func main() {
 ```
 
 相对比来说， swift 的模型貌似更符合一个正常的心智模型，而 Rust 确是怪怪的，私自以为 rust 对于 `mut` 的处理非常不合理，一个数据类型是否可变居然不取决于其自身的设计。在设计之初，没有不可变的选择。:(, 相反在这一点上 `swift` 更加合理。
+
+
+## <span class="section-num">4</span> 胡乱说的模型 {#胡乱说的模型}
+
+如果 Rust 代码的语法是这样的，可能一致性更好一些：
+
+```rust
+fn main() {
+    let x: mut Foobar = mut Foobar(0);
+    let mut y: mut Foobar = mut Foobar(1);
+    let mut z = mut Foobar(3);
+    let o: Foobar = Foobar(4);
+}
+```
+
+这样，第一个 `mut` 修饰绑定关系，第二个 `mut` 修饰内容就和 `借用/引用` 保持一致了。：） 可惜现实不是这样的，我们姑且把 `let x: mut Foobar = mut Foobar(0);` 这种看成是默认的语法糖吧。

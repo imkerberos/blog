@@ -12,6 +12,7 @@
 #+HUGO_TAGS: Rust
 #+TITLE: 陪老 K 学 Rust (五)
 #+HUGO_DRAFT: false
+
 可变与不变
 <!--more-->
 
