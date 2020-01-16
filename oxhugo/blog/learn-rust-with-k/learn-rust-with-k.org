@@ -18,7 +18,7 @@
 * TODO 陪老 K 学 Rust (十四)
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09
-:EXPORT_FILE_NAME: learn-rust-with-k-part14
+:EXPORT_FILE_NAME: learn-rust-with-k-p14
 :END:
 错误处理
 <!--more-->
@@ -26,7 +26,7 @@
 * TODO 陪老 K 学 Rust (十三)
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09
-:EXPORT_FILE_NAME: learn-rust-with-k-part13
+:EXPORT_FILE_NAME: learn-rust-with-k-p13
 :END:
 迭代
 <!--more-->
@@ -34,7 +34,7 @@
 * TODO 陪老 K 学 Rust (十二)
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-09
-:EXPORT_FILE_NAME: learn-rust-with-k-part12
+:EXPORT_FILE_NAME: learn-rust-with-k-p12
 :END:
 波动拳和 ~guard~
 <!--more-->
@@ -42,7 +42,7 @@
 * TODO 陪老 K 学 Rust (十一)
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-16
-:EXPORT_FILE_NAME: learn-rust-with-k-part11
+:EXPORT_FILE_NAME: learn-rust-with-k-p11
 :END:
 ~Result~ 枚举
 <!--more-->
