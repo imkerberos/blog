@@ -2,8 +2,8 @@
 title = "陪老 K 学 Rust (十)"
 author = ["Evilee"]
 date = 2020-01-16
-lastmod = 2020-01-16T16:38:59+08:00
-tags = ["ssh", "gfw"]
+lastmod = 2020-01-16T16:43:48+08:00
+tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
