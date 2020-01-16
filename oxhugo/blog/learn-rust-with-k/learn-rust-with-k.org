@@ -406,6 +406,7 @@ fn main() {
 #+END_SRC
 
 ** Result 枚举
+虽然空值
 ** 波动拳和 ~guard~
 * DONE 陪老 K 学 Rust (八)
 :PROPERTIES:
