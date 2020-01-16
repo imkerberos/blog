@@ -1,12 +1,12 @@
 +++
 title = "陪老 K 学 Rust (八)"
 author = ["Evilee"]
-lastmod = 2020-01-10T10:50:07+08:00
+lastmod = 2020-01-16T15:47:16+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1004
+weight = 1007
 +++
 
 自定义数据类型：结构体

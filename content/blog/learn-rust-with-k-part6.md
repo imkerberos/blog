@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (六)"
 author = ["Evilee"]
 date = 2010-01-02
-lastmod = 2020-01-09T15:27:51+08:00
+lastmod = 2020-01-16T15:47:17+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1006
+weight = 1009
 +++
 
 克隆和拷贝来了。

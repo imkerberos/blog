@@ -2,12 +2,12 @@
 title = "陪老 K 学 Rust (七)"
 author = ["Evilee"]
 date = 2020-01-07
-lastmod = 2020-01-10T10:17:27+08:00
+lastmod = 2020-01-16T15:47:17+08:00
 tags = ["Rust"]
 categories = ["计算机"]
 draft = false
 creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
-weight = 1005
+weight = 1008
 +++
 
 元组可以说是 Rust 最简单的自定类型。通过元组来理解 `模式匹配` 和 `解构` -现代语言的时尚特性。
