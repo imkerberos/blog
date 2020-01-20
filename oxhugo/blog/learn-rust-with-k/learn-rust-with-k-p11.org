@@ -22,13 +22,15 @@
 足需求的。
 
 但假如把 ~Option~ 的 ~None~ 替换成具体的错误信息 ~Err~,开发人员根据 ~Err~ 来进行
-错误处理，这样 ~Result~ 这个枚举就诞生了。形如：
+错误处理，这样 ~Result~ 这个枚举就产生了。形如：
+
 #+BEGIN_SRC rust
 enum Result<T,E> {
     Ok(T),
     Err(E),
 }
 #+END_SRC
+
 当然，针对 ~Option~ 的 ~unwrap~ 和 ~unwrap_or~ 等就不能用于 ~Result~ 了。
 
 Rust 中并没有 ~Exception~ 机制，函数的出错全靠 ~Result~ 来进行判断，这样就要求开
@@ -37,3 +39,14 @@ Rust 中并没有 ~Exception~ 机制，函数的出错全靠 ~Result~ 来进行�
 1. 永远不要调用 ~panic~, 给调用你 API 的开发者以处理的机会。
 2. 永远不要调用导致 ~panic~ 的代码，如 ~unwrap~.
 3. 如果可能，函数尽量使用 ~Result~ 作为返回值，以方便其他开发者处理。
+
+~Result~ 中的两个关联值，其中一个是泛型类型为 ~T~ 的 ~Ok~, 另外一个是泛型类型为
+~E~ 的 ~Err~. ~T~ 类型比较好理解，就是值的类型， ~E~ 类型呢？是否应该是某些特定
+的类型？
+
+* 以前的代码从 ~Option~ 转换成 ~Result~
+
+* 在 ~main~ 函数中使用 ~Result~
+
+* ~Result~ 处理的方案
+实际上，Rust 的错误处理方案也是改了又该，一直不完美。无论是 error_chain 还是
