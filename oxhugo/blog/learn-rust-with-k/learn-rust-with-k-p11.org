@@ -45,8 +45,98 @@ Rust 中并没有 ~Exception~ 机制，函数的出错全靠 ~Result~ 来进行�
 的类型？
 
 * 以前的代码从 ~Option~ 转换成 ~Result~
+在 ~Option~ 的样例代码 =除法计算= 中，用 ~None~ 表示无法计算，通过 ~division~ 的
+代码实现，开发者可以确定 ~None~ 是因为除数为 0 而导致无法计算，但是单从
+~division~ 的原型来看，是无法得知无法计算的原因的。从一个良好的接口设计角度来说，
+~fn dvision(dvidend: i32, divisor: i32) -> Result<i32, &str>~ 返回一个错误的详细
+描述会更好。
 
-* 在 ~main~ 函数中使用 ~Result~
+#+BEGIN_SRC rust
+fn division(dividend: i32, divisor: i32) -> Result<i32,  &'static str> {
+    if divisor == 0 {
+        Err("divisor is zero")
+    } else {
+        Ok(dividend / divisor)
+    }
+}
+
+fn main() {
+    let r1 = division(4, 2);
+    println!("4 / 2 = {:?}", r1);
+    let r0 = division(4, 0);
+    println!("4 / 0 = {:?}", r0);
+
+    match r1 {
+        Err(e) => {
+            println!("error: {:?}", e);
+            println!("error is: {:?}", r1.unwrap_err());
+        },
+        Ok(value) => {
+            println!("r1's value is: {}", value);
+            println!("r1's value is: {}", r1.unwrap());
+        }
+    }
+
+    match r0 {
+        Err(e) => {
+            println!("error: {:?}", e);
+            println!("error is: {:?}", r0.unwrap_err());
+        },
+        Ok(value) => {
+            println!("r0's value is: {}", value);
+            println!("r0's value is: {}", r0.unwrap());
+        }
+    }
+}
+#+END_SRC
+
+运行输出：
+#+BEGIN_EXAMPLE
+4 / 2 = Ok(2)
+4 / 0 = Err("divisor is zero")
+r1's value is: 2
+r1's value is: 2
+error: "divisor is zero"
+error is: "divisor is zero
+#+END_EXAMPLE
 
 * ~Result~ 处理的方案
-实际上，Rust 的错误处理方案也是改了又该，一直不完美。无论是 error_chain 还是
+在使用 ~Result~ 的情况下，如果每个函数调用都要使用 ~match~ 进行匹配，其代码的优
+美程度并不比src_go[:exports code]{ret, err := some_call(arg1, arg2)} 更好。甚至
+还有可能形成这样的波动拳：
+
+#+BEGIN_SRC rust
+struct MyError {
+    ErrorCode0,
+    ErrorCode1,
+    ErrorCode2,
+    ErrorCode3,
+    ErrorCode4,
+    ErrorCode5,
+    ErrorCode6,
+}
+
+fn foo() -> Result<(), MyError>{
+    return match call_fn0() {
+        Err(e1) => ErrorCode0,
+        Ok(v1) => match call_fn1(v1) {
+            Err(e2) => ErrorCode1,
+            Ok(v2) => match call_fn2(v2) {
+                Err(e3) => ErrorCode2,
+                Ok(v3) => match call_fn3(v3) {
+                    Err(e4) => ErrorCode3,
+                    Ok(v4) => match call_fn4(v4) {
+                        Err(e5) => ErrorCode4,
+                        Ok(v5) => (),
+                    }
+                }
+            }
+        }
+    }
+}
+#+END_SRC
+
+这种代码看上去简直丑到姥姥家了，所以 Rust 的错误处理方案也是围绕 ~Result~ 改了又
+该，光我听说的就包括： ~error_chain~, ~failure~ 等。
+
+* 在 ~main~ 函数中使用 ~Result~
