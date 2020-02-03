@@ -12,3 +12,6 @@
 #+HUGO_WEIGHT: auto
 #+HUGO_TAGS: Swift
 #+HUGO_DRAFT: true
+
+* 计划
+建立一个书籍共享的项目。
