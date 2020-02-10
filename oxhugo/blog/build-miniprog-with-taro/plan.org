@@ -1,0 +1,33 @@
+#+STARTUP: inlineimages content
+#+AUTHOR: Evilee
+#+LANGUAGE: zh-CN
+#+OPTIONS: creator:t toc:nil num:t
+#+PROPERTY: header-args :eval no
+#+HUGO_CUSTOM_FRONT_MATTTER: :authorbox true :comments true :toc false :mathjax true
+#+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_BASE_DIR: ../../../
+#+DATE: 2020-02-04
+#+HUGO_SECTION: blog
+#+HUGO_CATEGORIES: 计算机
+#+HUGO_TAGS: typescript taro 小程序 RxJS
+#+TITLE: 使用 Tagro 开发小程序
+#+HUGO_DRAFT: true
+
+* 建立手脚架
+1. 安装 NodeJS
+2. 安装 Taro
+3. 安装镜像配置
+4. 初始化项目
+5. 安装 TaroUI
+6. 安装 RxJS, RxJS-compact
+
+* 问题
+1. 除了在 .tsx 文件中 import 对应的模块以外，还需要在 scss 文件中 import 对应的样式表，否则显式不正常。
+2. 不要使用 Redux 模式，觉得不爽，尤其是和 RxJS 配合的时候。
+3. 需要考虑 DeepLink
+
+* 知识点
+1. 如何创建一个 Component.
+2. 如何进行导航和 Url 跳转。
+3. 如何进行网络访问。
+4. 如何针对 json 进行序列化？
