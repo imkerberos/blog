@@ -2,11 +2,11 @@
 title = "使用 Tagro 开发小程序"
 author = ["Evilee"]
 date = 2020-02-04
-lastmod = 2020-02-04T17:41:25+08:00
+lastmod = 2020-02-15T23:20:37+08:00
 tags = ["typescript", "taro", "小程序", "RxJS"]
 categories = ["计算机"]
 draft = true
-creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
+creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 +++
 
 ## <span class="section-num">1</span> 建立手脚架 {#建立手脚架}
@@ -32,3 +32,24 @@ creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
 2.  如何进行导航和 Url 跳转。
 3.  如何进行网络访问。
 4.  如何针对 json 进行序列化？
+
+
+## <span class="section-num">4</span> 项目布局 {#项目布局}
+
+<div class="PLAIN">
+  <div></div>
+
+src
+    components
+    containers
+    pages
+    store
+        hero
+            types.ts
+            actions
+            epics
+            reducers
+            constants
+        index.ts
+
+</div>

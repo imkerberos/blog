@@ -31,3 +31,20 @@
 2. 如何进行导航和 Url 跳转。
 3. 如何进行网络访问。
 4. 如何针对 json 进行序列化？
+* 项目布局
+
+#+BEGIN_PLAIN
+src
+    components
+    containers
+    pages
+    store
+        hero
+            types.ts
+            actions
+            epics
+            reducers
+            constants
+        index.ts
+
+#+END_PLAIN
