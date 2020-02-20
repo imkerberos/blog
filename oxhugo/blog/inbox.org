@@ -58,6 +58,11 @@ caddy + v2ray + tls 配置
 要去了解 =SwiftNIO= 的。但如进行比较复杂的非阻塞模型开发的话，=SwiftNIO= 有着不
 小的帮助。
 
+或许你接触过 RxSwift 或者 ES6, 那么对 future, promise 等不会陌生. 但是小心，这里
+有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
+的 promise 确是和 RxSwift 中的 observer 相似。
+
+
 * 今日入手 Nintendo Switch Lite                                                 :@生活:SwitchLite:
 :PROPERTIES:
 :EXPORT_DATE: 2020-01-16
