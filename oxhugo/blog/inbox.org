@@ -37,7 +37,6 @@
 :END:
 
 caddy + v2ray + tls 配置
-
 * TODO 谈 flutter, react-native 和技术吹                                        :@计算机:
 :PROPERTIES:
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
@@ -62,6 +61,24 @@ caddy + v2ray + tls 配置
 有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
 的 promise 确是和 RxSwift 中的 observer 相似。
 
+* Swift 5.2 中新增的几个 SwiftPM 提案
+:PROPERTIES:
+:EXPORT_DATE: 2020-03-05
+:EXPORT_FILE_NAME: new-propsals-about-swiftpm-in-swift5.2
+:END:
+
+Swift 5.2 中新增的几个 SwiftPM 提案：
+1. https://github.com/apple/swift-evolution/blob/master/proposals/0226-package-manager-target-based-dep-resolution.md
+   目标依赖方案
+2. https://github.com/apple/swift-evolution/blob/master/proposals/0271-package-manager-resources.md
+   资源管理方案
+3. https://github.com/apple/swift-evolution/blob/master/proposals/0272-swiftpm-binary-dependencies.md
+   闭源二进制目标方案
+4. https://github.com/apple/swift-evolution/blob/master/proposals/0273-swiftpm-conditional-target-dependencies.md
+   目标条件依赖方案
+
+再加上 Xcode11 中已经实现的 Swift Package 依赖功能，iOS 开发已经可以抛弃
+CocoaPods 和 Carthage, 使用纯 SwiftPM 方案进行工程管理了。
 
 * 今日入手 Nintendo Switch Lite                                                 :@生活:SwitchLite:
 :PROPERTIES:
