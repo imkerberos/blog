@@ -2,7 +2,7 @@
 title = "Swift 5.2 中新增的几个 SwiftPM 提案"
 author = ["Evilee"]
 date = 2020-03-05
-lastmod = 2020-03-05T12:46:56+08:00
+lastmod = 2020-03-05T12:49:53+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 authorbox = true
@@ -10,6 +10,8 @@ comments = true
 toc = false
 mathjax = true
 +++
+
+<!--more-->
 
 Swift 5.2 中新增的几个 SwiftPM 提案：
 
