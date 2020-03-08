@@ -2,7 +2,7 @@
 title = "MacOS 系统上 Posgresql 的中文全文搜索配置和使用"
 author = ["Evilee"]
 date = 2020-03-08
-lastmod = 2020-03-08T22:23:29+08:00
+lastmod = 2020-03-08T22:26:14+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 authorbox = true
@@ -17,7 +17,9 @@ mathjax = true
 
 安装 postgresql
 
-> brew install postgresql
+```text
+brew install postgresql
+```
 
 
 ## pg\_jieba 方案 {#pg-jieba-方案}
@@ -77,22 +79,23 @@ scws -v
 
 下载词典文件
 
-> mkdir -p /usr/local/etc/scws
-> curl "<http://www.xunsearch.com/scws/down/scws-dict-chs-utf8.tar.bz2>" | tar xvjf -
-> mv dict.utf8.xdb _usr/local/etc/scws_
+```text
+mkdir -p /usr/local/etc/scws
+curl "http://www.xunsearch.com/scws/down/scws-dict-chs-utf8.tar.bz2" | tar xvjf -
+mv dict.utf8.xdb /usr/local/etc/scws/
+```
 
 测试效果
 
-> scws -c utf8 -d /usr/local/etc/scws/dict.utf8.xdb -r /usr/local/opt/scws/etc/rules.utf8.ini -M 9 "PostgreSQL 自带有一个简易的全文检索引擎"
-> PostgreSQL 自带 自 带 有 一个 一 个 简易 简 易 的 全文检索 全文 检索 全 文 检 索 引擎 引 擎
-> ~~--[scws(scws-cli/1.2.3)]----------~~
->
-> | TextLen:   52              |
-> |----------------------------|
-> | Prepare:   0.0007    (sec) |
-> | Segment:   0.0002    (sec) |
->
-> ~~--------------------------------~~
+```text
+scws -c utf8 -d /usr/local/etc/scws/dict.utf8.xdb -r /usr/local/opt/scws/etc/rules.utf8.ini -M 9 "PostgreSQL 自带有一个简易的全文检索引擎"
+PostgreSQL 自带 自 带 有 一个 一 个 简易 简 易 的 全文检索 全文 检索 全 文 检 索 引擎 引 擎
++--[scws(scws-cli/1.2.3)]----------+
+| TextLen:   52                  |
+| Prepare:   0.0007    (sec)     |
+| Segment:   0.0002    (sec)     |
++--------------------------------+
+```
 
 安装 zhparser
 

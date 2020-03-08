@@ -73,9 +73,9 @@ caddy + v2ray + tls 配置
 <!--more-->
 
 安装 postgresql
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 brew install postgresql
-#+END_QUOTE
+#+END_EXAMPLE
 
 ** pg_jieba 方案
 
@@ -129,14 +129,14 @@ scws -v
 #+END_EXAMPLE
 
 下载词典文件
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 mkdir -p /usr/local/etc/scws
 curl "http://www.xunsearch.com/scws/down/scws-dict-chs-utf8.tar.bz2" | tar xvjf -
 mv dict.utf8.xdb /usr/local/etc/scws/
-#+END_QUOTE
+#+END_EXAMPLE
 
 测试效果
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 scws -c utf8 -d /usr/local/etc/scws/dict.utf8.xdb -r /usr/local/opt/scws/etc/rules.utf8.ini -M 9 "PostgreSQL 自带有一个简易的全文检索引擎"
 PostgreSQL 自带 自 带 有 一个 一 个 简易 简 易 的 全文检索 全文 检索 全 文 检 索 引擎 引 擎
 +--[scws(scws-cli/1.2.3)]----------+
@@ -144,7 +144,7 @@ PostgreSQL 自带 自 带 有 一个 一 个 简易 简 易 的 全文检索 全
 | Prepare:   0.0007    (sec)     |
 | Segment:   0.0002    (sec)     |
 +--------------------------------+
-#+END_QUOTE
+#+END_EXAMPLE
 
 安装 zhparser
 #+BEGIN_EXAMPLE
