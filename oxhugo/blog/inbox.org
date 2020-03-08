@@ -80,17 +80,17 @@ brew install postgresql
 ** pg_jieba 方案
 
 安装
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 brew install cmake
 mkdir ~/tmp && cd ~/tmp && git clone https://github.com/jaiminpan/pg_jieba && cd pg_jieba
 git submodule update --init --recursive
 mkdir build && cd build
 cmake -DCMAKE_PREFIX_PATH=/usr/local/opt/postgres ..
 make install
-#+END_QUOTE
+#+END_EXAMPLE
 
 测试
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 $ psql -d vapordb
 psql (12.2)
 Type "help" for help.
@@ -104,11 +104,11 @@ CREATE EXTENSION
 (1 row)
 
 @vapordb=# \quit
-#+END_QUOTE
+#+END_EXAMPLE
 
 在测试时，可以感觉到 jieba 的第一次分词有明显的延迟和卡顿，可以通过 Postgresq 预
 加载 jieba 的动态库和配置文件改善(/usr/local/var/postgres/postgresql.conf)。
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 #------------------------------------------------------------------------------
 # CUSTOMIZED OPTIONS
 #------------------------------------------------------------------------------
@@ -118,15 +118,15 @@ CREATE EXTENSION
 shared_preload_libraries = 'pg_jieba.so'  # (change requires restart)
 # default_text_search_config='pg_catalog.simple'; default value
 default_text_search_config='jiebacfg'; uncomment to make 'jiebacfg' as default
-#+END_QUOTE
+#+END_EXAMPLE
 
 
 ** zhparser 方案
 安装 scws
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 brew install scws
 scws -v
-#+END_QUOTE
+#+END_EXAMPLE
 
 下载词典文件
 #+BEGIN_QUOTE
@@ -147,14 +147,14 @@ PostgreSQL 自带 自 带 有 一个 一 个 简易 简 易 的 全文检索 全
 #+END_QUOTE
 
 安装 zhparser
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 mkdir ~/tmp && cd ~/tmp
 git clone https://github.com/amutu/zhparser.git && cd zhparser
 make install
-#+END_QUOTE
+#+END_EXAMPLE
 
 测试 zhparser
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 $ psql -d vapordb
 psql (12.2)
 Type "help" for help.
@@ -172,14 +172,14 @@ ALTER TEXT SEARCH CONFIGURATION
 (1 row)
 
 @vapordb=# \quit
-#+END_QUOTE
+#+END_EXAMPLE
 
 大功告成。
 
 ** 对比
 
 两种方案效果上差不多.
-#+BEGIN_QUOTE
+#+BEGIN_EXAMPLE
 $ psql -d vapordb
 psql (12.2)
 Type "help" for help.
@@ -197,7 +197,7 @@ Type "help" for help.
 (1 row)
 
 @vapordb=# \quit
-#+END_QUOTE
+#+END_EXAMPLE
 
 ** 如何使用
 对于全文检索，有两种使用方式，大家可以权衡自己的内容进行选择。

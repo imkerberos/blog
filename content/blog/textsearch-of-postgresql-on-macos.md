@@ -2,7 +2,7 @@
 title = "MacOS 系统上 Posgresql 的中文全文搜索配置和使用"
 author = ["Evilee"]
 date = 2020-03-08
-lastmod = 2020-03-08T22:20:21+08:00
+lastmod = 2020-03-08T22:23:29+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 authorbox = true
@@ -24,48 +24,56 @@ mathjax = true
 
 安装
 
-> brew install cmake
-> mkdir ~/tmp && cd ~/tmp && git clone <https://github.com/jaiminpan/pg%5Fjieba> && cd pg\_jieba
-> git submodule update --init --recursive
-> mkdir build && cd build
-> cmake -DCMAKE\_PREFIX\_PATH=/usr/local/opt/postgres ..
-> make install
+```text
+brew install cmake
+mkdir ~/tmp && cd ~/tmp && git clone https://github.com/jaiminpan/pg_jieba && cd pg_jieba
+git submodule update --init --recursive
+mkdir build && cd build
+cmake -DCMAKE_PREFIX_PATH=/usr/local/opt/postgres ..
+make install
+```
 
 测试
 
-> $ psql -d vapordb
-> psql (12.2)
-> Type "help" for help.
->
-> @vapordb=# CREATE EXTENSION pg\_jieba;
-> CREATE EXTENSION
-> @vapordb=# SELECT \* FROM to\_tsvector('jiebacfg', '小明硕士毕业于中国科学院计算所，后在日本京都大学深造');
->                                    to\_tsvector
->
-> ---
->
->  '中国科学院':5 '小明':1 '日本京都大学':10 '毕业':3 '深造':11 '硕士':2 '计算所':6
-> (1 row)
->
-> @vapordb=# \quit
+```text
+$ psql -d vapordb
+psql (12.2)
+Type "help" for help.
+
+@vapordb=# CREATE EXTENSION pg_jieba;
+CREATE EXTENSION
+@vapordb=# SELECT * FROM to_tsvector('jiebacfg', '小明硕士毕业于中国科学院计算所，后在日本京都大学深造');
+                                   to_tsvector
+----------------------------------------------------------------------------------
+ '中国科学院':5 '小明':1 '日本京都大学':10 '毕业':3 '深造':11 '硕士':2 '计算所':6
+(1 row)
+
+@vapordb=# \quit
+```
 
 在测试时，可以感觉到 jieba 的第一次分词有明显的延迟和卡顿，可以通过 Postgresq 预加载 jieba 的动态库和配置文件改善(/usr/local/var/postgres/postgresql.conf)。
 
-> \#------------------------------------------------------------------------------
->
-> \#------------------------------------------------------------------------------
->
-> shared\_preload\_libraries = 'pg\_jieba.so'  # (change requires restart)
->
-> default\_text\_search\_config='jiebacfg'; uncomment to make 'jiebacfg' as default
+```text
+#------------------------------------------------------------------------------
+# CUSTOMIZED OPTIONS
+#------------------------------------------------------------------------------
+
+# Add settings for extensions here
+# pg_jieba
+shared_preload_libraries = 'pg_jieba.so'  # (change requires restart)
+# default_text_search_config='pg_catalog.simple'; default value
+default_text_search_config='jiebacfg'; uncomment to make 'jiebacfg' as default
+```
 
 
 ## zhparser 方案 {#zhparser-方案}
 
 安装 scws
 
-> brew install scws
-> scws -v
+```text
+brew install scws
+scws -v
+```
 
 下载词典文件
 
@@ -88,31 +96,33 @@ mathjax = true
 
 安装 zhparser
 
-> mkdir ~/tmp && cd ~/tmp
-> git clone <https://github.com/amutu/zhparser.git> && cd zhparser
-> make install
+```text
+mkdir ~/tmp && cd ~/tmp
+git clone https://github.com/amutu/zhparser.git && cd zhparser
+make install
+```
 
 测试 zhparser
 
-> $ psql -d vapordb
-> psql (12.2)
-> Type "help" for help.
->
-> @vapordb=# CREATE EXTENSION zhparser;
-> CREATE EXTENSION
-> @vapordb=# CREATE TEXT SEARCH CONFIGURATION zhcnsearch (PARSER = zhparser);
-> CREATE TEXT SEARCH CONFIGURATION
-> @vapordb=# ALTER TEXT SEARCH CONFIGURATION zhcnsearch ADD MAPPING FOR n,v,a,i,e,l,j WITH simple;
-> ALTER TEXT SEARCH CONFIGURATION
-> @vapordb=# SELECT to\_tsvector('zhcnsearch', '人生苦短，我用 Python');
->                to\_tsvector
->
-> ---
->
->  'python':5 '人生':1 '用':4 '短':3 '苦':2
-> (1 row)
->
-> @vapordb=# \quit
+```text
+$ psql -d vapordb
+psql (12.2)
+Type "help" for help.
+
+@vapordb=# CREATE EXTENSION zhparser;
+CREATE EXTENSION
+@vapordb=# CREATE TEXT SEARCH CONFIGURATION zhcnsearch (PARSER = zhparser);
+CREATE TEXT SEARCH CONFIGURATION
+@vapordb=# ALTER TEXT SEARCH CONFIGURATION zhcnsearch ADD MAPPING FOR n,v,a,i,e,l,j WITH simple;
+ALTER TEXT SEARCH CONFIGURATION
+@vapordb=# SELECT to_tsvector('zhcnsearch', '人生苦短，我用 Python');
+               to_tsvector
+------------------------------------------
+ 'python':5 '人生':1 '用':4 '短':3 '苦':2
+(1 row)
+
+@vapordb=# \quit
+```
 
 大功告成。
 
@@ -121,27 +131,25 @@ mathjax = true
 
 两种方案效果上差不多.
 
-> $ psql -d vapordb
-> psql (12.2)
-> Type "help" for help.
->
-> @vapordb=# SELECT \* FROM to\_tsvector('jiebacfg', '小明硕士毕业于中国科学院计算所，后在日本京都大学深造');
->                                    to\_tsvector
->
-> ---
->
->  '中国科学院':5 '小明':1 '日本京都大学':10 '毕业':3 '深造':11 '硕士':2 '计算所':6
-> (1 row)
->
-> @vapordb=# SELECT \* FROM to\_tsvector('zhcnsearch', '小明硕士毕业于中国科学院计算所，后在日本京都大学深造');
->                                 to\_tsvector
->
-> ---
->
->  '中国科学院计算所':4 '小明':1 '日本京都大学':5 '毕业':3 '深造':6 '硕士':2
-> (1 row)
->
-> @vapordb=# \quit
+```text
+$ psql -d vapordb
+psql (12.2)
+Type "help" for help.
+
+@vapordb=# SELECT * FROM to_tsvector('jiebacfg', '小明硕士毕业于中国科学院计算所，后在日本京都大学深造');
+                                   to_tsvector
+----------------------------------------------------------------------------------
+ '中国科学院':5 '小明':1 '日本京都大学':10 '毕业':3 '深造':11 '硕士':2 '计算所':6
+(1 row)
+
+@vapordb=# SELECT * FROM to_tsvector('zhcnsearch', '小明硕士毕业于中国科学院计算所，后在日本京都大学深造');
+                                to_tsvector
+---------------------------------------------------------------------------
+ '中国科学院计算所':4 '小明':1 '日本京都大学':5 '毕业':3 '深造':6 '硕士':2
+(1 row)
+
+@vapordb=# \quit
+```
 
 
 ## 如何使用 {#如何使用}
