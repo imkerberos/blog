@@ -1,0 +1,121 @@
+#+STARTUP: inlineimages content
+#+AUTHOR: Evilee
+#+LANGUAGE: zh-CN
+#+OPTIONS: creator:t toc:nil num:t
+#+PROPERTY: header-args :eval no
+#+HUGO_CUSTOM_FRONT_MATTTER: :authorbox true :comments true :toc false :mathjax true
+#+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_BASE_DIR: ../../../
+#+DATE: 2020-03-09
+#+HUGO_SECTION: blog
+#+HUGO_CATEGORIES: 计算机
+#+HUGO_TAGS: ssh gfw
+#+TITLE: 使用 ASP.NET Core 建立 WebApi 服务
+#+HUGO_DRAFT: true
+
+还是选一个靠谱的吧.
+
+<!--more-->
+* 原贴地址
+https://dev.to/_patrickgod/net-core-3-1-web-api-entity-framework-jumpstart-part-1-4jla
+
+* 环境
+macos
+vscode
+dotnet-sdk
+
+#+BEGIN_EXAMPLE
+brew cast install dotnet-core
+brew cast install visaul-studio-code
+#+END_EXAMPLE
+
+* 工程手脚架
+
+#+BEGIN_EXAMPLE
+cd ~/ws
+mkdir -p dotnet/Dipper && cd dotnet/Dipper
+#+END_EXAMPLE
+
+创建解决方案
+#+BEGIN_EXAMPLE
+dotnet sln -n Dipper
+dotnet new webapi -n Dipper.Dubhe
+dotnet sln add Dipper.Dubhe
+#+END_EXAMPLE
+
+不喜欢缺省的代码格式，修改下
+#+BEGIN_EXAMPLE
+cat > omnisharp.json << END
+{
+        "FormattingOptions": {
+                "NewLinesForBracesInLambdaExpressionBody": false,
+                "NewLinesForBracesInAnonymousMethods": false,
+                "NewLinesForBracesInAnonymousTypes": false,
+                "NewLinesForBracesInControlBlocks": false,
+                "NewLinesForBracesInTypes": false,
+                "NewLinesForBracesInMethods": false,
+                "NewLinesForBracesInProperties": false,
+                "NewLinesForBracesInAccessors": false,
+                "NewLineForElse": false,
+                "NewLineForCatch": false,
+                "NewLineForFinally": false
+        }
+}
+END
+#+END_EXAMPLE
+
+打开工程
+#+BEGIN_EXAMPLE
+code .
+#+END_EXAMPLE
+
+vscode 中隐藏临时文件
+#+BEGIN_EXAMPLE
+mkdir .vscode
+cat > .vscode/settings.json << END
+{
+    "files.exclude": {
+        "*/obj/": true,
+        "*/bin/": true
+    }
+}
+END
+#+END_EXAMPLE
+
+修改 =Properties/launchSettings.json= 文件中，=applicationUrl= 修改为下面代码的
+样式，http 在前， https 在后。
+#+BEGIN_SRC json
+"profiles": {
+    "Dipper.Dubhe": {
+        "commandName": "Project",
+        "launchBrowser": true,
+        "launchUrl": "weatherforecast",
+        "applicationUrl": "http://localhost:5000;https://localhost:5001",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
+    }
+}
+#+END_SRC
+
+按下 F5, 开始运行，可以看到一片空白，不过没有出错就表示手脚架成功了。
+
+#+BEGIN_SRC sh
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+#+END_SRC
+
+* 继续
+
+#+BEGIN_SRC sh
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+#+END_SRC
+
+配置好数据库。
+
+* EntityFrameworkCore
+
+#+BEGIN_SRC sh
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+#+END_SRC
