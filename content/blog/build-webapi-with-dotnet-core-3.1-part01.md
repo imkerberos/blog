@@ -2,7 +2,7 @@
 title = "使用 ASP.NET Core 建立 WebApi 服务"
 author = ["Evilee"]
 date = 2020-03-09
-lastmod = 2020-03-10T10:50:07+08:00
+lastmod = 2020-03-10T14:01:09+08:00
 tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = true
@@ -121,7 +121,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 配置好数据库。
 
 
-## <span class="section-num">5</span> 如何处理 route 参数, query 参数 和 post 参数 {#如何处理-route-参数-query-参数-和-post-参数}
+## <span class="section-num">5</span> 如何处理 route 参数, query 参数, post 参数 和 body 参数 {#如何处理-route-参数-query-参数-post-参数-和-body-参数}
 
 ```csharp
 public class SomeQuery {
@@ -196,4 +196,53 @@ using (var ctx = MyDbContext()) {
 ```sh
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+```
+
+
+## <span class="section-num">8</span> 代码共享 {#代码共享}
+
+假如有两个应用（例如：用户端和管理后台）需要共享某些代码（如数据模型），可以建立三个工程: Library, Front, Admin.
+
+```text
+Library/Library.csproj
+Front/Web1.csproj
+Admin/Web2.csproj
+```
+
+Front 和 Admin 共同依赖 Library.
+
+```sh
+dotnet add Front reference Library
+dotnet add Admin reference Libaray
+```
+
+这样就可以在 Front 和 Admin 中使用 Library 的代码了。
+
+```csharp
+using Library.Models;
+```
+
+
+## <span class="section-num">9</span> 多数据库配置 {#多数据库配置}
+
+代码:
+
+```csharp
+public class Startup {
+    public void ConfigureServices(IServiceCollection services) {
+        services.AddDbContext<Extern1DbContext>(options => options.UsePgsql(Configuration.GetConnectionString("DefaultConnection1"),
+                                                                            b => b.MigrationsAssembly("CurrentProjectName")));
+        services.AddDbContext<Extern2DbContext>(options => options.UsePgsql(Configuration.GetConnectionString("DefaultConnection2"),
+                                                                            b => b.MigrationsAssembly("CurrentProjectName")));
+    }
+}
+```
+
+迁移命令:
+
+```sh
+dotnet ef migrations --context Extern1DbContext add InitialExtern1 -o Migrations/Extern1
+dotnet ef migrations --context Extern2DbContext add InitialExtern1 -o Migrations/Extern2
+dotnet ef database update --context Extern1DbContext
+dotnet ef database update --context Extern2DbContext
 ```

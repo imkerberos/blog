@@ -113,7 +113,7 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 
 配置好数据库。
 
-* 如何处理 route 参数, query 参数 和 post 参数
+* 如何处理 route 参数, query 参数, post 参数 和 body 参数
 #+BEGIN_SRC csharp
 public class SomeQuery {
     public string SomeParameter1 {get; set;}
@@ -179,4 +179,47 @@ using (var ctx = MyDbContext()) {
 #+BEGIN_SRC sh
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+#+END_SRC
+
+* 代码共享
+假如有两个应用（例如：用户端和管理后台）需要共享某些代码（如数据模型），可以建立
+三个工程: Library, Front, Admin.
+
+#+BEGIN_EXAMPLE
+Library/Library.csproj
+Front/Web1.csproj
+Admin/Web2.csproj
+#+END_EXAMPLE
+
+Front 和 Admin 共同依赖 Library.
+
+#+BEGIN_SRC sh
+dotnet add Front reference Library
+dotnet add Admin reference Libaray
+#+END_SRC
+
+这样就可以在 Front 和 Admin 中使用 Library 的代码了。
+#+BEGIN_SRC csharp
+using Library.Models;
+#+END_SRC
+
+* 多数据库配置
+代码:
+#+BEGIN_SRC csharp
+public class Startup {
+    public void ConfigureServices(IServiceCollection services) {
+        services.AddDbContext<Extern1DbContext>(options => options.UsePgsql(Configuration.GetConnectionString("DefaultConnection1"),
+                                                                            b => b.MigrationsAssembly("CurrentProjectName")));
+        services.AddDbContext<Extern2DbContext>(options => options.UsePgsql(Configuration.GetConnectionString("DefaultConnection2"),
+                                                                            b => b.MigrationsAssembly("CurrentProjectName")));
+    }
+}
+#+END_SRC
+
+迁移命令:
+#+BEGIN_SRC sh
+dotnet ef migrations --context Extern1DbContext add InitialExtern1 -o Migrations/Extern1
+dotnet ef migrations --context Extern2DbContext add InitialExtern1 -o Migrations/Extern2
+dotnet ef database update --context Extern1DbContext
+dotnet ef database update --context Extern2DbContext
 #+END_SRC

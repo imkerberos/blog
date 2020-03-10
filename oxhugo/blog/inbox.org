@@ -260,7 +260,7 @@ EXPLAIN ANALYSE SELECT * FROM xxxx_table WHERE tsv @@ to_tsquery('jiebacfg', '�
 当然因为是预先分词保存，所以需要在 update 的时候藉由 =触发器= 来更新 tsv 字段，。
 #+BEGIN_SRC sql
 CREATE TRIGGER tsvector_update BEFORE INSERT OR UPDATE OF (xx_field, xxx_field)
-       ON xxxx_table FOR EACH ROW  EXECUTE PROCEDURE xxxx_tsv_update_func(tsv, 'jiebacfg', xx_field, xxx_field);
+       ON xxxx_table FOR EACH ROW  EXECUTE PROCEDURE tsvector_update_trigger('tsv', 'jiebacfg', 'xx_field', 'xxx_field');
 #+END_SRC
 
 *** rum 索引
