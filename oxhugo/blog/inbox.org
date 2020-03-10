@@ -249,24 +249,25 @@ EXPLAIN ANALYSE SELECT * FROM xxxx_table
 创建 tsv 字段和索引
 #+BEGIN_SRC sql
 ALTER TABLE xxxx_table ADD COLUMN tsv tsvector;
-UPDATE xxxx_table SET tsv = to_tsvector('jiebacfg', COALESCE(xx_field, '') || COALESCE(xxx_field, ''));
-CREATE INDEX idx_xxxx ON xxxx_table USING gin(tsv);
+UPDATE xxxx_table SET tsv_field = to_tsvector('jiebacfg', COALESCE(xx_field, '') || COALESCE(xxx_field, ''));
+CREATE INDEX idx_xxxx ON xxxx_table USING gin(tsv_field);
 #+END_SRC
 
 查询：
 #+BEGIN_SRC sql
-EXPLAIN ANALYSE SELECT * FROM xxxx_table WHERE tsv @@ to_tsquery('jiebacfg', '关键词或者句子');
+EXPLAIN ANALYSE SELECT * FROM xxxx_table WHERE tsv_field @@ to_tsquery('jiebacfg', '关键词或者句子');
 #+END_SRC
 当然因为是预先分词保存，所以需要在 update 的时候藉由 =触发器= 来更新 tsv 字段，。
 #+BEGIN_SRC sql
 CREATE TRIGGER tsvector_update BEFORE INSERT OR UPDATE OF (xx_field, xxx_field)
-       ON xxxx_table FOR EACH ROW  EXECUTE PROCEDURE tsvector_update_trigger('tsv', 'jiebacfg', 'xx_field', 'xxx_field');
+       ON xxxx_table FOR EACH ROW  EXECUTE PROCEDURE tsvector_update_trigger('tsv_field', 'jiebacfg', 'xx_field', 'xxx_field');
 #+END_SRC
 
 *** rum 索引
-使用 rum 索引类似:
+使用 rum 索引类似, 但是 rum 引擎默认是没有安装的，需要自己编译，暂时先不用了。
+
 #+BEGIN_SRC sql
-CREATE INDEX idx_xxxx ON xxxx_table USING rum(tsv rum_tsvector_ops);
+CREATE INDEX idx_xxxx ON xxxx_table USING rum(tsv_field rum_tsvector_ops);
 #+END_SRC
 
 另外 rum 还支持相似度的查询:
