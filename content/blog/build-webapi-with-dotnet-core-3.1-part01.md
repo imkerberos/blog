@@ -2,7 +2,7 @@
 title = "使用 ASP.NET Core 建立 WebApi 服务"
 author = ["Evilee"]
 date = 2020-03-09
-lastmod = 2020-03-10T14:01:09+08:00
+lastmod = 2020-03-10T15:52:15+08:00
 tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = true
@@ -245,4 +245,108 @@ dotnet ef migrations --context Extern1DbContext add InitialExtern1 -o Migrations
 dotnet ef migrations --context Extern2DbContext add InitialExtern1 -o Migrations/Extern2
 dotnet ef database update --context Extern1DbContext
 dotnet ef database update --context Extern2DbContext
+```
+
+
+## <span class="section-num">10</span> Full Text Search for .NetCore {#full-text-search-for-dot-netcore}
+
+
+### <span class="section-num">10.1</span> 方案一: {#方案一}
+
+假设如下模型:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+}
+```
+
+使用 `dotnet ef migrations add ...` 生成迁移文件以后，需要手动修改：
+
+```csharp
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    migrationBuilder.Sql(@"CREATE INDEX fts_idx ON ""Product"" USING GIN (to_tsvector('jiebacfg', ""Name"" || ' ' || ""Description""));");
+}
+
+protected override void Down(MigrationBuilder migrationBuilder) {
+    migrationBuilder.Sql(@"DROP INDEX fts_idx;");
+}
+```
+
+查询方式：
+
+```csharp
+var context = new ProductDbContext();
+var npgsql = context.Products
+    .Where(p => EF.Functions.ToTsVector("jiebacfg", p.Name + " " + p.Description).Matches("Npgsql"))
+    .ToList();
+```
+
+> `EF.Functions.ToTsVector` 仅支持在 Linq 闭包中执行，外部直接调用会 `System.Exception`.
+
+
+### <span class="section-num">10.2</span> 方案二： {#方案二}
+
+直接生成 `Tsv` 列:
+
+```csharp
+public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public NpgsqlTsVector SearchVector { get; set; }
+}
+```
+
+在 DbContext 中为 `SearchVector` 创建索引:
+
+```csharp
+protected override void OnModelCreating(ModelBuilder modelBuilder) {
+    modelBuilder.Entity<Product>()
+        .HasIndex(p => p.SearchVector)
+        .HasMethod("GIN"); // Index method on the search vector (GIN or GIST)
+}
+```
+
+自动生成数据库迁移代码：
+
+```sh
+dotnet ef migrations add ....
+```
+
+手动编辑生成的迁移代码，目的是为了在更新记录对应字段时，自动触发更新 TSV.
+
+```csharp
+public partial class CreateProductTable : Migration {
+    protected override void Up(MigrationBuilder migrationBuilder) {
+        // Migrations for creation of the column and the index will appear here, all we need to do is set up the trigger to update the column:
+
+        migrationBuilder.Sql(
+            @"CREATE TRIGGER product_search_vector_update BEFORE INSERT OR UPDATE
+              ON ""Products"" FOR EACH ROW EXECUTE PROCEDURE
+              tsvector_update_trigger(""SearchVector"", 'pg_catalog.english', ""Name"", ""Description"");");
+
+        // If you were adding a tsvector to an existing table, you should populate the column using an UPDATE
+        // migrationBuilder.Sql("UPDATE \"Products\" SET \"Name\" = \"Name\";");
+    }
+
+    protected override void Down(MigrationBuilder migrationBuilder) {
+        // Migrations for dropping of the column and the index will appear here, all we need to do is drop the trigger:
+        migrationBuilder.Sql("DROP TRIGGER product_search_vector_update");
+    }
+}
+```
+
+在代码中使用:
+
+```csharp
+var context = new ProductDbContext();
+var npgsql = context.Products
+    .Where(p => p.SearchVector.Matches("Npgsql"))
+    .ToList();
 ```
