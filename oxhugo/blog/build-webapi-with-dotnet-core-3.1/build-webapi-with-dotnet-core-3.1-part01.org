@@ -113,6 +113,67 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 
 配置好数据库。
 
+* 如何处理 route 参数, query 参数 和 post 参数
+#+BEGIN_SRC csharp
+public class SomeQuery {
+    public string SomeParameter1 {get; set;}
+    public int? SomeParameter2 {get; set;}
+}
+
+[HttpGet]
+public IActionResult FindSomething([FromRoute] SomeQuery query) {
+}
+
+[HttpGet]
+public IActionResult GetSomething([FromRoute] int someId, [FromQuery] SomeQuery query) {
+}
+
+public class ApiModel {
+    [FromRoute]
+    public int SomeId {get; set;}
+    [FromQuery]
+    public string SomeParameter1 {get; set;}
+    [FromQuery]
+    public int? SomeParameter2 {get; set;}
+}
+#+END_SRC
+
+* 如何使用 Postgres 的 Enum 数据类型
+假设有如下自定义的枚举类型:
+#+BEGIN_SRC csharp
+public enum MyEnumType {
+    FieldA,
+    FildB,
+}
+
+#+END_SRC
+在数据库的 DbContext 中创建 Enum 类型并在静态构造函数中进行映射。
+#+BEGIN_SRC csharp
+using Npgsql;
+public class MyDbContext: DbContext {
+    protected override void OnModelCreating(ModelBuilder builder) {
+        builder.HasPostgresqEnum<MyEnumType>();
+    }
+
+    static MyDbContext() {
+        NpgsqlConnection.GlobalTypeMapper.MapEnum<MyEnumType>();
+    }
+}
+#+END_SRC
+
+就可以愉快地玩耍了:
+#+BEGIN_SRC csharp
+public class Authror {
+    public MyEnumType MyEnum {get; set;}
+}
+
+using (var ctx = MyDbContext()) {
+    ctx.Authors.Add(new Author{MyEnum = MyEnumType.FieldA});
+    ctx.SaveChanges();
+
+    var author = ctx.Authors.Single(b => b.MyEnum == MyEnumType.FieldA);
+}
+#+END_SRC
 * EntityFrameworkCore
 
 #+BEGIN_SRC sh
