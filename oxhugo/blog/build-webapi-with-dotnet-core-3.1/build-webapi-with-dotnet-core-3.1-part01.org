@@ -108,6 +108,7 @@ dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 
 #+BEGIN_SRC sh
 dotnet tool install --global dotnet-ef
+dotnet tool install --global dotnet-script
 dotnet add package Microsoft.EntityFrameworkCore.Design
 #+END_SRC
 
@@ -223,6 +224,37 @@ dotnet ef migrations --context Extern2DbContext add InitialExtern1 -o Migrations
 dotnet ef database update --context Extern1DbContext
 dotnet ef database update --context Extern2DbContext
 #+END_SRC
+* AutoMapper 递归映射
+#+BEGIN_SRC csharp
+public class SourceOuterObject
+{
+  public SourceSet SourceSet { get; set; }
+}
+
+public class SourceSet
+{
+  public List<SourceObject> SourceList{ get; set; }
+}
+
+public class TargetOuterObject
+{
+  public List<TargetObject> TargetList{ get; set; }
+}
+#+END_SRC
+
+#+BEGIN_SRC csharp
+Mapper.CreateMap<SourceObject, TargetObject>();
+Mapper.CreateMap<SourceOuterObject, TargetOuterObject>()
+    .ForMember(dest => dest.TargetList, opt => opt.MapFrom(src => src.SourceSet.SourceList);
+#+END_SRC
+
+另外一个不太优美的方案:
+#+BEGIN_SRC sharp
+Mapper.CreateMap<SourceOuterObject, TargetOuterObject>();
+Mapper.CreateMap<SourceObject, TargetObject>();
+Mapper.CreateMap<SourceSet, List<TargetObject>>()
+    .ConvertUsing(ss => ss.SourceList.Select(bs => Mapper.Map<SourceObject, TargetObject>(bs)).ToList());
+#+END_SRC
 
 * Full Text Search for .NetCore
 
@@ -312,4 +344,68 @@ var context = new ProductDbContext();
 var npgsql = context.Products
     .Where(p => p.SearchVector.Matches("Npgsql"))
     .ToList();
+#+END_SRC
+* JWT
+ 1. Authentication 认证
+ 2. Authorization 授权
+
+** 如何停用 Token? 把 Token/或者 User 存下来(数据库或者 redis)
+对于想屏蔽用户的方案：每个用户创建 JWT 以后都保存下来，接收到 JWT 以后，验证查询
+其是否在回收的 JWTs 中，不是的话通过，否则回收，屏蔽用户。
+
+* Snippets
+** json 编码和解码
+#+BEGIN_SRC csharp
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+
+public class Model {
+    [JsonPropertyName("book_id")]
+    public string BookId {get; set;}
+
+    public string BookName {get; set;}
+}
+
+Model deserialized = JsonSerializer.Deserialize<Model>(json);
+string json =  JonsSerializer.Serialize(deserialized);
+#+END_SRC
+
+** base64 编码和解码
+#+BEGIN_SRC csharp
+using System;
+using System.Text;
+bytes[] bytes = Convert.FromBase64String("e2NRUZbLCwXu/v8Y9+LZVA==");
+string s = Convert.ToBase64String(bytes);
+#+END_SRC
+
+** AES 加密和解密
+#+BEGIN_SRC csharp
+using System.Security.Cryptography;
+using System.IO;
+
+var text = "Hello World";
+var buffer = Encoding.UTF8.GetBytes(text);
+
+var iv = GetRandomData(128);
+var keyAes = GetRandomData(256);
+
+if (string.IsNullOrEmpty(keyAes))
+    throw new ArgumentException("Key must have valid value.", nameof(key));
+if (string.IsNullOrEmpty(text))
+    throw new ArgumentException("The text must have valid value.", nameof(text));
+
+byte[] result;
+using (var aes = Aes.Create()) {
+    aes.Key = keyAes;
+    aes.IV = iv;
+    using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+        using (var resultStream = new MemoryStream()) {
+            using (var aesStream = new CryptoStream(resultStream, encryptor, CryptoStreamMode.Write))
+                using (var plainStream = new MemoryStream(buffer)) {
+                    plainStream.CopyTo(aesStream);
+                }
+            result = resultStream.ToArray();
+        }
+}
 #+END_SRC

@@ -2,7 +2,7 @@
 title = "使用 ASP.NET Core 建立 WebApi 服务"
 author = ["Evilee"]
 date = 2020-03-09
-lastmod = 2020-03-10T15:52:15+08:00
+lastmod = 2020-03-22T00:00:00+08:00
 tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = true
@@ -115,6 +115,7 @@ dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 
 ```sh
 dotnet tool install --global dotnet-ef
+dotnet tool install --global dotnet-script
 dotnet add package Microsoft.EntityFrameworkCore.Design
 ```
 
@@ -248,10 +249,45 @@ dotnet ef database update --context Extern2DbContext
 ```
 
 
-## <span class="section-num">10</span> Full Text Search for .NetCore {#full-text-search-for-dot-netcore}
+## <span class="section-num">10</span> AutoMapper 递归映射 {#automapper-递归映射}
+
+```csharp
+public class SourceOuterObject
+{
+  public SourceSet SourceSet { get; set; }
+}
+
+public class SourceSet
+{
+  public List<SourceObject> SourceList{ get; set; }
+}
+
+public class TargetOuterObject
+{
+  public List<TargetObject> TargetList{ get; set; }
+}
+```
+
+```csharp
+Mapper.CreateMap<SourceObject, TargetObject>();
+Mapper.CreateMap<SourceOuterObject, TargetOuterObject>()
+    .ForMember(dest => dest.TargetList, opt => opt.MapFrom(src => src.SourceSet.SourceList);
+```
+
+另外一个不太优美的方案:
+
+```sharp
+Mapper.CreateMap<SourceOuterObject, TargetOuterObject>();
+Mapper.CreateMap<SourceObject, TargetObject>();
+Mapper.CreateMap<SourceSet, List<TargetObject>>()
+    .ConvertUsing(ss => ss.SourceList.Select(bs => Mapper.Map<SourceObject, TargetObject>(bs)).ToList());
+```
 
 
-### <span class="section-num">10.1</span> 方案一: {#方案一}
+## <span class="section-num">11</span> Full Text Search for .NetCore {#full-text-search-for-dot-netcore}
+
+
+### <span class="section-num">11.1</span> 方案一: {#方案一}
 
 假设如下模型:
 
@@ -289,7 +325,7 @@ var npgsql = context.Products
 > `EF.Functions.ToTsVector` 仅支持在 Linq 闭包中执行，外部直接调用会 `System.Exception`.
 
 
-### <span class="section-num">10.2</span> 方案二： {#方案二}
+### <span class="section-num">11.2</span> 方案二： {#方案二}
 
 直接生成 `Tsv` 列:
 
@@ -349,4 +385,80 @@ var context = new ProductDbContext();
 var npgsql = context.Products
     .Where(p => p.SearchVector.Matches("Npgsql"))
     .ToList();
+```
+
+
+## <span class="section-num">12</span> JWT {#jwt}
+
+1.  Authentication 认证
+2.  Authorization 授权
+
+
+### <span class="section-num">12.1</span> 如何停用 Token? 把 Token/或者 User 存下来(数据库或者 redis) {#如何停用-token-把-token-或者-user-存下来--数据库或者-redis}
+
+对于想屏蔽用户的方案：每个用户创建 JWT 以后都保存下来，接收到 JWT 以后，验证查询其是否在回收的 JWTs 中，不是的话通过，否则回收，屏蔽用户。
+
+
+## <span class="section-num">13</span> Snippets {#snippets}
+
+
+### <span class="section-num">13.1</span> json 编码和解码 {#json-编码和解码}
+
+```csharp
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using System.ComponentModel.DataAnnotations;
+
+public class Model {
+    [JsonPropertyName("book_id")]
+    public string BookId {get; set;}
+
+    public string BookName {get; set;}
+}
+
+Model deserialized = JsonSerializer.Deserialize<Model>(json);
+string json =  JonsSerializer.Serialize(deserialized);
+```
+
+
+### <span class="section-num">13.2</span> base64 编码和解码 {#base64-编码和解码}
+
+```csharp
+using System;
+using System.Text;
+bytes[] bytes = Convert.FromBase64String("e2NRUZbLCwXu/v8Y9+LZVA==");
+string s = Convert.ToBase64String(bytes);
+```
+
+
+### <span class="section-num">13.3</span> AES 加密和解密 {#aes-加密和解密}
+
+```csharp
+using System.Security.Cryptography;
+using System.IO;
+
+var text = "Hello World";
+var buffer = Encoding.UTF8.GetBytes(text);
+
+var iv = GetRandomData(128);
+var keyAes = GetRandomData(256);
+
+if (string.IsNullOrEmpty(keyAes))
+    throw new ArgumentException("Key must have valid value.", nameof(key));
+if (string.IsNullOrEmpty(text))
+    throw new ArgumentException("The text must have valid value.", nameof(text));
+
+byte[] result;
+using (var aes = Aes.Create()) {
+    aes.Key = keyAes;
+    aes.IV = iv;
+    using (var encryptor = aes.CreateEncryptor(aes.Key, aes.IV))
+        using (var resultStream = new MemoryStream()) {
+            using (var aesStream = new CryptoStream(resultStream, encryptor, CryptoStreamMode.Write))
+                using (var plainStream = new MemoryStream(buffer)) {
+                    plainStream.CopyTo(aesStream);
+                }
+            result = resultStream.ToArray();
+        }
+}
 ```

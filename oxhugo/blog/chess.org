@@ -1,0 +1,23 @@
+#+STARTUP: inlineimages content
+#+AUTHOR: Evilee
+#+LANGUAGE: zh-CN
+#+OPTIONS: creator:t toc:nil num:t
+#+PROPERTY: header-args :eval no
+#+HUGO_CUSTOM_FRONT_MATTTER: :authorbox true :comments true :toc false :mathjax true
+#+HUGO_AUTO_SET_LASTMOD: f
+#+HUGO_BASE_DIR: ../../
+#+DATE: 2020-03-20
+#+HUGO_SECTION: blog
+#+HUGO_CATEGORIES: 中国象棋
+#+HUGO_TAGS: chess cchess
+#+TITLE: 中国象棋
+#+HUGO_DRAFT: true
+
+中国象棋残局学习方法
+
+<!--more-->
+
+* 象棋残局学习方法
+使用逆向思维来进行学习，也就是说，先要摆死黑方，找到思路。
+摆的时候，要红方摆完，黑方先走，这样才是正确的找到思路的方法。否则红方摆完了，直
+接再走棋，那就不合理了。以马擒单象的例子为例来说明。
