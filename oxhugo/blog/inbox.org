@@ -16,10 +16,11 @@
 :END:
 这里是我的博客。
 
-* TODO 从零学习 Scheme                                                          :@计算机:Scheme:
-* TODO Swift 全栈之路                                                           :@计算机:Swift:
-* TODO 打造顺手的终端控制台工作环境                                             :@计算机:tmux:
-** 0x00 用到的材料
+* TODO 准备编写的主题
+** TODO 从零学习 Scheme                                                        :@计算机:Scheme:
+** TODO Swift 全栈之路                                                         :@计算机:Swift:
+** TODO 打造顺手的终端控制台工作环境                                           :@计算机:tmux:
+*** 0x00 用到的材料
 1. tmux
 2. zsh
 3. zplug
@@ -27,22 +28,22 @@
 5. xkeysnail
 6. xclip
 
-* TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                     :@计算机:Emacs:RIME:
-* TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:Linux:
-* TODO MacOS 中的 tmux 配置                                                     :@计算机:MacOS:
-* TODO Manjaro 中使用 xkeysnail 改变键盘映射                                    :@计算机:Linux:
-* TODO 2020 年最稳的翻墙姿势                                                    :@计算机:caddy:v2ray:tls:
+** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:RIME:
+** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法                                 :@计算机:Emacs:Linux:
+** TODO MacOS 中的 tmux 配置                                                   :@计算机:MacOS:
+** TODO Manjaro 中使用 xkeysnail 改变键盘映射                                  :@计算机:Linux:
+** TODO 2020 年最稳的翻墙姿势                                                  :@计算机:caddy:v2ray:tls:
 :PROPERTIES:
 :EXPORT_FILE_NAME: xgfw-in-2020
 :END:
 
 caddy + v2ray + tls 配置
-* TODO 谈 flutter, react-native 和技术吹                                        :@计算机:
+** TODO 谈 flutter, react-native 和技术吹                                      :@计算机:
 :PROPERTIES:
 :EXPORT_FILE_NAME: talk-about-flutter-and-react_native
 :END:
 
-* TODO 初识 SwiftNIO                                                            :@计算机:Swift:SwiftNIO:
+** TODO 初识 SwiftNIO                                                          :@计算机:Swift:SwiftNIO:
 :PROPERTIES:
 :EXPORT_DATE: 2020-02-20
 :EXPORT_FILE_NAME: intro-swiftnio2
@@ -259,7 +260,7 @@ EXPLAIN ANALYSE SELECT * FROM xxxx_table WHERE tsv_field @@ to_tsquery('jiebacfg
 #+END_SRC
 当然因为是预先分词保存，所以需要在 update 的时候藉由 =触发器= 来更新 tsv 字段，。
 #+BEGIN_SRC sql
-CREATE TRIGGER tsvector_update BEFORE INSERT OR UPDATE OF (xx_field, xxx_field)
+CREATE TRIGGER tsvector_update BEFORE INSERT OR UPDATE
        ON xxxx_table FOR EACH ROW  EXECUTE PROCEDURE tsvector_update_trigger('tsv_field', 'jiebacfg', 'xx_field', 'xxx_field');
 #+END_SRC
 

@@ -2,7 +2,7 @@
 title = "MacOS 系统上 Posgresql 的中文全文搜索配置和使用"
 author = ["Evilee"]
 date = 2020-03-08
-lastmod = 2020-03-10T15:40:27+08:00
+lastmod = 2020-03-25T15:46:09+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 authorbox = true
@@ -202,7 +202,7 @@ EXPLAIN ANALYSE SELECT * FROM xxxx_table WHERE tsv_field @@ to_tsquery('jiebacfg
 当然因为是预先分词保存，所以需要在 update 的时候藉由 `触发器` 来更新 tsv 字段，。
 
 ```sql
-CREATE TRIGGER tsvector_update BEFORE INSERT OR UPDATE OF (xx_field, xxx_field)
+CREATE TRIGGER tsvector_update BEFORE INSERT OR UPDATE
        ON xxxx_table FOR EACH ROW  EXECUTE PROCEDURE tsvector_update_trigger('tsv_field', 'jiebacfg', 'xx_field', 'xxx_field');
 ```
 

@@ -2,7 +2,7 @@
 title = "使用 ASP.NET Core 建立 WebApi 服务"
 author = ["Evilee"]
 date = 2020-03-09
-lastmod = 2020-03-22T00:00:00+08:00
+lastmod = 2020-03-25T15:37:27+08:00
 tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = true
@@ -365,7 +365,7 @@ public partial class CreateProductTable : Migration {
         migrationBuilder.Sql(
             @"CREATE TRIGGER product_search_vector_update BEFORE INSERT OR UPDATE
               ON ""Products"" FOR EACH ROW EXECUTE PROCEDURE
-              tsvector_update_trigger(""SearchVector"", 'pg_catalog.english', ""Name"", ""Description"");");
+              tsvector_update_trigger(""SearchVector"", 'jiebacfg', ""Name"", ""Description"");");
 
         // If you were adding a tsvector to an existing table, you should populate the column using an UPDATE
         // migrationBuilder.Sql("UPDATE \"Products\" SET \"Name\" = \"Name\";");
@@ -397,6 +397,9 @@ var npgsql = context.Products
 ### <span class="section-num">12.1</span> 如何停用 Token? 把 Token/或者 User 存下来(数据库或者 redis) {#如何停用-token-把-token-或者-user-存下来--数据库或者-redis}
 
 对于想屏蔽用户的方案：每个用户创建 JWT 以后都保存下来，接收到 JWT 以后，验证查询其是否在回收的 JWTs 中，不是的话通过，否则回收，屏蔽用户。
+
+
+### <span class="section-num">12.2</span> 使用 RefreshToken 和 AccessToken 方案 {#使用-refreshtoken-和-accesstoken-方案}
 
 
 ## <span class="section-num">13</span> Snippets {#snippets}
@@ -461,4 +464,34 @@ using (var aes = Aes.Create()) {
             result = resultStream.ToArray();
         }
 }
+```
+
+
+## <span class="section-num">14</span> 多图片上传 {#多图片上传}
+
+Image.Name: 一个 UUID
+Image.Ext: .jpg
+IFile
+
+上传:
+[
+    {
+        Name: 'aaaaaa'
+        Ext: .jpg
+    },
+    {
+        IFile, xxxxx
+    }
+]
+
+
+### <span class="section-num">14.1</span> 如何 diff? {#如何-diff}
+
+```csharp
+var list1 = new List<int> { 1, 2, 3, 4, 5};
+var list2 = new List<int> { 3, 4, 5, 6, 7 };
+
+var list3 = list1.Except(list2); //list3 contains only 1, 2
+var list4 = list2.Except(list1); //list4 contains only 6, 7
+var resultList = list3.Concat(list4).ToList(); //resultList contains 1, 2, 6, 7
 ```
