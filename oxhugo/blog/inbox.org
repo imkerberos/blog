@@ -14,7 +14,7 @@
 :EXPORT_HUGO_MENU: :menu main :weight  -50
 :EXPORT_FILE_NAME: _index
 :END:
-这里是我的博客。
+欢迎, 这里是我的博客。
 
 * TODO 准备编写的主题
 ** TODO 从零学习 Scheme                                                        :@计算机:Scheme:

@@ -1,9 +1,9 @@
 +++
 title = "Blog"
 author = ["Evilee"]
-lastmod = 2020-01-10T18:48:38+08:00
+lastmod = 2020-04-11T18:09:23+08:00
 draft = false
-creator = "Emacs 26.3 (Org mode 9.3 + ox-hugo)"
+creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 authorbox = true
 comments = true
 toc = false
@@ -13,4 +13,4 @@ mathjax = true
   weight = -50
 +++
 
-这里是我的博客。
+欢迎, 这里是我的博客。
