@@ -2,7 +2,7 @@
 title = "卡特兰数"
 author = ["Evilee"]
 date = 2020-06-20
-lastmod = 2020-06-20T13:44:32+08:00
+lastmod = 2020-06-20T13:46:40+08:00
 draft = false
 creator = "Emacs 26.3 (Org mode 9.4 + ox-hugo)"
 authorbox = true
@@ -11,7 +11,7 @@ toc = false
 mathjax = true
 +++
 
-卡特兰数
+卡特兰数公式
 <!--more-->
 
 -   通项公式一: \\( C\_n = \frac{1}{n + 1}C^n\_{2n} = C^n\_{2n} - C^{n - 1}\_{2n} \\)
