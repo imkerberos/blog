@@ -71,7 +71,7 @@ caddy + v2ray + tls 配置
 卡特兰数
 <!--more-->
 
-$$ C_n = \frank{1}{n + 1}C^n_{2n} = C^n_2n - C^{n - 1}_{2n} $$
+$ C_n = \frank{1}{n + 1}C^n_{2n} = C^n_2n - C^{n - 1}_{2n} $
 
 * Swift Server 方案真是一步十坑
 :PROPERTIES:
