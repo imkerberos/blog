@@ -62,6 +62,17 @@ caddy + v2ray + tls 配置
 有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
 的 promise 确是和 RxSwift 中的 observer 相似。
 
+* 卡特兰数
+:PROPERTIES:
+:EXPORT_DATE: 2020-06-20
+:EXPORT_FILE_NAME: catalan-number
+:END:
+
+卡特兰数
+<!--more-->
+
+$$ C_n = \frank{1}{n + 1}C^n_{2n} = C^n_2n - C^{n - 1}_{2n} $$
+
 * Swift Server 方案真是一步十坑
 :PROPERTIES:
 :EXPORT_DATE: 2020-03-09
