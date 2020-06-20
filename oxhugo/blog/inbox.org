@@ -72,6 +72,9 @@ caddy + v2ray + tls 配置
 <!--more-->
 
 \[ C_n = \frac{1}{n + 1}C^n_{2n} = C^n_{2n} - C^{n - 1}_{2n} \]
+\[ C_n = \frac{1}{n + 1}\sum_{i=0}^{n}(C^i_n)^2 \]
+\[ C_{n + 1} = \frac{2(2n + 1)}{n + 2}C+n \] \[ C_0 = 1 \]
+\[ C_{n + 1} = \sum_{i = 0}^{n} C_i C_{n - i} \] \[ C_0 = 1 \]
 
 * Swift Server 方案真是一步十坑
 :PROPERTIES:
