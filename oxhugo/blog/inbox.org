@@ -71,10 +71,12 @@ caddy + v2ray + tls 配置
 卡特兰数
 <!--more-->
 
-\[ C_n = \frac{1}{n + 1}C^n_{2n} = C^n_{2n} - C^{n - 1}_{2n} \]
-\[ C_n = \frac{1}{n + 1}\sum_{i=0}^{n}(C^i_n)^2 \]
-\[ C_{n + 1} = \frac{2(2n + 1)}{n + 2}C_n 且 C_0 = 1 \]
-\[ C_{n + 1} = \sum_{i = 0}^{n} C_i C_{n - i} 且 C_0 = 1 \]
+- 通项公式一: \( C_n = \frac{1}{n + 1}C^n_{2n} = C^n_{2n} - C^{n - 1}_{2n} \)
+- 通项公式二: \( C_n = \frac{1}{n + 1}\sum_{i=0}^{n}(C^i_n)^2 \)
+- 递推公式一: \( C_{n + 1} = \frac{2(2n + 1)}{n + 2}C_n \) 且 \( C_0 = 1 \)
+- 递推公式二: \( C_{n + 1} = \sum_{i = 0}^{n} C_i C_{n - i} \) 且 \( C_0 = 1 \)
+- 递推公式三: \( h(n) = ((4 \dot n - 2) / (n + 1)) \dot h(n - 1)\)
+- 递推公式四: \( h(n) = h(0) \dot h(n -1) + h(1) \dot h(n - 2) + \ldot + h(n - 1) \dot h(0) \)
 
 * Swift Server 方案真是一步十坑
 :PROPERTIES:
