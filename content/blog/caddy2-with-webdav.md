@@ -2,7 +2,7 @@
 title = "Caddy2 Webdav 配置"
 author = ["Evilee"]
 date = 2020-06-23
-lastmod = 2020-06-23T16:45:50+08:00
+lastmod = 2020-06-23T16:47:43+08:00
 tags = ["Caddy", "Webdav"]
 categories = ["计算机"]
 draft = false
@@ -21,26 +21,28 @@ MacOS 上默认安装的 Caddy2 是没有 Webdav 的，需要自己下载源代�
 brew install caddy
 ```
 
-> \#克隆代码
-> git clone <https://github.com/caddyserver/xcaddy>
-> \#进入文件夹
+> ```sh
+> #克隆代码
+> git clone https://github.com/caddyserver/xcaddy
+> #进入文件夹
 > cd xcaddy
-> \#安装 xcaddy 工具
+> #安装 xcaddy 工具
 > go get -u github.com/caddyserver/xcaddy/cmd/xcaddy
-> \#编译 caddy，指定版本为 v2.0.0
+> #编译 caddy，指定版本为 v2.0.0
 > xcaddy build v2.0.0  --with  github.com/mholt/caddy-webdav
-> \#查看编译了什么模块，应该有 http.handlers.webdav
+> #查看编译了什么模块，应该有 http.handlers.webdav
 > ./caddy list-modules
-> \#把新版 caddy，复制到系统路径
-> cp ./caddy _usr/local/bin_
-> \#如果是 windows 的话
+> #把新版 caddy，复制到系统路径
+> cp ./caddy /usr/local/bin/
+> #如果是 windows 的话
 > ./caddy.exe list-modules
-> \#copy
+> #copy
 > cp caddy /usr/local/Celler/caddy/2.0.0/bin/caddy
+> ```
 
 配置文件
 
-```text
+````text
 {
         order webdav last
 }
@@ -54,10 +56,10 @@ http://localhost:8080 {
                 root ./
         }
 }
-```
+````
 
 运行
 
-```sh
+````sh
 caddy run -config Caddyfile
-```
+````

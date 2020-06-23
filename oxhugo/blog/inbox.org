@@ -75,6 +75,7 @@ brew install caddy
 #+END_SRC
 
 #+BEGIN_QUOTE
+#+BEGIN_SRC sh
 #克隆代码
 git clone https://github.com/caddyserver/xcaddy
 #进入文件夹
@@ -91,6 +92,7 @@ cp ./caddy /usr/local/bin/
 ./caddy.exe list-modules
 #copy
 cp caddy /usr/local/Celler/caddy/2.0.0/bin/caddy
+#+END_SRC
 #+END_QUOTE
 
 配置文件
