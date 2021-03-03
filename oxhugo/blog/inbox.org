@@ -27,6 +27,7 @@
 4. karabiner-elements
 5. xkeysnail
 6. xclip
+7. ranger
 
 ** TODO 在 MacOS 的 Emacs 中使用 RIME 输入法                                   :@计算机:Emacs:RIME:
 ** TODO 在 Manjaro 的 Emacs 中使用 RIME 输入法                                 :@计算机:Emacs:Linux:
