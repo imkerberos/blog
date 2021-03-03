@@ -62,7 +62,12 @@ caddy + v2ray + tls 配置
 或许你接触过 RxSwift 或者 ES6, 那么对 future, promise 等不会陌生. 但是小心，这里
 有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
 的 promise 确是和 RxSwift 中的 observer 相似。
-
+* Blog 和 Xgfw 转移到了 docker 里面                                             :@计算机:
+:PROPERTIES:
+:EXPORT_DATE: 2021-03-03
+:EXPORT_FILE_NAME: xgfw-with-docker
+:END:
+把 Blog 和 Xgfw 的配置做成了 Docker, 以后不怕迁移了. 不过, 最近 hugo 自动导出不好使了.
 * Caddy2 Webdav 配置                                                            :Caddy:@计算机:Webdav:
 :PROPERTIES:
 :EXPORT_DATE: 2020-06-23
