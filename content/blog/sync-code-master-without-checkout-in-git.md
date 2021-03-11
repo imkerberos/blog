@@ -2,7 +2,7 @@
 title = "git 不 checkout 主干分支的情况下如何同步代码"
 author = ["Evilee"]
 date = 2021-03-11
-lastmod = 2021-03-11T21:09:38+08:00
+lastmod = 2021-03-11T21:14:49+08:00
 draft = false
 creator = "Emacs 27.1 (Org mode 9.5 + ox-hugo)"
 authorbox = true
@@ -17,27 +17,27 @@ git 的项目, 如果项目代码很臃肿, 分支之间的切换就比较耗时
 一个命令解决痛点:
 代码同步: 1. 更新远端主干 2. 合并主干到当前分支 3. 合并当前分支到主干 4. 推送主干到远端
 
-\#+begin\_src sh
+```text
 git fetch origin develop/iPhone:develop/iPhone && git merge develop/iPhone && git fetch . $(git branch --show-current):develop/iPhone && git push
-\#+end\_quote
+```
 
 
 ## 不 checkout 进行 pull 的指令 {#不-checkout-进行-pull-的指令}
 
-\#+begin\_src sh
-git fetch origin remote\_branch:local\_branch
-\#+end\_quote
+```text
+git fetch origin remote_branch:local_branch
+```
 
 
 ## 不 checkout 进行合并的指令 {#不-checkout-进行合并的指令}
 
-\#+begin\_src sh
-git fetch . source\_branch:destnation\_branch
-\#+end\_quote
+```text
+git fetch . source_branch:destnation_branch
+```
 
 
 ## 获取当前分支的指令 {#获取当前分支的指令}
 
-\#+begin\_src sh
+```text
 echo $(git branch --show-current)
-\#+end\_quote
+```

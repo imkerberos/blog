@@ -75,25 +75,25 @@ git 的项目, 如果项目代码很臃肿, 分支之间的切换就比较耗时
 一个命令解决痛点:
 代码同步: 1. 更新远端主干 2. 合并主干到当前分支 3. 合并当前分支到主干 4. 推送主干到远端
 
-#+begin_example
+#+BEGIN_EXAMPLE
 git fetch origin develop/iPhone:develop/iPhone && git merge develop/iPhone && git fetch . $(git branch --show-current):develop/iPhone && git push
-#+end_example
+#+END_EXAMPLE
 
 ** 不 checkout 进行 pull 的指令
 
-#+begin_example
+#+BEGIN_EXAMPLE
 git fetch origin remote_branch:local_branch
-#+end_example
+#+END_EXAMPLE
 
 ** 不 checkout 进行合并的指令
-#+begin_example
+#+BEGIN_EXAMPLE
 git fetch . source_branch:destnation_branch
-#+end_example
+#+END_EXAMPLE
 
 ** 获取当前分支的指令
-#+begin_example
+#+BEGIN_EXAMPLE
 echo $(git branch --show-current)
-#+end_example
+#+END_EXAMPLE
 
 * 对 Xcode 重新签名解决 Xvim2 加载警告                                           :@计算机:Xcode:
 :PROPERTIES:
