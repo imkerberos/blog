@@ -62,6 +62,39 @@ caddy + v2ray + tls 配置
 或许你接触过 RxSwift 或者 ES6, 那么对 future, promise 等不会陌生. 但是小心，这里
 有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
 的 promise 确是和 RxSwift 中的 observer 相似。
+
+* git 不 checkout 主干分支的情况下如何同步代码
+:PROPERTIES:
+:EXPORT_DATE: 2021-03-11
+:EXPORT_FILE_NAME: sync-code-master-without-checkout-in-git
+:END:
+git 的项目, 如果项目代码很臃肿, 分支之间的切换就比较耗时间, 这时后, 把当前开发分支
+的代码合并进主干并更新需要经过漫长的等待. 而且这种分支切换将导致的文件修改时间变更.
+再次编译的时候, omg... 想想, checkout 时候都需要漫长等待, 何况 compile 乎.
+<!--more-->
+一个命令解决痛点:
+代码同步: 1. 更新远端主干 2. 合并主干到当前分支 3. 合并当前分支到主干 4. 推送主干到远端
+#+begin_quote
+git fetch origin develop/iPhone:develop/iPhone && git merge develop/iPhone && git fetch . $(git branch --show-current):develop/iPhone && git push
+#+end_quote
+
+** 不 checkout 进行 pull 的指令
+#+begin_quote
+#+BEGIN_EXAMPLE
+git fetch origin remote_branch:local_branch
+#+END_EXAMPLE
+#+end_quote
+
+** 不 checkout 进行合并的指令
+#+begin_quote
+git fetch . source_branch:destnation_branch
+#+end_quote
+
+** 获取当前分支的指令
+#+begin_quote
+echo $(git branch --show-current)
+#+end_quote
+
 * 对 Xcode 重新签名解决 Xvim2 加载警告                                           :@计算机:Xcode:
 :PROPERTIES:
 :EXPORT_DATE: 2021-03-04
