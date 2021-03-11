@@ -2,7 +2,7 @@
 title = "对 Xcode 重新签名解决 Xvim2 加载警告"
 author = ["Evilee"]
 date = 2021-03-04
-lastmod = 2021-03-04T15:44:58+08:00
+lastmod = 2021-03-11T21:11:25+08:00
 tags = ["Xcode"]
 categories = ["计算机"]
 draft = false
