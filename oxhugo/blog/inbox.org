@@ -74,24 +74,24 @@ git 的项目, 如果项目代码很臃肿, 分支之间的切换就比较耗时
 <!--more-->
 一个命令解决痛点:
 代码同步: 1. 更新远端主干 2. 合并主干到当前分支 3. 合并当前分支到主干 4. 推送主干到远端
-#+begin_quote
+
+#+begin_src sh
 git fetch origin develop/iPhone:develop/iPhone && git merge develop/iPhone && git fetch . $(git branch --show-current):develop/iPhone && git push
 #+end_quote
 
 ** 不 checkout 进行 pull 的指令
-#+begin_quote
-#+BEGIN_EXAMPLE
+
+#+begin_src sh
 git fetch origin remote_branch:local_branch
-#+END_EXAMPLE
 #+end_quote
 
 ** 不 checkout 进行合并的指令
-#+begin_quote
+#+begin_src sh
 git fetch . source_branch:destnation_branch
 #+end_quote
 
 ** 获取当前分支的指令
-#+begin_quote
+#+begin_src sh
 echo $(git branch --show-current)
 #+end_quote
 
