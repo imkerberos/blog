@@ -63,6 +63,14 @@ caddy + v2ray + tls 配置
 有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
 的 promise 确是和 RxSwift 中的 observer 相似。
 
+* 更新了翻墙姿势
+:PROPERTIES:
+:EXPORT_DATE: 2021-06-16
+:EXPORT_FILE_NAME: update-xgfw-toolset
+:END:
+由于一年一度的年经问题, v2ray 的 vmess 协议已经被针对性封锁, 今日重新用 caddy2 + vless + webhook 更新了
+翻墙和博客托管的工具套件. 挺好, 翻墙的姿势更优雅, 速度更快了. 回头发下配置.
+
 * git 不 checkout 主干分支的情况下如何同步代码
 :PROPERTIES:
 :EXPORT_DATE: 2021-03-11
