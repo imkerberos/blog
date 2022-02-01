@@ -148,6 +148,7 @@ xcodebuild -list > /dev/null
 :END:
 把 Blog 和 Xgfw 的配置做成了 Docker, 以后不怕迁移了. 这个 docker 使用了 caddy v1 (主要是 caddy v2 不支持 github hook 了),
 和 hugo 来托管我的 blog. 另外内置了 v2ray 来 x GFW.
+
 * Caddy2 Webdav 配置                                                            :Caddy:@计算机:Webdav:
 :PROPERTIES:
 :EXPORT_DATE: 2020-06-23

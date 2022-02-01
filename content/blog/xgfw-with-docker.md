@@ -2,10 +2,10 @@
 title = "Blog 和 Xgfw 转移到了 docker 里面"
 author = ["Evilee"]
 date = 2021-03-03
-lastmod = 2021-03-03T10:10:26+08:00
+lastmod = 2022-02-01T11:43:02+08:00
 categories = ["计算机"]
 draft = false
-creator = "Emacs 27.1 (Org mode 9.5 + ox-hugo)"
+creator = "Emacs 27.2 (Org mode 9.6 + ox-hugo)"
 authorbox = true
 comments = true
 toc = false
