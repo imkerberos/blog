@@ -2,9 +2,9 @@
 title = "从 zplug 迁移到 zinit"
 author = ["Evilee"]
 date = 2021-08-11
-lastmod = 2021-08-11T19:41:46+08:00
+lastmod = 2023-10-28T08:28:03+08:00
 draft = false
-creator = "Emacs 27.2 (Org mode 9.5 + ox-hugo)"
+creator = "Emacs 29.1 (Org mode 9.7 + ox-hugo)"
 authorbox = true
 comments = true
 toc = false

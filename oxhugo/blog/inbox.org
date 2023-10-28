@@ -63,6 +63,13 @@ caddy + v2ray + tls 配置
 有很多陷阱。ES6 中的 promise 和 RxSwift 中的 observable 很相似，但是 SwiftNIO 中
 的 promise 确是和 RxSwift 中的 observer 相似。
 
+* 从 zinit 迁移到 zim
+:PROPERTIES:
+:EXPORT_DATE: 2023-10-27
+:EXPORT_FILE_NAME: from-zinit-to-zim
+:END:
+zim 从性能上来说不输 zinit, 但是配置上来说简单太多了. 迁移也非常简单.
+
 * 从 zplug 迁移到 zinit
 :PROPERTIES:
 :EXPORT_DATE: 2021-08-11
