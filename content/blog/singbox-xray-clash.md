@@ -2,7 +2,7 @@
 title = "对比 sing-box, xray, clash"
 author = ["Evilee"]
 date = 2012-04-02
-lastmod = 2024-11-29T14:41:16+08:00
+lastmod = 2024-11-29T14:46:00+08:00
 tags = ["ssh", "gfw"]
 categories = ["计算机"]
 draft = true
@@ -19,7 +19,10 @@ sing-box, xray, clash 这三个工具。
 我这里使用的方案是: sing-box(客户端) + xray(服务器), 后期可能迁移到 sing-box &lt;-&gt; sing-box 的方案。
 
 
-## <span class="section-num">2</span> 各个工具的优缺点: {#各个工具的优缺点}
+## <span class="section-num">2</span> 方案 {#方案}
+
+
+## <span class="section-num">3</span> 各个工具的优缺点: {#各个工具的优缺点}
 
 | 工具           | 优点                     | 缺点                           |
 |--------------|------------------------|------------------------------|
