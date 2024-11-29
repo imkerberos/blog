@@ -18,7 +18,7 @@ sing-box, xray, clash 这三个工具。
 
 * TL;DR
 
-我这里使用的方案是: sing-box(客户端) + xray(服务器)
+我这里使用的方案是: sing-box(客户端) + xray(服务器), 后期可能迁移到 sing-box <-> sing-box 的方案。
 
 * 各个工具的优缺点:
 
